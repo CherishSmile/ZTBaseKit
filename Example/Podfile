@@ -1,10 +1,19 @@
 use_frameworks!
+inhibit_all_warnings!
 
 platform :ios, '8.0'
 
 target 'ZTBase_Example' do
+  pod 'AFNetworking'
+  pod 'MJRefresh'
+  pod 'MJExtension'
+  pod 'Masonry'
+  pod 'IQKeyboardManager'
+  pod 'SDWebImage'
+  pod 'MBProgressHUD'
+  pod 'KMNavigationBarTransition'
+  pod 'DZNEmptyDataSet'
   pod 'ZTBase', :path => '../'
-
   target 'ZTBase_Tests' do
     inherit! :search_paths
 
