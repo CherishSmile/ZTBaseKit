@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '8.0'
+
+target 'ZTBase_Example' do
+  pod 'ZTBase', :path => '../'
+
+  target 'ZTBase_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
