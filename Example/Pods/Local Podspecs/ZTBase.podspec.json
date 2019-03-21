@@ -1,6 +1,6 @@
 {
   "name": "ZTBase",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "summary": "ZTBase is the basic framework of OC project",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/CherishSmile/ZTBase",
@@ -13,12 +13,13 @@
   },
   "source": {
     "git": "https://github.com/CherishSmile/ZTBase.git",
-    "tag": "0.1.0"
+    "tag": "0.1.1"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "ZTBase/Classes/**/*",
+  "source_files": "ZTBase/Classes/**/*.{h,m}",
+  "public_header_files": "ZTBase/Classes/**/*.h",
   "dependencies": {
     "AFNetworking": [
 

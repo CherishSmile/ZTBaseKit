@@ -21,9 +21,13 @@
 
 - (instancetype)initWithViewController:(UIViewController *)viewController{
     if (self = [super init]) {
+        
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
         if ([viewController respondsToSelector:@selector(setBaseViewModel:)]) {
             [viewController performSelector:@selector(setBaseViewModel:) withObject:self];
         }
+#pragma clang diagnostic pop
         UIViewController *weakVC = (UIViewController *)[ZTWeakObject weakObject:viewController];
         self.viewController = weakVC;
     }
@@ -32,9 +36,12 @@
 
 
 -(void)setViewContainingController:(UIViewController *)viewController{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
     if ([viewController respondsToSelector:@selector(setBaseViewModel:)]) {
         [viewController performSelector:@selector(setBaseViewModel:) withObject:self];
     }
+#pragma clang diagnostic pop
     UIViewController *weakVC = (UIViewController *)[ZTWeakObject weakObject:viewController];
     self.viewController = weakVC;
 }

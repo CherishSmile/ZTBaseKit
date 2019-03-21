@@ -22,7 +22,7 @@ pod 'ZTBase'
 
 ## Author
 
-祝万龙, 13298118281@163.com
+ZWL, 1332291552@qq.com
 
 ## License
 

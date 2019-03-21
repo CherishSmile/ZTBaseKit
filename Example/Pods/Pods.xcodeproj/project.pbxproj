@@ -946,6 +946,7 @@
 		F4B4E5C0219F352BA496AC79B09BAC55 /* SDWebImageCompat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCompat.h; path = SDWebImage/SDWebImageCompat.h; sourceTree = "<group>"; };
 		F4CED0138417607CD5B4E39C376D7CC5 /* ZTAlertController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ZTAlertController.h; sourceTree = "<group>"; };
 		F572DD27759DAB52FEC31619BE7E5AA8 /* Masonry-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Masonry-Info.plist"; sourceTree = "<group>"; };
+		F70F337422437A3E0040410C /* ZTBase.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZTBase.bundle; sourceTree = "<group>"; };
 		F841D3F117A6C83350AEBBCF6509F30F /* MJRefreshNormalHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshNormalHeader.m; path = MJRefresh/Custom/Header/MJRefreshNormalHeader.m; sourceTree = "<group>"; };
 		F886297A46B397A976475FA6FC9B387F /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
 		F9446F8D0BE399297E702CE2F430F3FA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
@@ -1251,6 +1252,7 @@
 		45EA55538C155D60DD2770C33A1F28DF /* ZTBase */ = {
 			isa = PBXGroup;
 			children = (
+				F70F336022435FD10040410C /* Resource */,
 				F4F6CC3C6874B4E872EBAFE93B306E41 /* Pod */,
 				D3EF526A7D652767DD2C2A6624EB4A12 /* Support Files */,
 				5FBEA5A9B4334CB86E28A6BF66CB344A /* Utilities */,
@@ -1288,12 +1290,12 @@
 		4C49720308E8C138CF9D20B3F4910C0F /* ZTBase */ = {
 			isa = PBXGroup;
 			children = (
-				064F3BFF4C590AA79738F6E80C6FB4B5 /* ZTEnum.h */,
-				A3EB2F1651E47AED712037665BC89202 /* ZTSetting.h */,
 				43594299AFAD446E339E6AB1E4A4A11C /* ZTBaseConfiguration.h */,
 				4EF62B27A7AC9627D1E427DD714B86CD /* ZTBaseConfiguration.m */,
+				064F3BFF4C590AA79738F6E80C6FB4B5 /* ZTEnum.h */,
 				4814F57C6B7630DF0AA503BE9200CCFA /* ZTPublicMethod.h */,
 				6E7BE54EBA020BE09308B77CA556E2C1 /* ZTPublicMethod.m */,
+				A3EB2F1651E47AED712037665BC89202 /* ZTSetting.h */,
 				55969F5D8D49D78B6DA2E874FACA16FE /* ZTBaseModel */,
 				2821DE6E0F7235C04354B17BC7111CC2 /* ZTBaseVC */,
 				F77A46C581712DEF6DAD989887887848 /* ZTBaseView */,
@@ -1968,6 +1970,15 @@
 				408A778CB0924640D64B1A5A9C418F33 /* ZTBase.podspec */,
 			);
 			name = Pod;
+			sourceTree = "<group>";
+		};
+		F70F336022435FD10040410C /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				F70F337422437A3E0040410C /* ZTBase.bundle */,
+			);
+			name = Resource;
+			path = ZTBase/Classes/Resource;
 			sourceTree = "<group>";
 		};
 		F77A46C581712DEF6DAD989887887848 /* ZTBaseView */ = {
