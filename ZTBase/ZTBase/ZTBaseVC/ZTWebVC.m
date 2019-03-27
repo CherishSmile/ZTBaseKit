@@ -122,6 +122,27 @@
 }
 
 
+/**
+ js调用OC 添加处理脚本
+ 
+ @param nativeNames OC方法名数组
+ */
+-(void)addJavaScriptMessages:(NSArray<NSString *> *)messageNames{
+    [self.webManager addJavaScriptMessages:messageNames];
+}
+
+-(void)addUserScript:(NSArray<NSString*>*)userScripts{
+    [self.webManager addUserScript:userScripts];
+}
+-(void)callJavaScript:(NSString *)jsMethod completionHandler:(CompletionHandler)completionHandler{
+    [self.webManager callJavaScript:jsMethod completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+        if (completionHandler) {
+            completionHandler(result,error);
+        }
+    }];
+}
+
+
 #pragma mark - ZTWebViewDelegate
 
 -(void)webView:(ZTWebView *)webView didReceiveScriptMessageWithFunctionName:(NSString *)name functionParameters:(id)parameters{

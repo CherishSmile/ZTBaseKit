@@ -11,8 +11,14 @@
 #import "ZTWebManager.h"
 #import "ZTWebView.h"
 
+
+typedef void(^CompletionHandler)(id result, NSError *  error);
+
+typedef void(^ZTWebBackCompletionHandler)(id result);
+
 @interface ZTWebVC : ZTBaseVC
 
+@property(nonatomic, copy) ZTWebBackCompletionHandler  webBackCompletionHandler;
 
 @property(nonatomic, strong, readonly) ZTWebView * baseWebView;
 
@@ -54,5 +60,28 @@
  导航返回
  */
 -(void)goBack;
+
+
+/**
+ OC调用js（请在页面加载完成之后，调用此方法，否则可能会无效）
+ 
+ @param jsMethod js方法名
+ @param completionHandler 完成回调
+ */
+-(void)callJavaScript:(NSString*)jsMethod completionHandler:(CompletionHandler)completionHandler;
+
+/**
+ js调用OC 添加处理脚本（调用此方法，添加message的title属性）
+ 
+ @param nativeNames OC方法名数组
+ */
+-(void)addJavaScriptMessages:(NSArray<NSString*>*)messageNames;
+
+/**
+ 向网页中注入js代码
+ 
+ @param userScripts js数组
+ */
+-(void)addUserScript:(NSArray<NSString*>*)userScripts;
 
 @end
