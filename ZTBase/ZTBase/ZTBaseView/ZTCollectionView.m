@@ -8,7 +8,7 @@
 
 #import "ZTCollectionView.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
-
+#import "ZTSetting.h"
 
 @interface ZTCollectionView ()<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 

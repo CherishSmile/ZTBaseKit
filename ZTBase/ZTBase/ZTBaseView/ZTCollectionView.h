@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MJRefresh/MJRefresh.h>
-#import "ZTPublicMethod.h"
-
+#import "ZTEnum.h"
 
 @class ZTCollectionView;
 @protocol ZTCollectionViewDelegte <UICollectionViewDelegate>

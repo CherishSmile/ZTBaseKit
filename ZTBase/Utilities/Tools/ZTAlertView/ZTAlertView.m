@@ -9,10 +9,9 @@
 #import "ZTAlertView.h"
 #import "TTTAttributedLabel.h"
 #import "ZTAlertController.h"
-#import "ZTPublicMethod.h"
+#import "ZTBase.h"
 
-
-@interface ZTAlertView ()
+@interface ZTAlertView ()<TTTAttributedLabelDelegate>
 
 @property(nonatomic, strong) UIView * bgView;
 @property(nonatomic, strong) UILabel * titlelbl;
@@ -27,6 +26,14 @@
 @property(nonatomic, assign) BOOL  isExistMessage;
 @property(nonatomic, assign) BOOL  isExistTextFields;
 
+
+
+@property(nonatomic, strong) NSMutableDictionary<id,ZTAlertCompleteHandler> * tapTransitInformationHandlers;
+
+@property(nonatomic, strong) NSMutableDictionary<id,ZTAlertCompleteHandler> * tapPhoneHandlers;
+
+@property(nonatomic, strong) NSMutableDictionary<id,ZTAlertCompleteHandler> * tapUrlHandlers;
+
 @end
 
 @implementation ZTAlertView
@@ -36,6 +43,10 @@
     self = [super init];
     if (self) {
         self.frame = [UIScreen mainScreen].bounds;
+        self.tapUrlHandlers = [NSMutableDictionary dictionary];
+        self.tapPhoneHandlers = [NSMutableDictionary dictionary];
+        self.tapTransitInformationHandlers = [NSMutableDictionary dictionary];
+        
         self.title = title;
         self.message = message;
         self.actions = actions;
@@ -47,7 +58,7 @@
 
 - (void)createSubviews{
     [self addSubview:self.bgView];
-
+    
     if (self.isExistTitle&&self.isExistMessage) {
         [self.bgView addSubview:self.titlelbl];
         [self.bgView addSubview:self.messagelbl];
@@ -124,23 +135,23 @@
                 make.bottom.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(3*PADDING));
             }else{
                 make.bottom.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(3*PADDING));
-
+                
             }
             
             
-//            if (self.isExistTitle&&self.isExistMessage) {
-//                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
-//                make.bottom.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(3*PADDING));
-//            }else if (self.isExistTitle&&!self.isExistMessage){
-//                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
-//                make.bottom.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(3*PADDING));
-//            }else if (!self.isExistTitle&&self.isExistMessage){
-//                make.top.mas_equalTo(self.messagelbl.mas_top).offset(-getPtH(3*PADDING));
-//                make.bottom.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(3*PADDING));
-//            }else{
-//                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
-//                make.bottom.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(3*PADDING));
-//            }
+            //            if (self.isExistTitle&&self.isExistMessage) {
+            //                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
+            //                make.bottom.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(3*PADDING));
+            //            }else if (self.isExistTitle&&!self.isExistMessage){
+            //                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
+            //                make.bottom.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(3*PADDING));
+            //            }else if (!self.isExistTitle&&self.isExistMessage){
+            //                make.top.mas_equalTo(self.messagelbl.mas_top).offset(-getPtH(3*PADDING));
+            //                make.bottom.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(3*PADDING));
+            //            }else{
+            //                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
+            //                make.bottom.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(3*PADDING));
+            //            }
         }];
         
     }else if (self.actions.count==2){
@@ -148,7 +159,7 @@
         ZTAlertAction * actionBtn2 = self.actions.lastObject;
         [self.bgView addSubview:actionBtn1];
         [self.bgView addSubview:actionBtn2];
-
+        
         [self.bgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.mas_equalTo(self);
             make.width.mas_equalTo(SCREEN_WIDTH-2*getPtW(8*PADDING));
@@ -162,19 +173,19 @@
             }
             make.bottom.mas_equalTo(actionBtn1.mas_bottom);
             
-//            if (self.isExistTitle&&self.isExistMessage) {
-//                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
-//                make.bottom.mas_equalTo(actionBtn1.mas_bottom);
-//            }else if (self.isExistTitle&&!self.isExistMessage){
-//                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
-//                make.bottom.mas_equalTo(actionBtn1.mas_bottom);
-//            }else if (!self.isExistTitle&&self.isExistMessage){
-//                make.top.mas_equalTo(self.messagelbl.mas_top).offset(-getPtH(3*PADDING));
-//                make.bottom.mas_equalTo(actionBtn1.mas_bottom);
-//            }else{
-//                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
-//                make.bottom.mas_equalTo(actionBtn1.mas_bottom);
-//            }
+            //            if (self.isExistTitle&&self.isExistMessage) {
+            //                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
+            //                make.bottom.mas_equalTo(actionBtn1.mas_bottom);
+            //            }else if (self.isExistTitle&&!self.isExistMessage){
+            //                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
+            //                make.bottom.mas_equalTo(actionBtn1.mas_bottom);
+            //            }else if (!self.isExistTitle&&self.isExistMessage){
+            //                make.top.mas_equalTo(self.messagelbl.mas_top).offset(-getPtH(3*PADDING));
+            //                make.bottom.mas_equalTo(actionBtn1.mas_bottom);
+            //            }else{
+            //                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
+            //                make.bottom.mas_equalTo(actionBtn1.mas_bottom);
+            //            }
         }];
         [actionBtn1 mas_makeConstraints:^(MASConstraintMaker *make) {
             if (self.isExistTextFields) {
@@ -185,18 +196,18 @@
                 make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(3*PADDING));
             }else{
                 make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(3*PADDING));
-
-            }
                 
-//            if (self.isExistTitle&&self.isExistMessage) {
-//                make.top.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(3*PADDING));
-//            }else if (self.isExistTitle&&!self.isExistMessage){
-//                make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(3*PADDING));
-//            }else if (!self.isExistTitle&&self.isExistMessage){
-//                make.top.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(3*PADDING));
-//            }else{
-//                make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(3*PADDING));
-//            }
+            }
+            
+            //            if (self.isExistTitle&&self.isExistMessage) {
+            //                make.top.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(3*PADDING));
+            //            }else if (self.isExistTitle&&!self.isExistMessage){
+            //                make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(3*PADDING));
+            //            }else if (!self.isExistTitle&&self.isExistMessage){
+            //                make.top.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(3*PADDING));
+            //            }else{
+            //                make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(3*PADDING));
+            //            }
             make.left.mas_equalTo(self.bgView);
             make.right.mas_equalTo(self.bgView.mas_centerX);
             make.height.mas_equalTo(getPtH(10*PADDING));
@@ -214,26 +225,26 @@
                 
                 if (self.isExistTextFields) {
                     make.top.mas_equalTo(textField.mas_bottom).offset(getPtH(10*PADDING)*idx+getPtH(3*PADDING));
-
+                    
                 }else if (self.isExistMessage){
                     make.top.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(10*PADDING)*idx+getPtH(3*PADDING));
-
+                    
                 }else if (self.isExistTitle){
                     make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(10*PADDING)*idx+getPtH(3*PADDING));
                 }else{
                     make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(10*PADDING)*idx+getPtH(3*PADDING));
-
+                    
                 }
                 
-//                if (self.isExistTitle&&self.isExistMessage) {
-//                    make.top.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(10*PADDING)*idx+getPtH(3*PADDING));
-//                }else if (self.isExistTitle&&!self.isExistMessage){
-//                    make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(10*PADDING)*idx+getPtH(3*PADDING));
-//                }else if (!self.isExistTitle&&self.isExistMessage){
-//                    make.top.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(10*PADDING)*idx+getPtH(3*PADDING));
-//                }else{
-//                    make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(10*PADDING)*idx+getPtH(3*PADDING));
-//                }
+                //                if (self.isExistTitle&&self.isExistMessage) {
+                //                    make.top.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(10*PADDING)*idx+getPtH(3*PADDING));
+                //                }else if (self.isExistTitle&&!self.isExistMessage){
+                //                    make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(10*PADDING)*idx+getPtH(3*PADDING));
+                //                }else if (!self.isExistTitle&&self.isExistMessage){
+                //                    make.top.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(10*PADDING)*idx+getPtH(3*PADDING));
+                //                }else{
+                //                    make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(10*PADDING)*idx+getPtH(3*PADDING));
+                //                }
             }];
         }];
         ZTAlertAction *lastBtn = self.actions.lastObject;
@@ -250,24 +261,24 @@
             }
             make.bottom.mas_equalTo(lastBtn.mas_bottom);
             
-//            if (self.isExistTitle&&self.isExistMessage) {
-//                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
-//                make.bottom.mas_equalTo(lastBtn.mas_bottom);
-//            }else if (self.isExistTitle&&!self.isExistMessage){
-//                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
-//                make.bottom.mas_equalTo(lastBtn.mas_bottom);
-//            }else if (!self.isExistTitle&&self.isExistMessage){
-//                make.top.mas_equalTo(self.messagelbl.mas_top).offset(-getPtH(3*PADDING));
-//                make.bottom.mas_equalTo(lastBtn.mas_bottom);
-//            }else{
-//                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
-//                make.bottom.mas_equalTo(lastBtn.mas_bottom);
-//            }
+            //            if (self.isExistTitle&&self.isExistMessage) {
+            //                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
+            //                make.bottom.mas_equalTo(lastBtn.mas_bottom);
+            //            }else if (self.isExistTitle&&!self.isExistMessage){
+            //                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
+            //                make.bottom.mas_equalTo(lastBtn.mas_bottom);
+            //            }else if (!self.isExistTitle&&self.isExistMessage){
+            //                make.top.mas_equalTo(self.messagelbl.mas_top).offset(-getPtH(3*PADDING));
+            //                make.bottom.mas_equalTo(lastBtn.mas_bottom);
+            //            }else{
+            //                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
+            //                make.bottom.mas_equalTo(lastBtn.mas_bottom);
+            //            }
         }];
-       
+        
     }
     
-   
+    
     [self layoutIfNeeded];
     
     if (self.actions.count==2) {
@@ -283,6 +294,48 @@
         }];
     }
 }
+
+
+/**
+ 添加链接
+ 
+ @param url url
+ @param range 链接位置
+ */
+- (void)addLinkToURL:(NSURL *)url withRange:(NSRange)range tapCompleteHandler:(ZTAlertViewCompleteHandler)completeHandler{
+    if (completeHandler) {
+        [self.tapUrlHandlers setObject:completeHandler forKey:url];
+    }
+    [self.messagelbl addLinkToURL:url withRange:range];
+}
+
+/**
+ 添加电话号码
+ 
+ @param phoneNumber 电话号码
+ @param range 电话号码位置
+ */
+- (void)addLinkToPhoneNumber:(NSString *)phoneNumber withRange:(NSRange)range tapCompleteHandler:(ZTAlertViewCompleteHandler)completeHandler{
+    if (completeHandler) {
+        [self.tapPhoneHandlers setObject:completeHandler forKey:phoneNumber];
+    }
+    [self.messagelbl addLinkToPhoneNumber:phoneNumber withRange:range];
+}
+
+
+/**
+ 添加自定义信息
+ 
+ @param components 自定义信息
+ @param range 位置
+ */
+- (void)addLinkToTransitInformation:(NSDictionary *)components withRange:(NSRange)range tapCompleteHandler:(ZTAlertViewCompleteHandler)completeHandler{
+    if (completeHandler) {
+        [self.tapPhoneHandlers setObject:completeHandler forKey:components];
+    }
+    [self.messagelbl addLinkToTransitInformation:components withRange:range];
+}
+
 
 
 #pragma mark - hanler
@@ -314,6 +367,22 @@
     return self.textFields.count;
 }
 
+
+#pragma mark - TTTAttributedLabelDelegate
+-(void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url{
+    ZTAlertCompleteHandler handler = self.tapUrlHandlers[url];
+    handler();
+}
+-(void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithPhoneNumber:(NSString *)phoneNumber{
+    ZTAlertCompleteHandler handler = self.tapPhoneHandlers[phoneNumber];
+    handler();
+}
+-(void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithTransitInformation:(NSDictionary *)components{
+    
+    ZTAlertCompleteHandler handler = self.tapTransitInformationHandlers[components];
+    handler();
+}
+
 #pragma mark - setter
 
 -(void)setTextFields:(NSArray<UITextField *> *)textFields{
@@ -330,7 +399,7 @@
         self.messagelbl.text = message;
     }
     if ([message isKindOfClass:NSAttributedString.class]) {
-        self.messagelbl.attributedText = message;
+        [self.messagelbl setText:message afterInheritingLabelAttributesAndConfiguringWithBlock:nil];
     }
 }
 
@@ -364,6 +433,8 @@
         _messagelbl.textAlignment = NSTextAlignmentCenter;
         _messagelbl.font = GetFont(F5);
         _messagelbl.numberOfLines = 0;
+        _messagelbl.delegate = self;
+        _messagelbl.linkAttributes = @{NSForegroundColorAttributeName:ZTThemeColor};
         _messagelbl.textColor = ZTTextPaleGrayColor;
     }
     return _messagelbl;

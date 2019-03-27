@@ -7,7 +7,7 @@
 //
 
 #import "ZTBaseVC.h"
-#import "ZTPublicMethod.h"
+#import "ZTBase.h"
 
 @interface ZTBaseVC ()
 @property(nonatomic, assign) BOOL navBarTranslucent;

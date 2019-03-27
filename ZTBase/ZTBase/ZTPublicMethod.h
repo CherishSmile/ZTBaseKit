@@ -9,30 +9,22 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "ZTBaseConfiguration.h"
-
 #import "NSObject+Swizzling.h"
 #import "NSObject+JsonExport.h"
-
+#import "ZTSetting.h"
+#import "ZTEnum.h"
+#import "ZTSetting.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <MJRefresh/MJRefresh.h>
 #import <Masonry/Masonry.h>
 #import <MJExtension/MJExtension.h>
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import <SDWebImage/UIButton+WebCache.h>
-
-#import "ZTSetting.h"
-#import "ZTEnum.h"
-
 #import "UIImageView+WebModeCache.h"
-#import "ZTUserDefaults.h"
-#import "ZTNetWork.h"
+#import "ZTAlertController.h"
+#import "ZTTableView.h"
 #import "UIViewController+NavBarStyle.h"
 
-#import "ZTAlertController.h"
-
-#import "ZTCollectionView.h"
-#import "ZTTableView.h"
-#import "ZTTextView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -44,7 +36,6 @@ typedef void(^ZTGlobalBlock)(id obj);
 typedef void(^ZTGlobalDictionaryBlock)(NSDictionary *callDic);
 /** 全局带参字符串Block*/
 typedef void(^ZTGlobalStringBlock)(NSString * string);
-
 
 
 /**
@@ -328,7 +319,7 @@ BOOL validatewechat(NSString * wechat);
  @param sureClick 确定回调
  @param cancleClick 取消回调
  */
-ZTAlertController * showCustomAlert(NSString * title,NSString *message,NSString *sureTitle,NSString *cancleTitle,ZTGlobalNOParameterBlock sureClick,ZTGlobalNOParameterBlock cancleClick);
+ZTAlertController * showCustomAlert(NSString * _Nullable title,NSString * _Nullable message,NSString * _Nullable sureTitle,ZTGlobalNOParameterBlock _Nullable sureClick,NSString * _Nullable cancleTitle,ZTGlobalNOParameterBlock _Nullable cancleClick);
 
 
 /**
@@ -349,7 +340,7 @@ BOOL showLocationPermissionAlert(void(^ _Nullable CompletionBlock)(BOOL isCancle
  @param sureClick 确定回调
  @param cancleClick 取消回调
  */
-UIAlertController * showActionSheet(NSString * title,NSString *message,NSArray *selectTitles,NSString *cancleTitle,ZTGlobalStringBlock sureClick,ZTGlobalNOParameterBlock cancleClick);
+UIAlertController * showActionSheet(NSString * _Nullable title,NSString * _Nullable message,NSArray * _Nullable selectTitles,ZTGlobalStringBlock _Nullable sureClick,NSString * _Nullable cancleTitle,ZTGlobalNOParameterBlock _Nullable cancleClick);
 
 /**
  字典转化为json字符串
@@ -390,7 +381,7 @@ NSData * compressImageQuality(UIImage *image ,int maxLength);
  @param string 字符串
  @return 转化后的字符串
  */
-NSString * isNil(NSString * string);
+NSString * isNil(NSString * _Nullable string);
 
 /**
  空值转化
@@ -417,7 +408,7 @@ NSString * stringFromZeroOrNil(id object);
  @param delay 显示时间<0,不会自动消失
  @param isUserAction 是否打开用户交互
  */
-void showProgressDialog(NSString *showText,UIView *locationView,MBProgressHUDMode hudMode,NSTimeInterval delay,BOOL isUserAction);
+void showProgressDialog(NSString * _Nullable showText,UIView * locationView,MBProgressHUDMode hudMode,NSTimeInterval delay,BOOL isUserAction);
 
 /**
  显示toast
@@ -427,7 +418,7 @@ void showProgressDialog(NSString *showText,UIView *locationView,MBProgressHUDMod
  @param delay 显示时间
  @param CompleteHandler 消失后回调
  */
-void showToast(NSString *showText,UIView *locationView,NSTimeInterval delay,void(^CompleteHandler)(void));
+void showToast(NSString * _Nullable showText,UIView * locationView,NSTimeInterval delay,void(^ _Nullable CompleteHandler)(void));
 
 /**
  显示toast(自定义view)
@@ -437,7 +428,7 @@ void showToast(NSString *showText,UIView *locationView,NSTimeInterval delay,void
  @param delay 显示时间
  @param CompleteHandler 消失后回调
  */
-void showCustomToast(NSString *showText,UIView *locationView,NSTimeInterval delay,void(^CompleteHandler)(void));
+void showCustomToast(NSString * _Nullable showText,UIView *locationView,NSTimeInterval delay,void(^ _Nullable CompleteHandler)(void));
 
 /**
  隐藏toast
@@ -588,7 +579,7 @@ CGFloat getPtH(CGFloat height);
  @param string 字符串
  @return 是否是空白字符串
  */
-BOOL isBlankString(NSString *string);
+BOOL isBlankString(NSString * _Nullable string);
 
 /**
  字节转换

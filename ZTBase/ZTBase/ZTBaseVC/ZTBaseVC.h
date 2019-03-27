@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ZTBaseViewModel.h"
 
+
 typedef void(^ZTViewWillAppearBlock)(void);
 typedef void(^ZTViewDidAppearBlock)(void);
 typedef void(^ZTViewWillDisappearBlock)(void);

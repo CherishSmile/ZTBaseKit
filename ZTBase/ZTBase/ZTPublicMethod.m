@@ -425,7 +425,7 @@ BOOL validatewechat(NSString * wechat)
     return [emailTest evaluateWithObject:wechat];
 }
 
-ZTAlertController * showCustomAlert(NSString * title,NSString *message,NSString *sureTitle,NSString *cancleTitle,ZTGlobalNOParameterBlock sureClick,ZTGlobalNOParameterBlock cancleClick){
+ZTAlertController * showCustomAlert(NSString * title,NSString *message,NSString *sureTitle,ZTGlobalNOParameterBlock sureClick,NSString *cancleTitle,ZTGlobalNOParameterBlock cancleClick){
     ZTAlertController *alertVC = [ZTAlertController alertControllerWithTitle:title message:message preferredStyle:(ZTAlertControllerStyleAlert)];
    
     if (cancleTitle&&cancleTitle.length) {
@@ -458,12 +458,12 @@ ZTAlertController * showCustomAlert(NSString * title,NSString *message,NSString 
 
 BOOL showLocationPermissionAlert(void(^CompletionBlock)(BOOL isCancle)){
     if (!isAllowLoction()) {
-        showCustomAlert(@"提示", @"您暂无权限开启定位\n请在“iPhone->设置->和路宝”中开启", @"去设置", @"取消", ^{
+        showCustomAlert(@"提示", [NSString stringWithFormat:@"您暂无权限开启定位\n请在“iPhone->设置->%@”中开启",APPNAME], @"去设置", ^{
             openSettingsURL();
             if (CompletionBlock) {
                 CompletionBlock(NO);
             }
-        },^{
+        }, @"取消", ^{
             if (CompletionBlock) {
                 CompletionBlock(YES);
             }
@@ -472,7 +472,7 @@ BOOL showLocationPermissionAlert(void(^CompletionBlock)(BOOL isCancle)){
     return isAllowLoction();
 }
 
-UIAlertController * showActionSheet(NSString * title,NSString *message,NSArray *selectTitles,NSString *cancleTitle,ZTGlobalStringBlock sureClick,ZTGlobalNOParameterBlock cancleClick){
+UIAlertController * showActionSheet(NSString * title,NSString *message,NSArray *selectTitles,ZTGlobalStringBlock sureClick,NSString *cancleTitle,ZTGlobalNOParameterBlock cancleClick){
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:(UIAlertControllerStyleActionSheet)];
     
     for (NSString *selectTitle in selectTitles) {

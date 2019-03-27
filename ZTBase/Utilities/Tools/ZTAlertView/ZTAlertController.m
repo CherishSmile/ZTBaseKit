@@ -12,7 +12,7 @@
 #import "ZTDatePicker.h"
 #import "ZTAnimationManager.h"
 #import "ZTUpdateAlertView.h"
-#import "ZTPublicMethod.h"
+#import "ZTBase.h"
 
 @interface ZTAlertAction ()
 
@@ -38,16 +38,16 @@
     UIColor * titleColor = [UIColor blueColor];
     switch (style) {
         case ZTAlertActionStyleDefault:
-            titleColor = UIColor.blueColor;
+            titleColor = ZTThemeColor;
             break;
         case ZTAlertActionStyleCancel:
-            titleColor = UIColor.redColor;
+            titleColor = ZTThemeColor;
             break;
         default:
             break;
     }
     [action setTitleColor:titleColor forState:UIControlStateNormal];
-
+    
     return action;
 }
 
@@ -62,6 +62,7 @@
     _titleColor = titleColor;
     [self setTitleColor:titleColor forState:UIControlStateNormal];
 }
+
 
 @end
 
@@ -114,11 +115,17 @@
         action.clikcHandler = ^(ZTAlertAction * _Nonnull action) {
             @StrongObj(self);
             [self callbackHandle:action];
-            [self animationDismissViewController:^{
+            if (action.clickAlertNoAction) {
                 if (action.handler) {
                     action.handler(action);
                 }
-            }];
+            }else{
+                [self animationDismissViewController:^{
+                    if (action.handler) {
+                        action.handler(action);
+                    }
+                }];
+            }
         };
     }
     self.actions = self.actions?[self.actions arrayByAddingObject:action]:@[action];
@@ -153,7 +160,7 @@
             break;
         case ZTAlertControllerStylePicker:
         {
-
+            
         }
             break;
         case ZTAlertControllerStyleDatePicker:
@@ -229,7 +236,7 @@
 }
 /**
  动画消失
-
+ 
  @param completion 动画消失完成
  */
 -(void)animationOut:(ZTAnimationCompletion)completion{
@@ -288,7 +295,7 @@
         case ZTAlertControllerStyleActionSheet:
         case ZTAlertControllerStyleAlert:
         {
-
+            
         }
             break;
         case ZTAlertControllerStyleDatePicker:
@@ -305,7 +312,7 @@
 
 /**
  动画消失ViewController
-
+ 
  @param completion 完成回调
  */
 -(void)animationDismissViewController: (void (^ __nullable)(void))completion{
@@ -319,18 +326,25 @@
 
 /**
  动画关闭ViewController
-
+ 
  @param style 关闭类型，确定or取消
  */
 -(void)animationCloseViewController:(ZTAlertActionStyle)style{
     [self.actions enumerateObjectsUsingBlock:^(ZTAlertAction * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj.style==style) {
             [self callbackHandle:obj];
-            [self animationDismissViewController:^{
+            if (obj.clickAlertNoAction) {
                 if (obj.handler) {
                     obj.handler(obj);
                 }
-            }];
+            }else{
+                [self animationDismissViewController:^{
+                    if (obj.handler) {
+                        obj.handler(obj);
+                    }
+                }];
+            }
+            
             *stop = YES;
         }
     }];
@@ -384,12 +398,7 @@
             [self animationCloseViewController:ZTAlertActionStyleCancel];
         };
         _datePiker.datePickerMode = self.datePickerModel;
-        if (self.minimumDate) {
-            _datePiker.minimumDate = self.minimumDate;
-        }
-        if (self.maximumDate) {
-            _datePiker.maximumDate = self.maximumDate;
-        }
+        
     }
     return _datePiker;
 }
@@ -442,6 +451,18 @@
     return alertVC;
 }
 
+- (void)addLinkToURL:(NSURL *)url withRange:(NSRange)range tapCompleteHandler:(ZTAlertCompleteHandler)completeHandler{
+    [self.alertView addLinkToURL:url withRange:range tapCompleteHandler:completeHandler];
+}
+
+- (void)addLinkToPhoneNumber:(NSString *)phoneNumber withRange:(NSRange)range tapCompleteHandler:(ZTAlertCompleteHandler)completeHandler{
+    [self addLinkToPhoneNumber:phoneNumber withRange:range tapCompleteHandler:completeHandler];
+}
+
+- (void)addLinkToTransitInformation:(NSDictionary *)components withRange:(NSRange)range tapCompleteHandler:(ZTAlertCompleteHandler)completeHandler{
+    [self addLinkToTransitInformation:components withRange:range tapCompleteHandler:completeHandler];
+}
+
 @end
 
 @implementation ZTAlertController (DatePicker)
@@ -460,38 +481,6 @@
 }
 - (UIDatePickerMode)datePickerModel{
     return [objc_getAssociatedObject(self, _cmd) integerValue];
-}
-
--(void)setMinimumDate:(NSDate *)minimumDate{
-    objc_setAssociatedObject(self, @selector(minimumDate), minimumDate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    switch (self.preferredStyle) {
-        case ZTAlertControllerStyleDatePicker:
-        {
-            _datePiker.minimumDate = minimumDate;
-        }
-            break;
-        default:
-            break;
-    }
-}
--(NSDate *)minimumDate{
-    return objc_getAssociatedObject(self, _cmd);
-}
-
--(void)setMaximumDate:(NSDate *)maximumDate{
-    objc_setAssociatedObject(self, @selector(maximumDate), maximumDate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    switch (self.preferredStyle) {
-        case ZTAlertControllerStyleDatePicker:
-        {
-            _datePiker.maximumDate = maximumDate;
-        }
-            break;
-        default:
-            break;
-    }
-}
--(NSDate *)maximumDate{
-    return objc_getAssociatedObject(self, _cmd);
 }
 
 @end

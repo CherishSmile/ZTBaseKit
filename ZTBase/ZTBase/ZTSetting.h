@@ -49,6 +49,8 @@ _Pragma("clang diagnostic pop") \
 
 #define UIColorRGBLight(rgbValue,x) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:x]
 
+#define ZTThemeColor         UIColorFromRGB(0x00a6ff)
+
 ///背景颜色
 #define ZTBackColor          UIColorFromRGB(0xf0f3f5)
 

@@ -41,8 +41,12 @@ typedef void(^ZTAlertActionHandler)(ZTAlertAction *action);
 
 @property (nullable, nonatomic, strong) id extra;
 
+@property(nonatomic, assign) BOOL  clickAlertNoAction;
+
 @end
 
+
+typedef void(^ZTAlertCompleteHandler)(void);
 
 @interface ZTAlertController : UIViewController
 
@@ -73,6 +77,32 @@ typedef void(^ZTAlertActionHandler)(ZTAlertAction *action);
 
 + (instancetype)alertControllerWithTitle:(nullable NSString *)title attributedMessage:(nullable NSAttributedString *)message preferredStyle:(ZTAlertControllerStyle)preferredStyle;
 
+/**
+ 添加链接
+ 
+ @param url url
+ @param range 链接位置
+ */
+- (void)addLinkToURL:(NSURL *)url withRange:(NSRange)range tapCompleteHandler:(ZTAlertCompleteHandler)completeHandler;
+
+/**
+ 添加电话号码
+ 
+ @param phoneNumber 电话号码
+ @param range 电话号码位置
+ */
+- (void)addLinkToPhoneNumber:(NSString *)phoneNumber withRange:(NSRange)range tapCompleteHandler:(ZTAlertCompleteHandler)completeHandler;
+
+
+/**
+ 添加自定义信息
+ 
+ @param components 自定义信息
+ @param range 位置
+ */
+- (void)addLinkToTransitInformation:(NSDictionary *)components withRange:(NSRange)range tapCompleteHandler:(ZTAlertCompleteHandler)completeHandler;
+
+
 @end
 
 
@@ -80,10 +110,7 @@ typedef void(^ZTAlertActionHandler)(ZTAlertAction *action);
 /**
  datePicker的时间模式
  */
-@property (nonatomic, assign) UIDatePickerMode  datePickerModel;
-
-@property (nullable, nonatomic, strong) NSDate *minimumDate; // specify min/max date range. default is nil. When min > max, the values are ignored. Ignored in countdown timer mode
-@property (nullable, nonatomic, strong) NSDate *maximumDate; // default is nil
+@property(nonatomic, assign) UIDatePickerMode  datePickerModel;
 
 @end
 

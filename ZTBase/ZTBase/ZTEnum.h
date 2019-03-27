@@ -38,7 +38,6 @@ typedef NS_ENUM(NSInteger,ZTRequestResult) {
 };
 
 
-
 /**
  当前版本是否是最新版本
  
@@ -52,10 +51,12 @@ typedef NS_ENUM(NSInteger,ZTVersionType) {
     ZTVersionTypeEqual
 };
 
-
 typedef NS_ENUM(NSInteger,ZTNavBarItemPosition) {
     ZTNavBarItemPositionLeft,
     ZTNavBarItemPositionRight
 };
+
+
+
 
 #endif /* ZTEnum_h */
