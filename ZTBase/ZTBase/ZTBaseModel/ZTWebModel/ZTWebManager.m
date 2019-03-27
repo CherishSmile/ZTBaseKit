@@ -47,13 +47,11 @@
     if (isNil(urlString).length) {
         if ([urlString hasPrefix:@"http://"]||[urlString hasPrefix:@"https://"]) {
             NSURL *url = urlFromString(urlString);
-            [self addUIWebCookie:url];
             [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
         }else{
             NSString *htmlPath = [[NSBundle mainBundle] pathForResource:urlString ofType:@"html"];
             if (isNil(htmlPath).length) {
                 NSURL *url = [NSURL fileURLWithPath:htmlPath];
-                [self addUIWebCookie:url];
                 [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
             }else{
                 [self.webView loadHTMLString:urlString baseURL:nil];
@@ -64,12 +62,13 @@
     }
 }
 
--(void)addCommonJavaScriptMessagesHandler{
+-(void)addCommonJavaScriptMessagesHandler:(void(^)(WKUserContentController *userCC))scriptMessageHandler{
     if (self.webView.webType==ZTWebViewTypeWKWebView) {
         WKUserContentController *userCC = self.webView.configuration.userContentController;
         ZTScriptMessageHandler *messageHandle = self.webView.messageHandler;
-        [userCC addScriptMessageHandler:messageHandle name:@""];
-        self.baseMessageNames = @[];
+        if (scriptMessageHandler) {
+            scriptMessageHandler(userCC);
+        }
     }
 }
 
@@ -115,32 +114,10 @@
 /**
  给wkwebview添加cookie
  */
--(void)addWKWebCookie{
+-(void)addWKWebCookie:(void(^)(WKUserContentController *userCC))cookieHandler{
     if (self.webView.webType==ZTWebViewTypeWKWebView) {
-//        NSString *cookie = [NSString stringWithFormat:@"document.cookie = 'TOKEN=%@'"];
-//        WKUserScript *cookieScript = [[WKUserScript alloc] initWithSource:cookie injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];
-//        [self.webView.configuration.userContentController addUserScript:cookieScript];
-    }
-}
-/**
- 给uiwebview添加cookie
- */
--(void)addUIWebCookie:(NSURL *)url{
-    if (self.webView.webType == ZTWebViewTypeUIWebView) {
-    
-        NSHTTPCookie *versionCookie   = [[NSHTTPCookie alloc] initWithProperties:@{
-                                                                                   NSHTTPCookieName:@"VERSION",
-                                                                                   NSHTTPCookieValue:isNil(VERSION),
-                                                                                   NSHTTPCookieOriginURL:url,
-                                                                                   NSHTTPCookiePath:isNil(url.path)
-                                                                                   }];
-       
-        NSMutableArray * cookies = [NSMutableArray array];
-        if (versionCookie) {
-            [cookies addObject:versionCookie];
-        }
-        if (cookies.count) {
-            [NSHTTPCookieStorage.sharedHTTPCookieStorage setCookies:cookies forURL:url mainDocumentURL:url];
+        if (cookieHandler) {
+            cookieHandler(self.webView.configuration.userContentController);
         }
     }
 }
@@ -166,6 +143,9 @@
 
 -(void)webView:(ZTWebView *)webView didReceiveScriptMessageWithFunctionName:(NSString *)name functionParameters:(id)parameters{
 //    invokeFunctionFromString(self, name, parameters);
+    if (self.receiveScriptMessageHandler) {
+        self.receiveScriptMessageHandler(webView, name, parameters);
+    }
 }
 
 

@@ -73,16 +73,21 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.mas_equalTo(self.mas_topLayoutGuideBottom);
-//        make.top.mas_equalTo(self.isHiddenNavBar?0:navHeight(self));
         make.bottom.mas_equalTo(self.mas_bottomLayoutGuideTop);
     }];
 }
 
-
 -(void)initWebConfig{
-    self.webManager = [[ZTWebManager alloc] initWithWebView:self.baseWebView];
-//    [self.webManager addCommonJavaScriptMessagesHandler];
-//    [self.webManager addWKWebCookie];
+    if (self.webManagerClass) {
+        id manager = [[self.webManagerClass alloc] init];
+        if ([manager isKindOfClass:ZTWebManager.class]) {
+            self.webManager = [[self.webManagerClass alloc] initWithWebView:self.baseWebView];
+        }else{
+            self.webManager = [[ZTWebManager alloc] initWithWebView:self.baseWebView];
+        }
+    }else{
+        self.webManager = [[ZTWebManager alloc] initWithWebView:self.baseWebView];
+    }
 }
 
 -(void)goBack{

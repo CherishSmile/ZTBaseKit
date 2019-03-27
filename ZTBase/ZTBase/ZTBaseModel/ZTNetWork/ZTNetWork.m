@@ -27,6 +27,15 @@
     return self;
 }
 
+-(instancetype)initParamers:(NSDictionary *)paramers urlString:(NSString *)url restApi:(BOOL)isRestApi{
+    if (self = [super init]) {
+        _paramers = paramers;
+        _url = url;
+        _isRestApi = isRestApi;
+    }
+    return self;
+}
+
 @end
 
 @implementation ZTUpLoadModel
@@ -88,7 +97,7 @@
     }];
 }
 
-+(NSURLSessionDataTask*)ZTPUT:(ZTNetModel *)netModel success:(SuccessBlock)success fail:(FailedBlock)fail{
++(NSURLSessionDataTask*)ZTPUT:(ZTNetModel *)netModel success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail{
     NSURLSessionDataTask *task = nil;
     if ([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus!=AFNetworkReachabilityStatusNotReachable) {
         ZTNetWork *netWork = [self manager];
@@ -119,7 +128,7 @@
     return task;
 }
 
-+(NSURLSessionDataTask*)ZTDELETE:(ZTNetModel *)netModel success:(SuccessBlock)success fail:(FailedBlock)fail{
++(NSURLSessionDataTask*)ZTDELETE:(ZTNetModel *)netModel success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail{
     NSURLSessionDataTask *task = nil;
     if ([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus!=AFNetworkReachabilityStatusNotReachable) {
         ZTNetWork *netWork = [self manager];
@@ -150,7 +159,7 @@
 }
 
 
-+(NSURLSessionDataTask*)ZTGET:(ZTNetModel *)netModel success:(SuccessBlock)success fail:(FailedBlock)fail{
++(NSURLSessionDataTask*)ZTGET:(ZTNetModel *)netModel success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail{
     NSURLSessionDataTask *task = nil;
     if ([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus!=AFNetworkReachabilityStatusNotReachable) {
         ZTNetWork *netWork = [self manager];
@@ -189,7 +198,7 @@
  @param success 成功回调
  @param fail 失败回调
  */
-+(NSURLSessionDataTask*)ZTPOST:(ZTNetModel *)netModel success:(SuccessBlock)success fail:(FailedBlock)fail
++(NSURLSessionDataTask*)ZTPOST:(ZTNetModel *)netModel success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail
 {
     NSURLSessionDataTask *task = nil;
     if ([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus!=AFNetworkReachabilityStatusNotReachable) {
@@ -229,7 +238,7 @@
  @param success 成功回调
  @param fail 失败回调
  */
-+(NSURLSessionDataTask*)ZTUPFILE:(ZTNetUpLoadModel *)upModel success:(SuccessBlock)success fail:(FailedBlock)fail
++(NSURLSessionDataTask*)ZTUPFILE:(ZTNetUpLoadModel *)upModel success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail
 {
     NSURLSessionDataTask *task = nil;
     if ([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus!=AFNetworkReachabilityStatusNotReachable)

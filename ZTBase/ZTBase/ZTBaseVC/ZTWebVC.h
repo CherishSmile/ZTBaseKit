@@ -18,6 +18,8 @@
 
 @property(nonatomic, strong, readonly) ZTWebManager * webManager;
 
+@property(nonatomic, strong) Class webManagerClass;
+
 /**
  是否使用UIWebView
  */

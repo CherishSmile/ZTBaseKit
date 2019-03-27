@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "ZTWebView.h"
 
+
+typedef void(^ZTWebViewReceiveScriptMessageHandler)(ZTWebView * webView,NSString * methodName,id parameters);
+
 @interface ZTWebManager : NSObject
 
 @property(nonatomic, strong, readonly) NSArray * jsMessages;
@@ -30,8 +33,7 @@
 /**
  添加公用处理脚本
  */
--(void)addCommonJavaScriptMessagesHandler;
-
+-(void)addCommonJavaScriptMessagesHandler:(void(^)(WKUserContentController *userCC))scriptMessageHandler;
 /**
  js调用OC 添加处理脚本（调用此方法，添加message的title属性）
  
@@ -57,8 +59,7 @@
 /**
  添加cookie
  */
--(void)addWKWebCookie;
--(void)addUIWebCookie:(NSURL *)url;
+-(void)addWKWebCookie:(void(^)(WKUserContentController *userCC))cookieHandler;
 
 /**
  删除注入脚本
@@ -66,6 +67,8 @@
 -(void)removeScript;
 
 -(void)webView:(ZTWebView *)webView didReceiveScriptMessageWithFunctionName:(NSString *)name functionParameters:(id)parameters;
+
+@property(nonatomic, copy) ZTWebViewReceiveScriptMessageHandler receiveScriptMessageHandler;
 
 @end
 
