@@ -62,12 +62,12 @@
     }
 }
 
--(void)addCommonJavaScriptMessagesHandler:(void(^)(WKUserContentController *userCC))scriptMessageHandler{
+-(void)addCommonJavaScriptMessagesHandler:(void(^)(WKUserContentController *userCC,ZTScriptMessageHandler *messageHandler))scriptMessageHandler{
     if (self.webView.webType==ZTWebViewTypeWKWebView) {
         WKUserContentController *userCC = self.webView.configuration.userContentController;
         ZTScriptMessageHandler *messageHandle = self.webView.messageHandler;
         if (scriptMessageHandler) {
-            scriptMessageHandler(userCC);
+            scriptMessageHandler(userCC,messageHandle);
         }
     }
 }

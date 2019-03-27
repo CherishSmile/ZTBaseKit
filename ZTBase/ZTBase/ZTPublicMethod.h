@@ -337,7 +337,7 @@ ZTAlertController * showCustomAlert(NSString * title,NSString *message,NSString 
  @param CompletionBlock 点击回调
  @return 是否有定位权限
  */
-BOOL showLocationPermissionAlert(void(^CompletionBlock)(BOOL isCancle));
+BOOL showLocationPermissionAlert(void(^ _Nullable CompletionBlock)(BOOL isCancle));
 
 /**
  自定义系统actionSheet

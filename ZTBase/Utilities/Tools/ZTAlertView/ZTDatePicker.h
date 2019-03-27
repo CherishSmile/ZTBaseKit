@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^ZTDatePickerCloseBlock)(void);
 
@@ -38,3 +39,5 @@ typedef void(^ZTDatePickerCloseBlock)(void);
 -(instancetype)initWithActions:(NSArray<ZTAlertAction *> *)actions;
 
 @end
+
+NS_ASSUME_NONNULL_END

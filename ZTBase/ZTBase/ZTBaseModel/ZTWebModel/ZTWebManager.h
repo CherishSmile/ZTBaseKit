@@ -33,7 +33,7 @@ typedef void(^ZTWebViewReceiveScriptMessageHandler)(ZTWebView * webView,NSString
 /**
  添加公用处理脚本
  */
--(void)addCommonJavaScriptMessagesHandler:(void(^)(WKUserContentController *userCC))scriptMessageHandler;
+-(void)addCommonJavaScriptMessagesHandler:(void(^)(WKUserContentController *userCC,ZTScriptMessageHandler *messageHandler))scriptMessageHandler;
 /**
  js调用OC 添加处理脚本（调用此方法，添加message的title属性）
  
