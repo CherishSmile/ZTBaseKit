@@ -34,6 +34,8 @@
 #import "ZTTableView.h"
 #import "ZTTextView.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /** 全局无参Block*/
 typedef void(^ZTGlobalNOParameterBlock)(void);
 /** 全局带参Block*/
@@ -43,7 +45,6 @@ typedef void(^ZTGlobalDictionaryBlock)(NSDictionary *callDic);
 /** 全局带参字符串Block*/
 typedef void(^ZTGlobalStringBlock)(NSString * string);
 
-#import "ZTTableView.h"
 
 
 /**
@@ -865,3 +866,5 @@ UIImage * imageNamed(NSString * name);
 @interface ZTPublicMethod : NSObject
 
 @end
+
+NS_ASSUME_NONNULL_END

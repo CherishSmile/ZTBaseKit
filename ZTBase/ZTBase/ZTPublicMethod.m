@@ -1245,3 +1245,4 @@ UIImage * imageNamed(NSString * name){
 @implementation ZTPublicMethod
 
 @end
+

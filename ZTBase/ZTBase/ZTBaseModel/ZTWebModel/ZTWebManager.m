@@ -142,7 +142,6 @@
 #pragma mark -  ZTWebScriptMessageHandler
 
 -(void)webView:(ZTWebView *)webView didReceiveScriptMessageWithFunctionName:(NSString *)name functionParameters:(id)parameters{
-//    invokeFunctionFromString(self, name, parameters);
     if (self.receiveScriptMessageHandler) {
         self.receiveScriptMessageHandler(webView, name, parameters);
     }
@@ -163,7 +162,6 @@
     [NSURLCache.sharedURLCache setMemoryCapacity:0];
     [self removeApplicationLibraryDirectoryWithDirectory:@"Caches"];
     [self removeApplicationLibraryDirectoryWithDirectory:@"WebKit"];
-    // Empty the cookie jar...
     for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]) {
         [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie];
     }
