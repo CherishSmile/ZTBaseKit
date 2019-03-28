@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.subspec 'ZTBase' do |base|
     base.source_files = 'ZTBase/ZTBase/**/*.{h,m}'
     base.public_header_files = 'ZTBase/ZTBase/**/*.h'
-    base.dependency 'ZTBase/Core'
+    base.dependency 'ZTBase/ZTBase/Core'
   end
   
   s.resource_bundles = {'ZTBase' => ['ZTBase/**/*.{txt,png}']}
