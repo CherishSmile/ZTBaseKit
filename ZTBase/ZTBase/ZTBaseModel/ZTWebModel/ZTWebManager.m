@@ -62,15 +62,16 @@
     }
 }
 
--(void)addCommonJavaScriptMessagesHandler:(void(^)(WKUserContentController *userCC,ZTScriptMessageHandler *messageHandler))scriptMessageHandler{
+-(void)addCommonJavaScriptMessagesHandler:(NSArray *(^)(WKUserContentController *userCC,ZTScriptMessageHandler *messageHandler))scriptMessageHandler{
     if (self.webView.webType==ZTWebViewTypeWKWebView) {
         WKUserContentController *userCC = self.webView.configuration.userContentController;
         ZTScriptMessageHandler *messageHandle = self.webView.messageHandler;
         if (scriptMessageHandler) {
-            scriptMessageHandler(userCC,messageHandle);
+           self.baseMessageNames = scriptMessageHandler(userCC,messageHandle);
         }
     }
 }
+
 
 /**
  js调用OC 添加处理脚本

@@ -44,8 +44,8 @@
 }
 
 -(void)textViewDidChange:(UITextView *)textView{
-    if ([self.delegate respondsToSelector:@selector(textViewCellDidChange:textString:)]) {
-        [self.delegate textViewCellDidChange:self textString:isNil(textView.text)];
+    if ([self.delegate respondsToSelector:@selector(inputViewDidChange:textString:)]) {
+        [self.delegate inputViewDidChange:self textString:isNil(textView.text)];
     }
 }
 #pragma mark - setter

@@ -73,7 +73,7 @@ typedef void(^ZTWebBackCompletionHandler)(id result);
 /**
  js调用OC 添加处理脚本（调用此方法，添加message的title属性）
  
- @param nativeNames OC方法名数组
+ @param messageNames OC方法名数组
  */
 -(void)addJavaScriptMessages:(NSArray<NSString*>*)messageNames;
 

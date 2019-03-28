@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "ZTInputModel.h"
+#import "ZTInputDelegate.h"
 
 @class ZTTextFieldCell;
-@protocol ZTTextFieldCellDelegate <NSObject>
+@protocol ZTTextFieldCellDelegate <ZTInputDelegate>
 @optional
-
--(void)textFieldCellDidChange:(ZTTextFieldCell *)textFieldCell textString:(NSString *)text;
 
 -(void)textFieldCellDidTapTitle:(ZTTextFieldCell *)textFieldCell;
 

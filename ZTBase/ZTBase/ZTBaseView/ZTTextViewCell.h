@@ -8,13 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ZTInputModel.h"
-
-@class ZTTextViewCell;
-@protocol ZTTextViewCellDelegate <NSObject>
--(void)textViewCellDidChange:(ZTTextViewCell *)textViewCell textString:(NSString *)text;
-@end
+#import "ZTInputDelegate.h"
 
 @interface ZTTextViewCell : UITableViewCell
-@property(nonatomic,weak)id<ZTTextViewCellDelegate> delegate;
+@property(nonatomic,weak)id<ZTInputDelegate> delegate;
 @property(nonatomic,strong)ZTInputModel *model;
 @end

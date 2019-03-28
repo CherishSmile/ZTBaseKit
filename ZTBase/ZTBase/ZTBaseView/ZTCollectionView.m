@@ -7,8 +7,7 @@
 //
 
 #import "ZTCollectionView.h"
-#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
-#import "ZTSetting.h"
+#import "ZTPublicMethod.h"
 
 @interface ZTCollectionView ()<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 
@@ -148,9 +147,9 @@
         }
     }
     if (self.requestResult==ZTRequestResultSuccess) {
-        emptyImage = emptyImage?:GetImg(@"placeholder_dropbox");
+        emptyImage = emptyImage?:imageNamed(@"placeholder_dropbox");
     }else{
-        emptyImage = emptyImage?:GetImg(@"placeholder_remote");
+        emptyImage = emptyImage?:imageNamed(@"placeholder_remote");
     }
     return emptyImage;
 }

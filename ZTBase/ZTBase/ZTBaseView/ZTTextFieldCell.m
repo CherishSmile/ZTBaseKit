@@ -82,8 +82,8 @@
     if (self.model.maxLength>0&&isNil(textField.text).length>self.model.maxLength) {
         textField.text = [isNil(textField.text) substringToIndex:self.model.maxLength];
     }
-    if ([self.delegate respondsToSelector:@selector(textFieldCellDidChange:textString:)]) {
-        [self.delegate textFieldCellDidChange:self textString:isNil(textField.text)];
+    if ([self.delegate respondsToSelector:@selector(inputViewDidChange:textString:)]) {
+        [self.delegate inputViewDidChange:self textString:isNil(textField.text)];
     }
 }
 -(void)tapClick:(UITapGestureRecognizer*)tap{
