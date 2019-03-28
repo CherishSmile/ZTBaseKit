@@ -1105,17 +1105,6 @@
 			path = "../Target Support Files/MJExtension";
 			sourceTree = "<group>";
 		};
-		0F5F247D38BAF0435B9247965088D2A7 /* ZTBaseModel */ = {
-			isa = PBXGroup;
-			children = (
-				A882DEB4EFCA869DD9D4C1ADCAA66F54 /* ZTBaseViewModel.h */,
-				20D70AF104736CC3DC0BCB5F890F4A19 /* ZTBaseViewModel.m */,
-				55C77BDFFBF70298637BCECAEDAA27B6 /* ZTInputModel.h */,
-				D8754F7263FEC35DE31E12E9A7C9CEEF /* ZTInputModel.m */,
-			);
-			path = ZTBaseModel;
-			sourceTree = "<group>";
-		};
 		1B03CE386EA3ECF07C28AC43556F0387 /* Security */ = {
 			isa = PBXGroup;
 			children = (
@@ -1161,20 +1150,6 @@
 				5B6B4F2C705A5B183D9E0BE4FEF883C9 /* ZTFileManager.m */,
 			);
 			path = ZTFileManager;
-			sourceTree = "<group>";
-		};
-		2733597BA87E979AF618C53AAE823FF2 /* ZTBaseView */ = {
-			isa = PBXGroup;
-			children = (
-				AC5B547CB61D8D2938FF3B85FC100B4F /* ZTInputDelegate.h */,
-				0D69750DE852DA8CC5827F45FBEC6A6E /* ZTTextFieldCell.h */,
-				2CDD8F678B57868F9E140C5C0197E067 /* ZTTextFieldCell.m */,
-				6609BDC5B67CFA23ACD643EF4C568D53 /* ZTTextViewCell.h */,
-				9AF3E1017C615A309C9014FF7DCFE5AA /* ZTTextViewCell.m */,
-				A9111CDD1A8BBEE3E2447F7E64F7ACAD /* ZTTextView.h */,
-				FAAE88012EF443B76D2591225C841E51 /* ZTTextView.m */,
-			);
-			path = ZTBaseView;
 			sourceTree = "<group>";
 		};
 		27AE9302B0F3D692BA57416F6CEBC2BF /* Pods-ZTBase_Tests */ = {
@@ -1557,16 +1532,6 @@
 			path = UINavigationController;
 			sourceTree = "<group>";
 		};
-		A3EC232CBD88D7A973EC2C82208A2ED6 /* ZTBase */ = {
-			isa = PBXGroup;
-			children = (
-				0F5F247D38BAF0435B9247965088D2A7 /* ZTBaseModel */,
-				2733597BA87E979AF618C53AAE823FF2 /* ZTBaseView */,
-			);
-			name = ZTBase;
-			path = ZTBase/ZTBase;
-			sourceTree = "<group>";
-		};
 		A9C60B5173C03718FF4E4F6166E0F359 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -1867,7 +1832,6 @@
 				AF38DB80E484F32E2A902E38B7B2F09A /* Pod */,
 				F7833EFA224CB11900E26C31 /* Core */,
 				7C4C1AEA917EF29953729F3D18F7E0E9 /* Utilities */,
-				A3EC232CBD88D7A973EC2C82208A2ED6 /* ZTBase */,
 				F70F34ED224391C50040410C /* Resource */,
 				B78F345CF7FB8A671BCEA7E94EEAD3E8 /* Support Files */,
 			);
@@ -1999,6 +1963,17 @@
 				0FF611CEAE0C10B1040A79289C652DB7 /* UINavigationController+SGProgress.m */,
 				B45D080754796A60AC9DD6CEFD58C843 /* UIImage+Color.h */,
 				03E4178835B6CFDAAF5334E4DBF37C6E /* UIImage+Color.m */,
+				A882DEB4EFCA869DD9D4C1ADCAA66F54 /* ZTBaseViewModel.h */,
+				20D70AF104736CC3DC0BCB5F890F4A19 /* ZTBaseViewModel.m */,
+				55C77BDFFBF70298637BCECAEDAA27B6 /* ZTInputModel.h */,
+				D8754F7263FEC35DE31E12E9A7C9CEEF /* ZTInputModel.m */,
+				AC5B547CB61D8D2938FF3B85FC100B4F /* ZTInputDelegate.h */,
+				0D69750DE852DA8CC5827F45FBEC6A6E /* ZTTextFieldCell.h */,
+				2CDD8F678B57868F9E140C5C0197E067 /* ZTTextFieldCell.m */,
+				6609BDC5B67CFA23ACD643EF4C568D53 /* ZTTextViewCell.h */,
+				9AF3E1017C615A309C9014FF7DCFE5AA /* ZTTextViewCell.m */,
+				A9111CDD1A8BBEE3E2447F7E64F7ACAD /* ZTTextView.h */,
+				FAAE88012EF443B76D2591225C841E51 /* ZTTextView.m */,
 				CCE119358228AC3768D86C1A4B76A419 /* TTTAttributedLabel */,
 				1EA9FF26A06B6F0C1CB6AB275EE7AB68 /* ZTFileManager */,
 				9E345A47C0795CA51C946D3715B704D6 /* ZTAlertViewController */,
