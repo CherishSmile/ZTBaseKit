@@ -141,9 +141,9 @@
         }
     }
     if (self.requestResult==ZTRequestResultSuccess) {
-        emptyImage = emptyImage?:imageNamed(@"placeholder_dropbox");
+        emptyImage = emptyImage?:imageNamed(@"placeholder_emptydata");
     }else{
-        emptyImage = imageNamed(@"placeholder_remote");
+        emptyImage = imageNamed(@"placeholder_neterror");
     }
     return emptyImage;
 }
