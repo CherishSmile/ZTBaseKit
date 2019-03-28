@@ -14,13 +14,13 @@ Pod::Spec.new do |s|
   s.subspec 'Utilities' do |uti|
     uti.source_files = 'ZTBase/Utilities/**/*.{h,m}'
     uti.public_header_files = 'ZTBase/Utilities/**/*.h'
-    uti.dependency 'ZTBase/Core'
+    uti.dependency 'Core'
   end
   
   s.subspec 'ZTBase' do |base|
     base.source_files = 'ZTBase/ZTBase/**/*.{h,m}'
     base.public_header_files = 'ZTBase/ZTBase/**/*.h'
-    base.dependency 'ZTBase/Core'
+    base.dependency 'Core'
   end
   
   s.resource_bundles = {'ZTBase' => ['ZTBase/**/*.{txt,png}']}
