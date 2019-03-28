@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.requires_arc = true
   
-  
+  s.default_subspec = 'Core'
   
   s.subspec 'Utilities' do |uti|
     uti.source_files = 'ZTBase/Utilities/**/*.{h,m}'
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.subspec 'ZTBase' do |base|
     base.source_files = 'ZTBase/ZTBase/**/*.{h,m}'
     base.public_header_files = 'ZTBase/ZTBase/**/*.h'
-    base.dependency 'ZTBase/ZTBase/Core'
+    base.dependency 'ZTBase/Core'
   end
   
   s.resource_bundles = {'ZTBase' => ['ZTBase/**/*.{txt,png}']}
