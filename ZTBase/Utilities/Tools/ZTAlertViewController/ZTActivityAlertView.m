@@ -79,7 +79,7 @@
     }
     if ([imageObject isKindOfClass:NSURL.class]) {
         @WeakObj(self);
-        [self.activityImage setWebImageWithURL:imageObject placeholderImage:placeholderImage(@"prelook") contentMode:UIViewContentModeScaleAspectFit completion:^(BOOL isRequestSuccess) {
+        [self.activityImage setWebImageWithURL:imageObject placeholderImage:imageNamed(@"prelook") contentMode:UIViewContentModeScaleAspectFit completion:^(BOOL isRequestSuccess) {
             @StrongObj(self);
             if (isRequestSuccess) {
                 CGFloat width = getPtW(60*PADDING);
