@@ -30,12 +30,15 @@ typedef void(^ZTWebViewReceiveScriptMessageHandler)(ZTWebView * webView,NSString
  */
 -(void)loadHtml:(NSString *)urlString;
 
+
 /**
- 添加公用处理脚本
+ js调用OC 添加scriptMessages
+
+ @param scriptMessageHandler 添加scriptMessages回调，返回值为scriptMessages的name
  */
--(void)addCommonJavaScriptMessagesHandler:(NSArray *(^)(WKUserContentController *userCC,ZTScriptMessageHandler *messageHandler))scriptMessageHandler;
+-(void)addCommonJavaScriptMessagesHandler:(NSArray<NSString *> *(^)(WKUserContentController *userCC,ZTScriptMessageHandler *messageHandler))scriptMessageHandler;
 /**
- js调用OC 添加处理脚本（调用此方法，添加message的title属性）
+ js调用OC 添加scriptMessages（调用此方法，添加message的title属性）
  
  @param messageNames OC方法名数组
  */

@@ -62,7 +62,7 @@
     }
 }
 
--(void)addCommonJavaScriptMessagesHandler:(NSArray *(^)(WKUserContentController *userCC,ZTScriptMessageHandler *messageHandler))scriptMessageHandler{
+-(void)addCommonJavaScriptMessagesHandler:(NSArray<NSString *> *(^)(WKUserContentController *userCC,ZTScriptMessageHandler *messageHandler))scriptMessageHandler{
     if (self.webView.webType==ZTWebViewTypeWKWebView) {
         WKUserContentController *userCC = self.webView.configuration.userContentController;
         ZTScriptMessageHandler *messageHandle = self.webView.messageHandler;
