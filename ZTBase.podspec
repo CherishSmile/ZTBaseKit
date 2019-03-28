@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ZTBase'
-  s.version          = '0.1.44'
+  s.version          = '0.1.45'
   s.summary          = 'ZTBase is the basic framework of OC project.'
   s.homepage         = 'https://github.com/CherishSmile/ZTBase'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -8,9 +8,19 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/CherishSmile/ZTBase.git', :tag => s.version.to_s }
   s.ios.deployment_target = '8.0'
   s.requires_arc = true
-  s.source_files = 'ZTBase/**/*.{h,m}'
-  s.public_header_files = 'ZTBase/**/*.h'
+  
+  s.subspec 'Utilities' do |uti|
+    uti.source_files = 'ZTBase/Utilities/**/*.{h,m}'
+    uti.public_header_files = 'ZTBase/Utilities/**/*.h'
+  end
+  
+  s.subspec 'ZTBase' do |base|
+    base.source_files = 'ZTBase/ZTBase/**/*.{h,m}'
+    base.public_header_files = 'ZTBase/ZTBase/**/*.h'
+  end
+  
   s.resource_bundles = {'ZTBase' => ['ZTBase/**/*.{txt,png}']}
+  
   s.dependency 'AFNetworking'
   s.dependency 'MJRefresh'
   s.dependency 'MJExtension'
