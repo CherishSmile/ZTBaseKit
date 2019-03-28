@@ -9,6 +9,7 @@
 #import "ZTTextViewCell.h"
 #import "ZTTextView.h"
 #import "ZTPublicMethod.h"
+#import <Masonry/Masonry.h>
 
 @interface ZTTextViewCell()<UITextViewDelegate>
 @property(nonatomic,strong)ZTTextView *inputView;

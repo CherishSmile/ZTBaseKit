@@ -9,6 +9,7 @@
 #import "ZTDatePicker.h"
 #import "ZTAlertController.h"
 #import "ZTAnimationManager.h"
+#import "ZTSetting.h"
 #import "ZTPublicMethod.h"
 
 

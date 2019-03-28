@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ZTPublicMethod.h"
+#import <MJRefresh/MJRefresh.h>
+#import "ZTEnum.h"
 
 @class ZTTableView;
 @protocol ZTTableViewDelegte <UITableViewDelegate>

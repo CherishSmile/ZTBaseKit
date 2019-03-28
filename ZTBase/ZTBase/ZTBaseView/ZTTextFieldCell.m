@@ -7,7 +7,10 @@
 //
 
 #import "ZTTextFieldCell.h"
+#import <Masonry/Masonry.h>
+#import "ZTSetting.h"
 #import "ZTPublicMethod.h"
+
 
 @interface ZTTextFieldCell()<UITextFieldDelegate>
 @property (nonatomic, strong)UITextField *inputField;

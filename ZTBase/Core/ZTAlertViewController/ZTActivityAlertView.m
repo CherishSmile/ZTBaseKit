@@ -7,7 +7,10 @@
 //
 
 #import "ZTActivityAlertView.h"
+#import "ZTSetting.h"
+#import <Masonry/Masonry.h>
 #import "ZTPublicMethod.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ZTActivityAlertView ()
 @property(nonatomic, strong) UIImageView * activityImage;
@@ -79,9 +82,9 @@
     }
     if ([imageObject isKindOfClass:NSURL.class]) {
         @WeakObj(self);
-        [self.activityImage setWebImageWithURL:imageObject placeholderImage:imageNamed(@"prelook") contentMode:UIViewContentModeScaleAspectFit completion:^(BOOL isRequestSuccess) {
+        [self.activityImage sd_setImageWithURL:imageObject placeholderImage:imageNamed(@"prelook") completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
             @StrongObj(self);
-            if (isRequestSuccess) {
+            if (!error&&image) {
                 CGFloat width = getPtW(60*PADDING);
                 CGFloat height = width * (self.activityImage.image.size.height/self.activityImage.image.size.width);
                 [self.activityImage mas_remakeConstraints:^(MASConstraintMaker *make) {

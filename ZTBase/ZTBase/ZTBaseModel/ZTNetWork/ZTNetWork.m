@@ -9,6 +9,7 @@
 #import "ZTNetWork.h"
 #import "ZTPublicMethod.h"
 #import <AFNetworking/AFNetworking.h>
+#import "ZTBaseConfiguration.h"
 
 
 #define NTTIMEOUT 15.f

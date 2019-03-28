@@ -10,6 +10,7 @@
 #import "TTTAttributedLabel.h"
 #import "ZTAlertController.h"
 #import "ZTPublicMethod.h"
+#import <Masonry/Masonry.h>
 
 
 static CGFloat hwRatio = 0.65 ;

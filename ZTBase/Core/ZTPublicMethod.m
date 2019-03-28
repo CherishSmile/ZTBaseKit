@@ -10,10 +10,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import <CoreLocation/CoreLocation.h>
 #import <sys/utsname.h>
-#import "UIAlertController+Custom.h"
-#import "UIAlertAction+Custom.h"
-#import "ZTFileManager.h"
 #import <SafariServices/SafariServices.h>
+
 
 
 UITextField * initTextField(NSString * placeholder,UIFont * font)

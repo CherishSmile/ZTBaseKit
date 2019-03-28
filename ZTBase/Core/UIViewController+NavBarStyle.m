@@ -10,8 +10,8 @@
 #import <objc/runtime.h>
 #import <KMNavigationBarTransition/KMNavigationBarTransition.h>
 #import "UIImage+Color.h"
+#import "ZTSetting.h"
 #import "ZTPublicMethod.h"
-
 
 @interface UIViewController ()
 @property(nonatomic, assign) BOOL  isSetedStyle;
