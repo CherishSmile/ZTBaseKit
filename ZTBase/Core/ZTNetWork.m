@@ -114,10 +114,10 @@
            }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             [self printRequestLog:task.currentRequest param:netModel.paramers result:error];
-
             [netWork.tasks removeObject:task];
             if (fail) {
-                fail(error.code,error.localizedDescription);
+                NSHTTPURLResponse *response = (NSHTTPURLResponse*)task.response;
+                fail(response.statusCode,error.localizedDescription);
             }
         }];
         [netWork.tasks addObject:task];
@@ -147,7 +147,8 @@
             [self printRequestLog:task.currentRequest param:netModel.paramers result:error];
             [netWork.tasks removeObject:task];
             if (fail) {
-                fail(error.code,error.localizedDescription);
+                NSHTTPURLResponse *response = (NSHTTPURLResponse*)task.response;
+                fail(response.statusCode,error.localizedDescription);
             }
         }];
         [netWork.tasks addObject:task];
@@ -180,7 +181,8 @@
             [self printRequestLog:task.currentRequest param:netModel.paramers result:error];
             [netWork.tasks removeObject:task];
             if (fail) {
-                fail(error.code,error.localizedDescription);
+                NSHTTPURLResponse *response = (NSHTTPURLResponse*)task.response;
+                fail(response.statusCode,error.localizedDescription);
             }
         }];
         [netWork.tasks addObject:task];
@@ -220,7 +222,8 @@
             [self printRequestLog:task.currentRequest param:netModel.paramers result:error];
             [netWork.tasks removeObject:task];
             if (fail) {
-                fail(error.code,error.localizedDescription);
+                NSHTTPURLResponse *response = (NSHTTPURLResponse*)task.response;
+                fail(response.statusCode,error.localizedDescription);
             }
         }];
         [netWork.tasks addObject:task];
@@ -265,7 +268,8 @@
             [self printRequestLog:task.currentRequest param:upModel.paramers result:error];
             [netWork.tasks removeObject:task];
             if (fail) {
-                fail(error.code,error.localizedDescription);
+                NSHTTPURLResponse *response = (NSHTTPURLResponse*)task.response;
+                fail(response.statusCode,error.localizedDescription);
             }
         }];
         [netWork.tasks addObject:task];
