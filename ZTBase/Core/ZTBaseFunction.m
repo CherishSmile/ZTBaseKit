@@ -1,5 +1,5 @@
 //
-//  ZTPublicMethod.m
+//  ZTBaseFunction.m
 //  ZTCloudMirror
 //
 //  Created by ZWL on 2017/9/30.
@@ -625,7 +625,7 @@ NSTimeInterval  getTimeInterval(NSString *formatTime,NSString *format){
     return [date timeIntervalSince1970]*1000;
 }
 BOOL callNumber(NSString * phoneNumber){
-    NSURL * url = [NSString stringWithFormat:@"tel://%@",phoneNumber];
+    NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",phoneNumber]];
     BOOL isCanCall = [UIApplication.sharedApplication canOpenURL:url];
     if (isCanCall) {
         [[UIApplication sharedApplication] openURL:url];
