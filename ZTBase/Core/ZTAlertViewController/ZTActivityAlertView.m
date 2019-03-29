@@ -113,7 +113,7 @@
 -(UIButton *)closeBtn{
     if (!_closeBtn) {
         _closeBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
-        [_closeBtn setImage:GetImg(@"alert_close") forState:(UIControlStateNormal)];
+        [_closeBtn setImage:imageNamed(@"alert_close") forState:(UIControlStateNormal)];
         [_closeBtn addTarget:self action:@selector(closeClick) forControlEvents:(UIControlEventTouchUpInside)];
     }
     return _closeBtn;

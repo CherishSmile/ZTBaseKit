@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ZTBaseViewModel.h"
-
+#import "UIViewController+NavBarStyle.h"
 
 typedef void(^ZTViewWillAppearBlock)(void);
 typedef void(^ZTViewDidAppearBlock)(void);
@@ -71,3 +71,7 @@ typedef void(^ZTPopViewControllerBlock)(void);
 -(void)goBack;
 
 @end
+
+
+CGFloat navHeight(UIViewController *currentVC);
+CGFloat tabBarHeight(void);

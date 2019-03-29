@@ -11,7 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <sys/utsname.h>
 #import <SafariServices/SafariServices.h>
-
+#import "ZTFileManager.h"
 
 
 UITextField * initTextField(NSString * placeholder,UIFont * font)
@@ -42,18 +42,6 @@ UIButton * initButton(NSString *title,UIButtonType type,UIFont * font){
     button.titleLabel.font = font;
     return button;
 }
-UITableView * initTabView(id instanceObject,UITableViewStyle style)
-{
-    ZTTableView *  tableView=[[ZTTableView alloc]initWithFrame:CGRectZero style:style];
-    tableView.backgroundColor = ZTBackColor;
-    tableView.separatorColor = ZTSeparatorColor;
-    tableView.delegate = instanceObject;
-    tableView.dataSource = instanceObject;
-    tableView.estimatedRowHeight = 0;
-    tableView.estimatedSectionFooterHeight = 0;
-    tableView.estimatedSectionHeaderHeight = 0;
-    return tableView;
-}
 UIImage * createImage(CGRect frame,UIColor * color)
 {
     UIGraphicsBeginImageContext(frame.size);
@@ -65,50 +53,11 @@ UIImage * createImage(CGRect frame,UIColor * color)
     return image;
 }
 
-UIImage * placeholderImage( NSString * _Nonnull  imageName)  {
-    
-    UIImage * image = GetImg(imageName);
-    if (image) {
-        return image;
-    }else{
-        NSString * imagePath = [ZTBaseBundle pathForResource:@"prelook" ofType:@"png"];
-        image = [UIImage imageWithContentsOfFile:imagePath];
-        return image;
-    }
-}
-
-
-/**
- *  navbar高度
- */
-CGFloat navHeight(UIViewController *currentVC){
-    if (currentVC) {
-        return currentVC.navBarHeight;
-    }else{
-        return getActiVC().navBarHeight;
-    }
-}
-/**
- *  tabbar高度
- */
-CGFloat tabBarHeight(void){
-    UIViewController *currentVC = getActiVC();
-    CGFloat tabHeight = 0;
-    if (currentVC.tabBarController) {
-        tabHeight += CGRectGetHeight(currentVC.tabBarController.tabBar.bounds);
-    }
-    return tabHeight;
-}
 void drawShadow(UIView *view,UIColor *color){
     drawShadowWithDirection(view, color, NO);
 }
 
 void drawShadowWithDirection(UIView *view,UIColor *color,BOOL isUp){
-//    CGMutablePathRef path = CGPathCreateMutable();
-//    CGPathAddRect(path, NULL, view.bounds);
-//    view.layer.shadowPath = path;
-//    CGPathCloseSubpath(path);
-//    CGPathRelease(path);
     view.layer.shadowColor = color.CGColor;
     view.layer.shadowOffset = CGSizeMake(0, isUp?-3:3);
     view.layer.shadowOpacity = 0.8;
@@ -423,40 +372,33 @@ BOOL validatewechat(NSString * wechat)
     return [emailTest evaluateWithObject:wechat];
 }
 
-ZTAlertController * showCustomAlert(NSString * title,NSString *message,NSString *sureTitle,ZTGlobalNOParameterBlock sureClick,NSString *cancleTitle,ZTGlobalNOParameterBlock cancleClick){
-    ZTAlertController *alertVC = [ZTAlertController alertControllerWithTitle:title message:message preferredStyle:(ZTAlertControllerStyleAlert)];
-   
+
+UIAlertController * showAlertController(NSString * title,NSString * message,NSString * sureTitle,ZTGlobalNOParameterBlock sureClick,NSString *cancleTitle,ZTGlobalNOParameterBlock cancleClick){
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:(UIAlertControllerStyleAlert)];
+    
     if (cancleTitle&&cancleTitle.length) {
-        ZTAlertAction *cancleAction = [ZTAlertAction actionWithTitle:cancleTitle style:(ZTAlertActionStyleCancel) handler:^(ZTAlertAction * _Nonnull action) {
+        UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:cancleTitle style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
             if (cancleClick) {
                 cancleClick();
             }
         }];
-        if (ZTConfig.themeColor) {
-            cancleAction.titleColor = ZTConfig.themeColor;
-        }
         [alertVC addAction:cancleAction];
     }
     if (sureTitle&&sureTitle.length) {
-        ZTAlertAction *sureAction = [ZTAlertAction actionWithTitle:sureTitle style:(ZTAlertActionStyleDefault) handler:^(ZTAlertAction * _Nonnull action) {
+        UIAlertAction *sureAction = [UIAlertAction actionWithTitle:sureTitle style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
             if (sureClick) {
                 sureClick();
             }
         }];
-        if (ZTConfig.themeColor) {
-            sureAction.titleColor = ZTConfig.themeColor;
-        }
         [alertVC addAction:sureAction];
     }
-
     [getActiVC() presentViewController:alertVC animated:YES completion:nil];
-    
     return alertVC;
 }
 
 BOOL showLocationPermissionAlert(void(^CompletionBlock)(BOOL isCancle)){
     if (!isAllowLoction()) {
-        showCustomAlert(@"提示", [NSString stringWithFormat:@"您暂无权限开启定位\n请在“iPhone->设置->%@”中开启",APPNAME], @"去设置", ^{
+        showAlertController(@"提示", [NSString stringWithFormat:@"您暂无权限开启定位\n请在“iPhone->设置->%@”中开启",APPNAME], @"去设置", ^{
             openSettingsURL();
             if (CompletionBlock) {
                 CompletionBlock(NO);
@@ -472,7 +414,6 @@ BOOL showLocationPermissionAlert(void(^CompletionBlock)(BOOL isCancle)){
 
 UIAlertController * showActionSheet(NSString * title,NSString *message,NSArray *selectTitles,ZTGlobalStringBlock sureClick,NSString *cancleTitle,ZTGlobalNOParameterBlock cancleClick){
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:(UIAlertControllerStyleActionSheet)];
-    
     for (NSString *selectTitle in selectTitles) {
         UIAlertAction *selectAction = [UIAlertAction actionWithTitle:selectTitle style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
             if (sureClick) {
@@ -481,7 +422,6 @@ UIAlertController * showActionSheet(NSString * title,NSString *message,NSArray *
         }];
         [alertVC addAction:selectAction];
     }
-    
     if (cancleTitle&&cancleTitle.length) {
         UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:cancleTitle style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
             if (cancleClick) {
@@ -490,9 +430,7 @@ UIAlertController * showActionSheet(NSString * title,NSString *message,NSArray *
         }];
         [alertVC addAction:cancleAction];
     }
-    
     [getActiVC() presentViewController:alertVC animated:YES completion:nil];
-
     return alertVC;
 }
 
@@ -1066,9 +1004,7 @@ NSString * encryptString(NSString *orignString,NSRange range){
     }else{
         return @"";
     }
-    
 }
-
 
 NSAttributedString *attributeStringFromJointString(NSString *firstString,UIColor *firstColor ,NSString *secondString,UIColor *secondColor){
     NSMutableAttributedString *firstAttr = [[NSMutableAttributedString alloc] initWithString:firstString attributes:@{NSForegroundColorAttributeName:firstColor}];
@@ -1112,7 +1048,6 @@ unsigned long hexColorFromString(NSString *string){
     unsigned long hexColor = strtoul([string UTF8String],0,16);
     return hexColor;
 }
-
 
 BOOL isHttpOrHttpsUrl(NSString *url){
     BOOL isUrl = NO;
@@ -1173,8 +1108,6 @@ void invokeFunctionFromString(id instanceObject,NSString *methodName,id object){
     if (!instanceObject||!isNil(methodName).length||isBlankString(methodName)) {
         return;
     }
-//    id obj = isNilObject(object);
-//    methodName = [methodName hasSuffix:@":"]?(obj?methodName:[methodName stringByReplacingOccurrencesOfString:@":" withString:@""]):(obj?[methodName stringByAppendingString:@":"]:methodName);
     methodName = [methodName hasSuffix:@":"]?methodName:[methodName stringByAppendingString:@":"];
 
     SEL selector = NSSelectorFromString(methodName);
@@ -1188,8 +1121,6 @@ id invokeFunctionWithReturnValueFromString(id instanceObject,NSString *methodNam
     if (!instanceObject||!isNil(methodName).length||isBlankString(methodName)) {
         return nil;
     }
-//    id obj = isNilObject(object);
-//    methodName = [methodName hasSuffix:@":"]?(obj?methodName:[methodName stringByReplacingOccurrencesOfString:@":" withString:@""]):(obj?[methodName stringByAppendingString:@":"]:methodName);
     methodName = [methodName hasSuffix:@":"]?methodName:[methodName stringByAppendingString:@":"];
 
     SEL selector = NSSelectorFromString(methodName);
@@ -1202,7 +1133,7 @@ id invokeFunctionWithReturnValueFromString(id instanceObject,NSString *methodNam
 }
 
 NSString * uniqueString(void){
-    return isNil([NSUUID UUID].UUIDString);
+    return [NSUUID UUID].UUIDString;
 }
 
 

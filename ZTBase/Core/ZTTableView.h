@@ -78,3 +78,5 @@
 @end
 
 
+UITableView * initTabView(id instanceObject,UITableViewStyle style);
+

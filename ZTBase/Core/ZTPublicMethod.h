@@ -11,12 +11,8 @@
 #import "ZTSetting.h"
 #import "ZTEnum.h"
 #import "ZTBaseConfiguration.h"
-#import "UIViewController+NavBarStyle.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <SDWebImage/UIButton+WebCache.h>
-#import "ZTAlertController.h"
-#import "ZTTableView.h"
-#import "ZTFileManager.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -30,13 +26,6 @@ typedef void(^ZTGlobalDictionaryBlock)(NSDictionary *callDic);
 /** 全局带参字符串Block*/
 typedef void(^ZTGlobalStringBlock)(NSString * string);
 
-
-/**
- 获取手机型号
- 
- @return 手机型号
- */
-NSString * getDeviceType(void);
 
 /**
  创建UITextField
@@ -75,14 +64,6 @@ UILabel * initLable(NSString *text,UIFont * font);
 UIButton * initButton(NSString *title,UIButtonType type,UIFont * font);
 
 /**
- 创建TabView
-
- @param instanceObject 实现代理的实例
- @return UITabView
- */
-UITableView * initTabView(id instanceObject,UITableViewStyle style);
-
-/**
  创建图片
 
  @param frame 图片大小
@@ -90,23 +71,6 @@ UITableView * initTabView(id instanceObject,UITableViewStyle style);
  @return UIImage
  */
 UIImage * createImage(CGRect frame,UIColor * color);
-
-
-UIImage * placeholderImage( NSString * _Nonnull  imageName);
-
-/**
- navbar高度
-
- @return 顶部导航高度
- */
-CGFloat navHeight(UIViewController *currentVC);
-
-/**
- tabbar高度
-
- @return 底部导航高度
- */
-CGFloat tabBarHeight(void);
 
 /**
  绘制阴影(朝下)
@@ -302,18 +266,7 @@ BOOL validateQQ(NSString *QQ);
 BOOL validatewechat(NSString * wechat);
 
 
-/**
- 自定义系统alert
-
- @param title 标题
- @param message 内容
- @param sureTitle 确定标题
- @param cancleTitle 取消标题
- @param sureClick 确定回调
- @param cancleClick 取消回调
- */
-ZTAlertController * showCustomAlert(NSString * _Nullable title,NSString * _Nullable message,NSString * _Nullable sureTitle,ZTGlobalNOParameterBlock _Nullable sureClick,NSString * _Nullable cancleTitle,ZTGlobalNOParameterBlock _Nullable cancleClick);
-
+UIAlertController * showAlertController(NSString * _Nullable title,NSString * _Nullable message,NSString * _Nullable sureTitle,ZTGlobalNOParameterBlock _Nullable sureClick,NSString * _Nullable cancleTitle,ZTGlobalNOParameterBlock _Nullable cancleClick);
 
 /**
  显示定位权限弹出窗
@@ -324,7 +277,7 @@ ZTAlertController * showCustomAlert(NSString * _Nullable title,NSString * _Nulla
 BOOL showLocationPermissionAlert(void(^ _Nullable CompletionBlock)(BOOL isCancle));
 
 /**
- 自定义系统actionSheet
+actionSheet
 
  @param title 标题
  @param message 内容

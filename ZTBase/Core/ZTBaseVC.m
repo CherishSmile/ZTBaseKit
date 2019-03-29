@@ -97,6 +97,23 @@
 {
     NSLog(@"%@ dealloc",[self class]);
 }
-
-
 @end
+
+
+CGFloat navHeight(UIViewController *currentVC){
+    if (currentVC) {
+        return currentVC.navBarHeight;
+    }else{
+        return getActiVC().navBarHeight;
+    }
+}
+CGFloat tabBarHeight(void){
+    UIViewController *currentVC = getActiVC();
+    CGFloat tabHeight = 0;
+    if (currentVC.tabBarController) {
+        tabHeight += CGRectGetHeight(currentVC.tabBarController.tabBar.bounds);
+    }
+    return tabHeight;
+}
+
+

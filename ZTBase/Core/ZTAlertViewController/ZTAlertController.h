@@ -123,4 +123,6 @@ typedef void(^ZTAlertCompleteHandler)(void);
 @end
 
 
+ZTAlertController * showCustomAlertController(NSString * _Nullable title,NSString * _Nullable message,NSString * _Nullable sureTitle,ZTAlertCompleteHandler _Nullable sureClick,NSString * _Nullable cancleTitle,ZTAlertCompleteHandler _Nullable cancleClick);
+
 NS_ASSUME_NONNULL_END

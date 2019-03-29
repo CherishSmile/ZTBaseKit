@@ -13,9 +13,8 @@
 #import "ZTAnimationManager.h"
 #import "ZTUpdateAlertView.h"
 #import "ZTSetting.h"
+#import "ZTPublicMethod.h"
 #import <objc/runtime.h>
-
-
 
 @interface ZTAlertAction ()
 
@@ -507,4 +506,36 @@
 }
 
 @end
+
+
+
+ZTAlertController * showCustomAlertController(NSString * title,NSString * message,NSString * sureTitle,ZTAlertCompleteHandler sureClick,NSString *cancleTitle,ZTAlertCompleteHandler cancleClick){
+    ZTAlertController *alertVC = [ZTAlertController alertControllerWithTitle:title message:message preferredStyle:(ZTAlertControllerStyleAlert)];
+    
+    if (cancleTitle&&cancleTitle.length) {
+        ZTAlertAction *cancleAction = [ZTAlertAction actionWithTitle:cancleTitle style:(ZTAlertActionStyleCancel) handler:^(ZTAlertAction * _Nonnull action) {
+            if (cancleClick) {
+                cancleClick();
+            }
+        }];
+        if (ZTConfig.themeColor) {
+            cancleAction.titleColor = ZTConfig.themeColor;
+        }
+        [alertVC addAction:cancleAction];
+    }
+    if (sureTitle&&sureTitle.length) {
+        ZTAlertAction *sureAction = [ZTAlertAction actionWithTitle:sureTitle style:(ZTAlertActionStyleDefault) handler:^(ZTAlertAction * _Nonnull action) {
+            if (sureClick) {
+                sureClick();
+            }
+        }];
+        if (ZTConfig.themeColor) {
+            sureAction.titleColor = ZTConfig.themeColor;
+        }
+        [alertVC addAction:sureAction];
+    }
+    [getActiVC() presentViewController:alertVC animated:YES completion:nil];
+    return alertVC;
+}
+
 

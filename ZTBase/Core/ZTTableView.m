@@ -180,14 +180,18 @@
     return CGRectGetHeight(self.tableHeaderView.frame)/2-40;
 }
 
-
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
 @end
+
+
+UITableView * initTabView(id instanceObject,UITableViewStyle style)
+{
+    ZTTableView *  tableView = [[ZTTableView alloc]initWithFrame:CGRectZero style:style];
+    tableView.backgroundColor = ZTBackColor;
+    tableView.separatorColor = ZTSeparatorColor;
+    tableView.delegate = instanceObject;
+    tableView.dataSource = instanceObject;
+    tableView.estimatedRowHeight = 0;
+    tableView.estimatedSectionFooterHeight = 0;
+    tableView.estimatedSectionHeaderHeight = 0;
+    return tableView;
+}
