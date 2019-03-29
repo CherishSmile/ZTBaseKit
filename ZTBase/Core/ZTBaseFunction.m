@@ -6,7 +6,7 @@
 //  Copyright © 2017年 中通四局. All rights reserved.
 //
 
-#import "ZTPublicMethod.h"
+#import "ZTBaseFunction.h"
 #import <AVFoundation/AVFoundation.h>
 #import <CoreLocation/CoreLocation.h>
 #import <sys/utsname.h>
@@ -626,7 +626,7 @@ NSTimeInterval  getTimeInterval(NSString *formatTime,NSString *format){
 }
 BOOL callNumber(NSString * phoneNumber){
     NSURL * url = [NSString stringWithFormat:@"tel://%@",phoneNumber];
-    BOOL isCanCall = [NSURL URLWithString:url];
+    BOOL isCanCall = [UIApplication.sharedApplication canOpenURL:url];
     if (isCanCall) {
         [[UIApplication sharedApplication] openURL:url];
     }
@@ -1104,7 +1104,7 @@ UIImage * imageNamed(NSString * name){
     return image;
 }
 
-@implementation ZTPublicMethod
+@implementation ZTBaseFunction
 
 @end
 

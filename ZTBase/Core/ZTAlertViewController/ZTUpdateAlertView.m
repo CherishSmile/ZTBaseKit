@@ -9,7 +9,7 @@
 #import "ZTUpdateAlertView.h"
 #import "TTTAttributedLabel.h"
 #import "ZTAlertController.h"
-#import "ZTPublicMethod.h"
+#import "ZTBaseFunction.h"
 #import <Masonry/Masonry.h>
 
 

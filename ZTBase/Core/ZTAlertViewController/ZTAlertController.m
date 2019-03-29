@@ -12,8 +12,8 @@
 #import "ZTDatePicker.h"
 #import "ZTAnimationManager.h"
 #import "ZTUpdateAlertView.h"
-#import "ZTSetting.h"
-#import "ZTPublicMethod.h"
+#import "ZTBaseDefines.h"
+#import "ZTBaseFunction.h"
 #import <objc/runtime.h>
 
 @interface ZTAlertAction ()

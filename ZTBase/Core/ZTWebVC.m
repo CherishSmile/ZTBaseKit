@@ -9,7 +9,7 @@
 #import "ZTWebVC.h"
 #import "UINavigationController+SGProgress.h"
 #import "ZTScriptMessageHandler.h"
-#import "ZTPublicMethod.h"
+#import "ZTBaseFunction.h"
 #import <Masonry/Masonry.h>
 
 @interface ZTWebVC ()<ZTWebViewDelegate,ZTWebScriptMessageHandler>

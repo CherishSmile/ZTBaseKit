@@ -7,7 +7,7 @@
 //
 
 #import "ZTNetWork.h"
-#import "ZTPublicMethod.h"
+#import "ZTBaseFunction.h"
 #import <AFNetworking/AFNetworking.h>
 #import "ZTBaseConfiguration.h"
 

@@ -8,7 +8,7 @@
 
 #import "ZTBaseViewModel.h"
 #import "ZTWeakObject.h"
-#import "ZTSetting.h"
+#import "ZTBaseDefines.h"
 
 @interface ZTBaseViewModel ()
 @property(nonatomic, strong) UIViewController * viewController;

@@ -7,7 +7,7 @@
 //
 
 #import "UIImageView+WebModeCache.h"
-#import "ZTSetting.h"
+#import "ZTBaseDefines.h"
 
 @implementation UIImageView (WebModeCache)
 

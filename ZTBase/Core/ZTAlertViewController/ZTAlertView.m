@@ -10,7 +10,7 @@
 #import "TTTAttributedLabel.h"
 #import "ZTAlertController.h"
 #import <Masonry/Masonry.h>
-#import "ZTPublicMethod.h"
+#import "ZTBaseFunction.h"
 
 
 @interface ZTAlertView ()<TTTAttributedLabelDelegate>

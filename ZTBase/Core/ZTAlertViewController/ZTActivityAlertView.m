@@ -7,9 +7,9 @@
 //
 
 #import "ZTActivityAlertView.h"
-#import "ZTSetting.h"
+#import "ZTBaseDefines.h"
 #import <Masonry/Masonry.h>
-#import "ZTPublicMethod.h"
+#import "ZTBaseFunction.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ZTActivityAlertView ()

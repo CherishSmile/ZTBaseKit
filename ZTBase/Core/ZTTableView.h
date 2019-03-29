@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MJRefresh/MJRefresh.h>
-#import "ZTEnum.h"
+#import "ZTBaseEnum.h"
 
 @class ZTTableView;
 @protocol ZTTableViewDelegte <UITableViewDelegate>

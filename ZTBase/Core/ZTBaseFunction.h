@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "ZTSetting.h"
-#import "ZTEnum.h"
+#import "ZTBaseDefines.h"
+#import "ZTBaseEnum.h"
 #import "ZTBaseConfiguration.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <SDWebImage/UIButton+WebCache.h>
@@ -761,7 +761,7 @@ CAGradientLayer * creatGradientLayerWithColor(UIColor *color1,UIColor *color2,CG
 
 UIImage * imageNamed(NSString * name);
 
-@interface ZTPublicMethod : NSObject
+@interface ZTBaseFunction : NSObject
 
 @end
 

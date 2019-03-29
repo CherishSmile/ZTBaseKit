@@ -7,7 +7,7 @@
 //
 
 #import "ZTTableView.h"
-#import "ZTPublicMethod.h"
+#import "ZTBaseFunction.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
 @interface ZTTableView ()<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>

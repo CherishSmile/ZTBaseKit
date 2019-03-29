@@ -8,7 +8,7 @@
 
 #import "ZTWebManager.h"
 #import "ZTScriptMessageHandler.h"
-#import "ZTPublicMethod.h"
+#import "ZTBaseFunction.h"
 
 @interface ZTWebManager ()
 @property(nonatomic, strong) ZTWebView * webView;

@@ -8,7 +8,7 @@
 
 #import "ZTTextViewCell.h"
 #import "ZTTextView.h"
-#import "ZTPublicMethod.h"
+#import "ZTBaseFunction.h"
 #import <Masonry/Masonry.h>
 
 @interface ZTTextViewCell()<UITextViewDelegate>

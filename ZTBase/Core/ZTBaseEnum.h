@@ -1,13 +1,13 @@
 //
-//  ZTEnum.h
-//  ZTCloudMirror
+//  ZTBaseEnum.h
+//  ZTBase
 //
 //  Created by ZWL on 2018/3/22.
 //  Copyright © 2018年 ZWL. All rights reserved.
 //
 
-#ifndef ZTEnum_h
-#define ZTEnum_h
+#ifndef ZTBaseEnum_h
+#define ZTBaseEnum_h
 
 /**
  刷新类型
@@ -59,4 +59,4 @@ typedef NS_ENUM(NSInteger,ZTNavBarItemPosition) {
 
 
 
-#endif /* ZTEnum_h */
+#endif /* ZTBaseEnum_h */

@@ -9,7 +9,7 @@
 #import "ZTWebView.h"
 #import "ZTUIWebViewProgress.h"
 #import <AFNetworking/UIWebView+AFNetworking.h>
-#import "ZTPublicMethod.h"
+#import "ZTBaseFunction.h"
 
 static inline  NSDictionary * queryDict(NSString * query){
     NSArray * queryArr = [query componentsSeparatedByString:@"&"];

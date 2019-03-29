@@ -1,6 +1,6 @@
 //
-//  ZTSetting.h
-//  Notice
+//  ZTBaseDefines.h
+//  ZTBase
 //
 //  Created by ZWL on 15/9/7.
 //  Copyright (c) 2015年 ZWL. All rights reserved.
@@ -103,7 +103,7 @@ _Pragma("clang diagnostic pop") \
 #define VERSION  [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"]
 #define APPNAME  [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"]
 
-#define ZTBaseBundle [NSBundle bundleWithPath:[[NSBundle bundleForClass:[ZTPublicMethod class]] pathForResource:@"ZTBase" ofType:@"bundle"]]
+#define ZTBaseBundle [NSBundle bundleWithPath:[[NSBundle bundleForClass:[ZTBaseFunction class]] pathForResource:@"ZTBase" ofType:@"bundle"]]
 
 
 #define NFCenter     NSNotificationCenter.defaultCenter
