@@ -172,26 +172,26 @@ UIBarButtonItem *  setBarItemWithUrl(UIViewController * mySelf,NSURL *imageUrl,i
 /**
  电话号码判断
 
- @param candidate 电话号码
+ @param number 电话号码
  @return 是否是电话号码
  */
-BOOL validatePhone(NSString *candidate);
+BOOL validatePhoneNumber(NSString * number);
 
 /**
  身份证号判断
 
- @param idCard 身份证号
+ @param number 身份证号
  @return 是否是身份证号
  */
-BOOL validateIdCard(NSString * idCard);
+BOOL validateIDNumber(NSString * number);
 
 /**
  车牌号验证
 
- @param carID 车牌号
+ @param number 车牌号
  @return 是否是车牌号
  */
-BOOL validateCarID(NSString *carID);
+BOOL validateLicensePlateNumber(NSString * number);
 
 /**
  邮箱判断
@@ -226,14 +226,6 @@ BOOL validateAllNumber(NSString *string);
 BOOL validateAllLetter(NSString *string);
 
 /**
- 判断字符串是否全为[(数字)OR(数字|字母)OR(字母)OR(汉字)]
- 
- @param string 需要检验的字符串
- @return 是否全为[(数字)OR(数字|字母)OR(字母)OR(汉字)]
- */
-BOOL validateNumberOrLetter(NSString *string);
-
-/**
  判断字符串是否全为数字|字母
 
  @param string 需要检验的字符串
@@ -248,22 +240,6 @@ BOOL validateNumberOrLetter(NSString *string);
  @return 是否是银行卡号
  */
 BOOL validateBankCard(NSString * bankCard);
-
-/**
- qq号判断
-
- @param QQ QQ号码
- @return 是否是QQ号码
- */
-BOOL validateQQ(NSString *QQ);
-
-/**
- 微信判断
-
- @param wechat 微信号
- @return 是否是微信号
- */
-BOOL validatewechat(NSString * wechat);
 
 
 UIAlertController * showAlertController(NSString * _Nullable title,NSString * _Nullable message,NSString * _Nullable sureTitle,ZTGlobalNOParameterBlock _Nullable sureClick,NSString * _Nullable cancleTitle,ZTGlobalNOParameterBlock _Nullable cancleClick);
@@ -322,20 +298,21 @@ NSString * changeToJsonString(id jsonObject);
 NSData * compressImageQuality(UIImage *image ,int maxLength);
 
 /**
+ 压缩图片尺寸（压缩图片尺寸可以使图片小于指定大小，但会使图片明显模糊(比压缩图片质量模糊)）
+ 
+ @param image 原始图片
+ @param maxLength 图片最大尺寸
+ @return 压缩后的图片
+ */
+UIImage * compressImageSize(UIImage *image,CGFloat maxLength);
+
+/**
  空值转化
 
  @param string 字符串
  @return 转化后的字符串
  */
 NSString * isNil(NSString * _Nullable string);
-
-/**
- 空值转化
-
- @param object id类型
- @return 转化后的数据
- */
-id isNilObject(id object);
 
 /**
  空值转化
@@ -381,14 +358,14 @@ void showCustomToast(NSString * _Nullable showText,UIView *locationView,NSTimeIn
 
  @param locationView 父视图
  */
-void dissmissProgressDialog(UIView *locationView);
+void dismissProgressDialog(UIView *locationView);
 
 /**
  获取当前Window
 
  @return 当前window
  */
-UIWindow *getWindonw(void);
+UIWindow * getWindonw(void);
 
 /**
  获取键盘Window
@@ -467,26 +444,18 @@ NSTimeInterval  getCurrentTimeInterval(void);
 NSTimeInterval  getTimeInterval(NSString *formatTime,NSString *format);
 
 /**
- webView打电话
-
- @param view 父视图
- @param phoneNumber 电话号码
- */
-void callNumberByWeb(UIView * view,NSString * phoneNumber);
-
-/**
  原生打电话
 
  @param phoneNumber 电话号码
  */
-void callNumber(NSString * phoneNumber);
+BOOL callNumber(NSString * phoneNumber);
 
 /**
  检测当前设备是否是iphone
 
  @return YES or NO
  */
-BOOL checkDevice (void);
+BOOL iPhoneDevice (void);
 
 /**
  舍去法（保留5位小数）
@@ -503,6 +472,7 @@ CGFloat floatRoundDown(CGFloat number);
  @return 舍去后的数
  */
 CGFloat floatRoundDownWithScale(CGFloat number,NSInteger scale);
+
 /**
  像素适配（宽）
 
@@ -604,15 +574,6 @@ NSDictionary *dictionaryWithJsonString(NSString *jsonString);
  @return 转化后的url
  */
 NSURL *urlFromString(NSString *originImageUrl);
-
-/**
- 图片URL转化
-
- @param originImageUrl 原始url
- @param width 自定义图片宽度
- @return 转化后的url
- */
-NSURL *urlFromStringByWidth(NSString *originImageUrl,NSInteger width);
 
 /**
  在图片上添加文字

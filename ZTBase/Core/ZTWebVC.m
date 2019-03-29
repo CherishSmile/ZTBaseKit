@@ -93,7 +93,7 @@
 -(void)goBack{
     if ([self.baseWebView canGoBack]) {
         [self.baseWebView goBack];
-        dissmissProgressDialog(self.view);
+        dismissProgressDialog(self.view);
     }else{
         [self.navigationController popViewControllerAnimated:YES];
     }

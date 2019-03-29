@@ -2,8 +2,8 @@
 //  UIView+Banner.m
 //  无限轮播图
 //
-//  Created by Hanwen on 2017/12/27.
-//  Copyright © 2017年 SK丿希望. All rights reserved.
+//  Created by ZWL on 2018/11/7.
+//  Copyright © 2018 CITCC4. All rights reserved.
 //
 
 #import "UIView+Banner.h"

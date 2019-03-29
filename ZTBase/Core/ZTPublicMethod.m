@@ -197,74 +197,23 @@ UIBarButtonItem * setBarItemWithUrl(UIViewController * mySelf,NSURL *imageUrl,id
     return item;
 }
 
-BOOL validatePhone(NSString *candidate)
+BOOL validatePhoneNumber(NSString * number)
 {
-    
-    if (candidate.length != 11)
-    {
-        return NO;
-    }else{
-        return YES;
-    }
-    /**
-     * 手机号码:
-     * 13[0-9], 14[5,7], 15[0, 1, 2, 3, 5, 6, 7, 8, 9], 17[6, 7, 8], 18[0-9], 170[0-9]
-     * 移动号段: 134,135,136,137,138,139,150,151,152,157,158,159,182,183,184,187,188,147,178,1705
-     * 联通号段: 130,131,132,155,156,185,186,145,176,1709
-     * 电信号段: 133,153,180,181,189,177,1700
-     */
-//    NSString *MOBILE = @"^1(3[0-9]|4[57]|5[0-35-9]|8[0-9]|7[0678])\\d{8}$";
-//    /**
-//     * 中国移动：China Mobile
-//     * 134,135,136,137,138,139,150,151,152,157,158,159,182,183,184,187,188,147,178,1705
-//     */
-//    NSString *CM = @"(^1(3[4-9]|4[7]|5[0-27-9]|7[8]|8[2-478])\\d{8}$)|(^1705\\d{7}$)";
-//    /**
-//     * 中国联通：China Unicom
-//     * 130,131,132,155,156,185,186,145,176,1709
-//     */
-//    NSString *CU = @"(^1(3[0-2]|4[5]|5[56]|7[6]|8[56])\\d{8}$)|(^1709\\d{7}$)";
-//    /**
-//     * 中国电信：China Telecom
-//     * 133,153,180,181,189,177,1700
-//     */
-//    NSString *CT = @"(^1(33|53|77|8[019])\\d{8}$)|(^1700\\d{7}$)";
-//    /**
-//     25     * 大陆地区固话及小灵通
-//     26     * 区号：010,020,021,022,023,024,025,027,028,029
-//     27     * 号码：七位或八位
-//     28     */
-//    //  NSString * PHS = @"^(0[0-9]{2})\\d{8}$|^(0[0-9]{3}(\\d{7,8}))$";
-//    NSPredicate *regextestmobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", MOBILE];
-//    NSPredicate *regextestcm = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CM];
-//    NSPredicate *regextestcu = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CU];
-//    NSPredicate *regextestct = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CT];
-//    if (([regextestmobile evaluateWithObject:candidate] == YES)
-//        || ([regextestcm evaluateWithObject:candidate] == YES)
-//        || ([regextestct evaluateWithObject:candidate] == YES)
-//        || ([regextestcu evaluateWithObject:candidate] == YES))
-//    {
-//        return YES;
-//    }
-//    else
-//    {
-//        return NO;
-//    }
+    return number.length==11;
 }
-BOOL validateIdCard(NSString * idCard)
+BOOL validateIDNumber(NSString * number)
 {
     BOOL flag;
-    if (idCard.length <= 0) {
+    if (number.length <= 0) {
         flag = NO;
         return flag;
     }
     NSString *regex2 = @"^(\\d{14}|\\d{17})(\\d|[xX])$";
     NSPredicate *idCardPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex2];
-    return [idCardPredicate evaluateWithObject:idCard];
+    return [idCardPredicate evaluateWithObject:number];
 }
 
-BOOL validateCarID(NSString *carID) {
-    
+BOOL validateLicensePlateNumber(NSString * number) {
     /**
      *  车牌号正则表达式
      *  ---前两位---
@@ -279,14 +228,22 @@ BOOL validateCarID(NSString *carID) {
      */
     NSString *carRegex = @"^(([冀豫云辽黑湘皖鲁苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼渝京津沪新京军空海北沈兰济南广成使领][A-Z])|([云][A][-][V]))(([A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学警港澳])|(([DF][A-HJ-NP-Z0-9][0-9]{4})|([0-9]{5}[DF])))$";
     NSPredicate *carTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",carRegex];
-    return [carTest evaluateWithObject:carID];
+    return [carTest evaluateWithObject:number];
 }
-BOOL validatePW(NSString *pswStr) {
+
+BOOL validateEmail(NSString * email)
+{
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:email];
+}
+
+BOOL validatePW(NSString * pswStr) {
     NSString * pattern  =   @"^[A-Za-z0-9_]{6,12}$";
     NSPredicate * pred  =   [NSPredicate predicateWithFormat:@"SELF MATCHES %@",pattern];
     return [pred evaluateWithObject:pswStr];
 }
-BOOL validateAllNumber(NSString *string){
+BOOL validateAllNumber(NSString * string){
     NSString *condition = @"^[0-9]*$";//是否都是数字
     //    NSString *condition = @"^[A-Za-z]+$";//是否都是字母
     //    NSString *condition = @"^[A-Za-z0-9]+$";//是否都是字母和数字{6,16}
@@ -296,13 +253,13 @@ BOOL validateAllNumber(NSString *string){
     return [predicate evaluateWithObject:string];
 }
 
-BOOL validateAllLetter(NSString *string){
+BOOL validateAllLetter(NSString * string){
     NSString *condition = @"^[A-Za-z]+$";//是否都是字母
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES%@",condition];
     return [predicate evaluateWithObject:string];
 }
 
-BOOL validateNumberOrLetter(NSString *string){
+BOOL validateNumberOrLetter(NSString * string){
     NSString * pattern  =   @"^[A-Za-z0-9]$";
     NSPredicate * pred  =   [NSPredicate predicateWithFormat:@"SELF MATCHES %@",pattern];
     return [pred evaluateWithObject:string];
@@ -350,26 +307,6 @@ BOOL validateBankCard(NSString * bankCard)
         return YES;
     else
         return NO;
-}
-BOOL validateEmail(NSString * email)
-{
-    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
-    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
-    return [emailTest evaluateWithObject:email];
-}
-
-BOOL validateQQ(NSString * QQ)
-{
-    NSString *emailRegex = @"^[1-9]\\d{4,11}$";
-    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
-    return [emailTest evaluateWithObject:QQ];
-}
-
-BOOL validatewechat(NSString * wechat)
-{
-    NSString *emailRegex = @"^[A-Za-z][A-Z0-9a-z_-]{5,19}$";
-    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
-    return [emailTest evaluateWithObject:wechat];
 }
 
 
@@ -457,6 +394,28 @@ NSData * compressImageQuality(UIImage *image ,int maxLength)
     NSLog(@"压缩图片质量：%@,%@",@(data.length),[NSValue valueWithCGSize:[UIImage imageWithData:data].size]);
     return data;
 }
+UIImage * compressImageSize(UIImage *image,CGFloat maxLength)
+{
+    UIImage *resultImage = image;
+    NSData *data = UIImageJPEGRepresentation(resultImage, 1);
+    NSUInteger lastDataLength = 0;
+    while (data.length > maxLength && data.length != lastDataLength) {
+        lastDataLength = data.length;
+        CGFloat ratio = (CGFloat)maxLength / data.length;
+        CGSize size = CGSizeMake((NSUInteger)(resultImage.size.width * sqrtf(ratio)),
+                                 (NSUInteger)(resultImage.size.height * sqrtf(ratio))); // Use NSUInteger to prevent white blank
+        UIGraphicsBeginImageContext(size);
+        [resultImage drawInRect:CGRectMake(0, 0, size.width, size.height)];
+        resultImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        data = UIImageJPEGRepresentation(resultImage, 1);
+    }
+    NSLog(@"压缩图片尺寸：%@，%@",@(data.length),[NSValue valueWithCGSize:resultImage.size]);
+    return resultImage;
+    
+}
+
+
 NSString * isNil(NSString * string)
 {
     if (!string||[string isKindOfClass:[NSNull class]]||[string isEqual:[NSNull null]]) {
@@ -465,13 +424,6 @@ NSString * isNil(NSString * string)
     else
     {
         return [NSString stringWithFormat:@"%@",string];
-    }
-}
-id isNilObject(id object){
-    if ([object isKindOfClass:[NSNull class]]||[object isEqual:[NSNull null]]) {
-        return nil;
-    }else{
-        return object;
     }
 }
 
@@ -572,7 +524,7 @@ void showCustomToast(NSString *showText,UIView *locationView,NSTimeInterval dela
     });
 }
 
-void dissmissProgressDialog(UIView *locationView)
+void dismissProgressDialog(UIView *locationView)
 {
     if (!locationView) {
         return;
@@ -672,27 +624,15 @@ NSTimeInterval  getTimeInterval(NSString *formatTime,NSString *format){
     NSDate* date = [formatter dateFromString:formatTime]; //------------将字符串按formatter转成nsdate
     return [date timeIntervalSince1970]*1000;
 }
-
-void callNumberByWeb(UIView * view,NSString * phoneNumber)
-{
-    if (phoneNumber.length!=0) {
-        if (checkDevice()) {
-            UIWebView * webView=[UIWebView new];
-            NSURL * url=[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",phoneNumber]];
-            [webView loadRequest:[NSURLRequest requestWithURL:url]];
-            [view addSubview:webView];
-        }
+BOOL callNumber(NSString * phoneNumber){
+    NSURL * url = [NSString stringWithFormat:@"tel://%@",phoneNumber];
+    BOOL isCanCall = [NSURL URLWithString:url];
+    if (isCanCall) {
+        [[UIApplication sharedApplication] openURL:url];
     }
+    return url;
 }
-void callNumber(NSString * phoneNumber){
-    if (phoneNumber.length!=0) {
-        if (checkDevice()) {
-            NSURL *numberUrl = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",phoneNumber]];
-            [[UIApplication sharedApplication] openURL:numberUrl];
-        }
-    }
-}
-BOOL checkDevice ()
+BOOL iPhoneDevice ()
 {
     NSString* deviceType = [UIDevice currentDevice].model;
     NSRange range = [deviceType rangeOfString:@"iPhone"];
@@ -870,13 +810,6 @@ NSURL *urlFromString(NSString *originImageUrl){
     NSURL *url = [NSURL URLWithString:nowImageUrl];
     return url;
 }
-NSURL *urlFromStringByWidth(NSString *originImageUrl,NSInteger width){
-    NSString *nowImageUrl = [originImageUrl stringByReplacingOccurrencesOfString:@".jpg" withString:[NSString stringWithFormat:@"_%@x10000.jpg",@(width)]];
-    nowImageUrl  = [nowImageUrl stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
-    NSURL *url = [NSURL URLWithString:nowImageUrl];
-    return url;
-}
-
 
 UIImage *drawTextOnImage(NSString *text,UIImage *image){
     //设置字体样式

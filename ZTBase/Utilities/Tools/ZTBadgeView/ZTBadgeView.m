@@ -15,9 +15,6 @@
 #error ZTBadgeView must be compiled with ARC.
 #endif
 
-// Silencing some deprecation warnings if your deployment target is iOS7 that can only be fixed by using methods that
-// Are only available on iOS7.
-// Soon ZTBadgeView will require iOS 7 and we'll be able to use the new methods.
 #if  __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_7_0
     #define ZTBadgeViewSilenceDeprecatedMethodStart()   _Pragma("clang diagnostic push") \
                                                         _Pragma("clang diagnostic ignored \"-Wdeprecated-declarations\"")
