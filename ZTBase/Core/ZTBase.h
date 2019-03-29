@@ -8,7 +8,7 @@
 #ifndef ZTBase_h
 #define ZTBase_h
 
-#import "ZTPublicMethod.h"
+#import "ZTBaseFunction.h"
 #import "ZTBaseVC.h"
 #import "ZTWebVC.h"
 #import "ZTCollectionView.h"

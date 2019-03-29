@@ -28,7 +28,7 @@
 #import "ZTWebView.h"
 #import "ZTBaseViewModel.h"
 #import "ZTBaseEnum.h"
-#import "ZTPublicMethod.h"
+#import "ZTBaseFunction.h"
 #import "ZTBaseDefines.h"
 #import "NSNotification+Sender.h"
 #import "NSNotificationCenter+Sender.h"

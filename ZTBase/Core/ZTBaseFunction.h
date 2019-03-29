@@ -1,5 +1,5 @@
 //
-//  ZTPublicMethod.h
+//  ZTBaseFunction.h
 //  ZTCloudMirror
 //
 //  Created by ZWL on 2017/9/30.
