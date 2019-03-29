@@ -630,7 +630,7 @@ BOOL callNumber(NSString * phoneNumber){
     if (isCanCall) {
         [[UIApplication sharedApplication] openURL:url];
     }
-    return url;
+    return isCanCall;
 }
 BOOL iPhoneDevice ()
 {
