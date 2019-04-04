@@ -12,6 +12,8 @@
 #import <sys/utsname.h>
 #import <SafariServices/SafariServices.h>
 #import "ZTFileManager.h"
+#import <SDWebImage/SDImageCache.h>
+#import <SDWebImage/UIButton+WebCache.h>
 
 
 UITextField * initTextField(NSString * placeholder,UIFont * font)

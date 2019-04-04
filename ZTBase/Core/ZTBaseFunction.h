@@ -12,7 +12,6 @@
 #import "ZTBaseEnum.h"
 #import "ZTBaseConfiguration.h"
 #import <MBProgressHUD/MBProgressHUD.h>
-#import <SDWebImage/UIButton+WebCache.h>
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -34,7 +33,7 @@ typedef void(^ZTGlobalStringBlock)(NSString * string);
  @param font 字体大小
  @return UITextField
  */
-UITextField * initTextField(NSString * placeholder,UIFont * font);
+UITextField * initTextField(NSString * _Nullable placeholder,UIFont * font);
 
 /**
  创建UITextView
@@ -51,7 +50,7 @@ UITextView * initTextView(UIFont * font);
  @param font 字体大小
  @return UILable
  */
-UILabel * initLable(NSString *text,UIFont * font);
+UILabel * initLable(NSString * _Nullable text,UIFont * font);
 
 /**
  创建UIButton
@@ -61,7 +60,7 @@ UILabel * initLable(NSString *text,UIFont * font);
  @param font 字体大小
  @return UIButton
  */
-UIButton * initButton(NSString *title,UIButtonType type,UIFont * font);
+UIButton * initButton(NSString * _Nullable title,UIButtonType type,UIFont * font);
 
 /**
  创建图片

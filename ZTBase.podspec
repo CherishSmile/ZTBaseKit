@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ZTBase'
-  s.version          = '0.1.53'
+  s.version          = '0.1.54'
   s.summary          = 'ZTBase is the basic framework of OC project.'
   s.homepage         = 'https://github.com/CherishSmile/ZTBase'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
     uti.dependency 'ZTBase/Core'
   end
   
-  s.resource_bundles = {'ZTBase' => ['ZTBase/**/*.{txt,png}']}
+  s.resource_bundles = {'ZTBase' => ['ZTBase/**/*.png']}
   
   s.dependency 'AFNetworking'
   s.dependency 'MJRefresh'
