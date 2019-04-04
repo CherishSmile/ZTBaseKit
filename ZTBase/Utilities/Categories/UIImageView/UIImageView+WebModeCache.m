@@ -8,6 +8,7 @@
 
 #import "UIImageView+WebModeCache.h"
 #import "ZTBaseDefines.h"
+#import <SDWebImage/SDWebImageDownloader.h>
 
 @implementation UIImageView (WebModeCache)
 

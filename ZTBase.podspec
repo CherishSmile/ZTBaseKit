@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ZTBase'
-  s.version          = '0.1.52'
+  s.version          = '0.1.53'
   s.summary          = 'ZTBase is the basic framework of OC project.'
   s.homepage         = 'https://github.com/CherishSmile/ZTBase'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -28,6 +28,7 @@ Pod::Spec.new do |s|
   s.dependency 'Masonry'
   s.dependency 'IQKeyboardManager'
   s.dependency 'SDWebImage'
+  s.dependency 'SDAutoLayout'
   s.dependency 'MBProgressHUD'
   s.dependency 'KMNavigationBarTransition'
   s.dependency 'DZNEmptyDataSet'
