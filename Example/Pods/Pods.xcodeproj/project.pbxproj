@@ -377,6 +377,18 @@
 		F7833EF8224CAE0D00E26C31 /* ZTDatePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = F7833EF6224CAE0D00E26C31 /* ZTDatePicker.h */; };
 		F7833EFD224CBCD900E26C31 /* ZTUpdateAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7833EFB224CBCD800E26C31 /* ZTUpdateAlertView.m */; };
 		F7833EFE224CBCD900E26C31 /* ZTUpdateAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = F7833EFC224CBCD800E26C31 /* ZTUpdateAlertView.h */; };
+		F784766D2258915E00938781 /* ZTCollectionViewFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = F78476612258915D00938781 /* ZTCollectionViewFlowLayout.h */; };
+		F784766E2258915E00938781 /* ZTCollectionViewLeftAlignedLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = F78476622258915D00938781 /* ZTCollectionViewLeftAlignedLayout.h */; };
+		F784766F2258915E00938781 /* ZTCollectionViewLayoutAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = F78476632258915D00938781 /* ZTCollectionViewLayoutAttributes.h */; };
+		F78476702258915E00938781 /* ZTCollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F78476642258915D00938781 /* ZTCollectionViewLeftAlignedLayout.m */; };
+		F78476712258915E00938781 /* ZTCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F78476652258915D00938781 /* ZTCollectionViewFlowLayout.m */; };
+		F78476722258915E00938781 /* ZTCollectionReusableView.h in Headers */ = {isa = PBXBuildFile; fileRef = F78476662258915E00938781 /* ZTCollectionReusableView.h */; };
+		F78476732258915E00938781 /* ZTCollectionViewLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = F78476672258915E00938781 /* ZTCollectionViewLayoutAttributes.m */; };
+		F78476742258915E00938781 /* ZTCollectionViewAlignmentFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F78476682258915E00938781 /* ZTCollectionViewAlignmentFlowLayout.m */; };
+		F78476752258915E00938781 /* ZTWaterFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = F78476692258915E00938781 /* ZTWaterFlowLayout.h */; };
+		F78476762258915E00938781 /* ZTWaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F784766A2258915E00938781 /* ZTWaterFlowLayout.m */; };
+		F78476772258915E00938781 /* ZTCollectionViewAlignmentFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = F784766B2258915E00938781 /* ZTCollectionViewAlignmentFlowLayout.h */; };
+		F78476782258915E00938781 /* ZTCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F784766C2258915E00938781 /* ZTCollectionReusableView.m */; };
 		F901A0A1FA49C2186F677A88EE8241EB /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF6F2B86B3DD3AA765816821BE4ABE5 /* MJRefreshAutoFooter.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		F9701D54A533DB265A11EEC98E02C869 /* MJPropertyKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 8354C5057D9F85B51CBC774D58A8C35B /* MJPropertyKey.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		FA2A54C13E7B052E312B799C77088676 /* ZTAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 758782FA8F61EEF45DECCFAA87B9E1EF /* ZTAlertView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -958,6 +970,18 @@
 		F7833EF6224CAE0D00E26C31 /* ZTDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTDatePicker.h; sourceTree = "<group>"; };
 		F7833EFB224CBCD800E26C31 /* ZTUpdateAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTUpdateAlertView.m; sourceTree = "<group>"; };
 		F7833EFC224CBCD800E26C31 /* ZTUpdateAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTUpdateAlertView.h; sourceTree = "<group>"; };
+		F78476612258915D00938781 /* ZTCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		F78476622258915D00938781 /* ZTCollectionViewLeftAlignedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTCollectionViewLeftAlignedLayout.h; sourceTree = "<group>"; };
+		F78476632258915D00938781 /* ZTCollectionViewLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTCollectionViewLayoutAttributes.h; sourceTree = "<group>"; };
+		F78476642258915D00938781 /* ZTCollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTCollectionViewLeftAlignedLayout.m; sourceTree = "<group>"; };
+		F78476652258915D00938781 /* ZTCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		F78476662258915E00938781 /* ZTCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTCollectionReusableView.h; sourceTree = "<group>"; };
+		F78476672258915E00938781 /* ZTCollectionViewLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTCollectionViewLayoutAttributes.m; sourceTree = "<group>"; };
+		F78476682258915E00938781 /* ZTCollectionViewAlignmentFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTCollectionViewAlignmentFlowLayout.m; sourceTree = "<group>"; };
+		F78476692258915E00938781 /* ZTWaterFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTWaterFlowLayout.h; sourceTree = "<group>"; };
+		F784766A2258915E00938781 /* ZTWaterFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTWaterFlowLayout.m; sourceTree = "<group>"; };
+		F784766B2258915E00938781 /* ZTCollectionViewAlignmentFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTCollectionViewAlignmentFlowLayout.h; sourceTree = "<group>"; };
+		F784766C2258915E00938781 /* ZTCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTCollectionReusableView.m; sourceTree = "<group>"; };
 		F7FF9F5F224B87D90078BC67 /* hud_success@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hud_success@3x.png"; sourceTree = "<group>"; };
 		F7FF9F62224B87DA0078BC67 /* prelook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prelook@2x.png"; sourceTree = "<group>"; };
 		F7FF9F64224B87DA0078BC67 /* prelook@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prelook@3x.png"; sourceTree = "<group>"; };
@@ -1742,6 +1766,7 @@
 		CC05EF7A7EFBC7EB1AC6649D0A7C3F61 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F78476602258913500938781 /* ZTCollectionView */,
 				F71EBB252244BB9A00D50CE7 /* ZT3DBannerView */,
 				BE57775996D8174BD7BF7726941C6436 /* ZTBadgeView */,
 				8C9F89B42DE4707D3E8CC9A3D211CC2A /* ZTUserDefaults */,
@@ -1994,6 +2019,25 @@
 			path = ZTBase/Core;
 			sourceTree = "<group>";
 		};
+		F78476602258913500938781 /* ZTCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				F78476692258915E00938781 /* ZTWaterFlowLayout.h */,
+				F784766A2258915E00938781 /* ZTWaterFlowLayout.m */,
+				F78476662258915E00938781 /* ZTCollectionReusableView.h */,
+				F784766C2258915E00938781 /* ZTCollectionReusableView.m */,
+				F784766B2258915E00938781 /* ZTCollectionViewAlignmentFlowLayout.h */,
+				F78476682258915E00938781 /* ZTCollectionViewAlignmentFlowLayout.m */,
+				F78476612258915D00938781 /* ZTCollectionViewFlowLayout.h */,
+				F78476652258915D00938781 /* ZTCollectionViewFlowLayout.m */,
+				F78476632258915D00938781 /* ZTCollectionViewLayoutAttributes.h */,
+				F78476672258915E00938781 /* ZTCollectionViewLayoutAttributes.m */,
+				F78476622258915D00938781 /* ZTCollectionViewLeftAlignedLayout.h */,
+				F78476642258915D00938781 /* ZTCollectionViewLeftAlignedLayout.m */,
+			);
+			path = ZTCollectionView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -2140,6 +2184,8 @@
 				68097F4C44BCC9BECDBB561F8747BB91 /* NSNotification+Sender.h in Headers */,
 				CB4CF99246678CA34A57273520AC25CF /* NSNotificationCenter+Sender.h in Headers */,
 				F727102A224E10E900076A8D /* ZTNetWork.h in Headers */,
+				F78476722258915E00938781 /* ZTCollectionReusableView.h in Headers */,
+				F78476752258915E00938781 /* ZTWaterFlowLayout.h in Headers */,
 				F727104B224E10E900076A8D /* UIViewController+NavBarStyle.h in Headers */,
 				F7271044224E10E900076A8D /* ZTBaseViewModel.h in Headers */,
 				27885D1A8CA88039F7771E7D650BB2A4 /* NSObject+JsonExport.h in Headers */,
@@ -2149,6 +2195,7 @@
 				F7833EF8224CAE0D00E26C31 /* ZTDatePicker.h in Headers */,
 				CC1F4CE4659FC56CE14F48C22C2832FB /* NSObject+Swizzling.h in Headers */,
 				8EF49BAA242D2D78539A4EADD329A329 /* TTTAttributedLabel.h in Headers */,
+				F784766D2258915E00938781 /* ZTCollectionViewFlowLayout.h in Headers */,
 				F727104D224E10E900076A8D /* ZTBaseEnum.h in Headers */,
 				86D8989A2BC488EA6775C55823E73688 /* UIAlertAction+Custom.h in Headers */,
 				F7271048224E10E900076A8D /* ZTInputDelegate.h in Headers */,
@@ -2161,6 +2208,7 @@
 				F727102C224E10E900076A8D /* ZTWebVC.h in Headers */,
 				F7271026224E10E900076A8D /* ZTBaseVC.h in Headers */,
 				D2C1B55DF2D7E7943C43D510CB12203A /* UINavigationBar+Shadow.h in Headers */,
+				F784766E2258915E00938781 /* ZTCollectionViewLeftAlignedLayout.h in Headers */,
 				F7271032224E10E900076A8D /* ZTTextFieldCell.h in Headers */,
 				F7271046224E10E900076A8D /* ZTInputModel.h in Headers */,
 				0F2DDA5A6F59C13E5F13AE5FE726E3EB /* ZTActivityAlertView.h in Headers */,
@@ -2171,11 +2219,13 @@
 				4C336C08DB74148A6DE8C53FE6A83353 /* ZTBadgeView.h in Headers */,
 				F727103A224E10E900076A8D /* ZTBaseConfiguration.h in Headers */,
 				5F9F89174F9295D0F73A6281B8F12861 /* ZTBase-umbrella.h in Headers */,
+				F78476772258915E00938781 /* ZTCollectionViewAlignmentFlowLayout.h in Headers */,
 				F727102E224E10E900076A8D /* ZTCollectionView.h in Headers */,
 				155A8EA9EAEE8DC9C6EB73814E0A0C46 /* ZTFileManager.h in Headers */,
 				F7271039224E10E900076A8D /* UIImage+Color.h in Headers */,
 				F7271033224E10E900076A8D /* ZTWebView.h in Headers */,
 				F727103F224E10E900076A8D /* ZTUIWebViewProgress.h in Headers */,
+				F784766F2258915E00938781 /* ZTCollectionViewLayoutAttributes.h in Headers */,
 				F71EBB312244BB9A00D50CE7 /* ZTPageControl.h in Headers */,
 				F7833EFE224CBCD900E26C31 /* ZTUpdateAlertView.h in Headers */,
 				F7271042224E10E900076A8D /* ZTWeakObject.h in Headers */,
@@ -2819,22 +2869,28 @@
 				527E60609A5ACE37F1E6A5B22FE84F3F /* ZTAlertController.m in Sources */,
 				F71EBB302244BB9A00D50CE7 /* ZT3DBannerView.m in Sources */,
 				FA2A54C13E7B052E312B799C77088676 /* ZTAlertView.m in Sources */,
+				F78476712258915E00938781 /* ZTCollectionViewFlowLayout.m in Sources */,
 				68BC2F6F8150FE81A5410AEBC39FAE4B /* ZTAnimationManager.m in Sources */,
 				F7271040224E10E900076A8D /* ZTTextFieldCell.m in Sources */,
 				F727104F224E10E900076A8D /* ZTWebView.m in Sources */,
 				5C4A83E33D0B364231FFF20E1FA1D3C6 /* ZTBadgeView.m in Sources */,
+				F78476732258915E00938781 /* ZTCollectionViewLayoutAttributes.m in Sources */,
 				F7271045224E10E900076A8D /* ZTTextView.m in Sources */,
 				BA8D91CA083989095836F81854494ED6 /* ZTBase-dummy.m in Sources */,
 				612554F3E1A23778CA31B6E6C7AD2B06 /* ZTFileManager.m in Sources */,
 				F71EBB2E2244BB9A00D50CE7 /* ZTPageControl.m in Sources */,
 				2545538B09A8CF5629BFCCF1FF42459A /* ZTUserDefaults.m in Sources */,
 				F727103B224E10E900076A8D /* ZTTableView.m in Sources */,
+				F78476702258915E00938781 /* ZTCollectionViewLeftAlignedLayout.m in Sources */,
+				F78476742258915E00938781 /* ZTCollectionViewAlignmentFlowLayout.m in Sources */,
 				F727102D224E10E900076A8D /* ZTBaseConfiguration.m in Sources */,
 				F7833EFD224CBCD900E26C31 /* ZTUpdateAlertView.m in Sources */,
 				F7271034224E10E900076A8D /* ZTBaseVC.m in Sources */,
 				F727102F224E10E900076A8D /* UINavigationController+SGProgress.m in Sources */,
 				F7271029224E10E900076A8D /* UIImage+Color.m in Sources */,
 				F7271031224E10E900076A8D /* ZTBaseViewModel.m in Sources */,
+				F78476782258915E00938781 /* ZTCollectionReusableView.m in Sources */,
+				F78476762258915E00938781 /* ZTWaterFlowLayout.m in Sources */,
 				F727103D224E10E900076A8D /* UIViewController+NavBarStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
