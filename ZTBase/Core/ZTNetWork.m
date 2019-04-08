@@ -8,7 +8,6 @@
 
 #import "ZTNetWork.h"
 #import "ZTBaseFunction.h"
-#import <AFNetworking/AFNetworking.h>
 #import "ZTBaseConfiguration.h"
 
 
@@ -60,7 +59,7 @@
 
 @interface ZTNetWork ()
 @property(nonatomic, strong) NSMutableArray<NSURLSessionDataTask*> * tasks;
-@property(class, nonatomic, strong, readonly) AFHTTPSessionManager * sessionManager;
+@property(nonatomic, strong) AFHTTPSessionManager * sessionManager;
 @end
 
 @implementation ZTNetWork
@@ -102,7 +101,7 @@
     NSURLSessionDataTask *task = nil;
     if ([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus!=AFNetworkReachabilityStatusNotReachable) {
         ZTNetWork *netWork = [self manager];
-        AFHTTPSessionManager * manger = ZTNetWork.sessionManager;
+        AFHTTPSessionManager * manger = netWork.sessionManager;
         manger.requestSerializer.timeoutInterval = NTTIMEOUT;
         
        task = [manger PUT:isNil(netModel.url) parameters:netModel.paramers success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -133,7 +132,7 @@
     NSURLSessionDataTask *task = nil;
     if ([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus!=AFNetworkReachabilityStatusNotReachable) {
         ZTNetWork *netWork = [self manager];
-        AFHTTPSessionManager * manger = ZTNetWork.sessionManager;
+        AFHTTPSessionManager * manger = netWork.sessionManager;
         manger.requestSerializer.timeoutInterval = NTTIMEOUT;
 
         task=[manger DELETE:isNil(netModel.url) parameters:netModel.paramers success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -165,7 +164,7 @@
     NSURLSessionDataTask *task = nil;
     if ([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus!=AFNetworkReachabilityStatusNotReachable) {
         ZTNetWork *netWork = [self manager];
-        AFHTTPSessionManager * manger = ZTNetWork.sessionManager;
+        AFHTTPSessionManager * manger = netWork.sessionManager;
         manger.requestSerializer.timeoutInterval = NTTIMEOUT;
         
         task = [manger GET:isNil(netModel.url) parameters:netModel.paramers progress:^(NSProgress * _Nonnull downloadProgress) {
@@ -206,7 +205,7 @@
     NSURLSessionDataTask *task = nil;
     if ([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus!=AFNetworkReachabilityStatusNotReachable) {
         ZTNetWork *netWork = [self manager];
-        AFHTTPSessionManager * manger = ZTNetWork.sessionManager;
+        AFHTTPSessionManager * manger = netWork.sessionManager;
         manger.requestSerializer.timeoutInterval = NTTIMEOUT;
 
         task = [manger POST:isNil(netModel.url) parameters:netModel.paramers progress:^(NSProgress * _Nonnull uploadProgress) {
@@ -248,7 +247,7 @@
     if ([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus!=AFNetworkReachabilityStatusNotReachable)
     {
         ZTNetWork *netWork = [self manager];
-        AFHTTPSessionManager * manger = ZTNetWork.sessionManager;
+        AFHTTPSessionManager * manger = netWork.sessionManager;
         manger.requestSerializer.timeoutInterval = NTTUPFileIMEOUT;
 
         task = [manger POST:isNil(upModel.url) parameters:upModel.paramers constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
@@ -287,11 +286,14 @@
 
  @return AFHTTPSessionManager
  */
-+(AFHTTPSessionManager *)sessionManager{
-    AFHTTPSessionManager * manger = [AFHTTPSessionManager manager];
-    [manger.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    return manger;
+- (AFHTTPSessionManager *)sessionManager{
+    if (!_sessionManager) {
+        _sessionManager = [AFHTTPSessionManager manager];
+        [_sessionManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    }
+    return _sessionManager;
 }
+
 
 /**
  * 打印请求信息

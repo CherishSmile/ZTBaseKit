@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AFNetworking/AFNetworking.h>
 
 
 typedef NS_ENUM(NSInteger,ZTHTTPResponseCode) {
@@ -82,6 +83,8 @@ typedef void(^ZTRequestSuccessBlock)(NSInteger statusCode,id model);
 typedef void(^ZTRequestFailedBlock)(NSInteger statusCode,NSString * failDescription);
 
 @interface ZTNetWork : NSObject
+
+@property(nonatomic, strong, readonly) AFHTTPSessionManager * sessionManager;
 
 /**
  * 请求单例
