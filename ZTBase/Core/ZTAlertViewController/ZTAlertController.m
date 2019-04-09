@@ -40,10 +40,14 @@
     UIColor * titleColor = [UIColor blueColor];
     switch (style) {
         case ZTAlertActionStyleDefault:
-            titleColor = ZTThemeColor;
+        {
+            titleColor = ZTConfig.themeColor?:ZTThemeColor;
+        }
             break;
         case ZTAlertActionStyleCancel:
-            titleColor = ZTThemeColor;
+        {
+            titleColor = ZTConfig.themeColor?:ZTThemeColor;
+        }
             break;
         default:
             break;

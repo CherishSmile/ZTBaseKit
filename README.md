@@ -22,7 +22,7 @@ pod 'ZTBase'
 
 ## Author
 
-ZWL, 1332291552@qq.com
+CherishSmile, misteralvin@yeah.net
 
 ## License
 

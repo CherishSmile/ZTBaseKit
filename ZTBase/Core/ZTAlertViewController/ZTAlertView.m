@@ -436,7 +436,7 @@
         _messagelbl.font = GetFont(F5);
         _messagelbl.numberOfLines = 0;
         _messagelbl.delegate = self;
-        _messagelbl.linkAttributes = @{NSForegroundColorAttributeName:ZTThemeColor};
+        _messagelbl.linkAttributes = @{NSForegroundColorAttributeName:ZTConfig.themeColor?:ZTThemeColor};
         _messagelbl.textColor = ZTTextPaleGrayColor;
     }
     return _messagelbl;
