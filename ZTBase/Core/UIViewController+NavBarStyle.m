@@ -180,20 +180,18 @@
                 naviBar.shadowImage = UIImage.new;
 
                 /**设置状态栏*/
-                app.statusBarStyle = UIStatusBarStyleLightContent;
                 self.statusBarBackgroundColor = nil;
+                app.statusBarStyle = UIStatusBarStyleLightContent;
                 self.statusBarStyle = app.statusBarStyle;
                 
                 self.isSetedStyle = YES;
             }else{
-                if (self.barStyle != ZTNavBarStyleDefault) {
-                    self.navigationController.navigationBar.shadowImage = UIImage.new;
-                    [self setBarAlpha:self.barAlpha];
-                }
-                naviBar.barTintColor = self.navBarTintColor;
                 [self setNavBarTitleTextAttributes:self.navTitleColor];
-                [self setStatusBarBgColor:self.statusBarBackgroundColor];
                 naviBar.tintColor = self.navTintColor;
+                naviBar.barTintColor = self.navBarTintColor;
+                [self setBarAlpha:self.barAlpha];
+                naviBar.shadowImage = UIImage.new;
+                [self setStatusBarBgColor:self.statusBarBackgroundColor];
                 app.statusBarStyle = self.statusBarStyle;
             }
             
@@ -215,14 +213,12 @@
                 self.statusBarStyle = app.statusBarStyle;
                 self.isSetedStyle = YES;
             }else{
-                if (self.barStyle != ZTNavBarStyleWhite) {
-                    self.navigationController.navigationBar.shadowImage = UIImage.new;
-                    [self setBarAlpha:self.barAlpha];
-                }
-                naviBar.barTintColor = self.navBarTintColor;
                 [self setNavBarTitleTextAttributes:self.navTitleColor];
-                [self setStatusBarBgColor:self.statusBarBackgroundColor];
                 naviBar.tintColor = self.navTintColor;
+                naviBar.barTintColor = self.navBarTintColor;
+                [self setBarAlpha:self.barAlpha];
+                naviBar.shadowImage = UIImage.new;
+                [self setStatusBarBgColor:self.statusBarBackgroundColor];
                 app.statusBarStyle = self.statusBarStyle;
             }
             
@@ -244,17 +240,14 @@
                 self.statusBarStyle = app.statusBarStyle;
                 self.isSetedStyle = YES;
             }else{
-                if (self.barStyle != ZTNavBarStyleClear) {
-                    naviBar.shadowImage = [UIImage new];
-                    [self setBarAlpha:self.barAlpha];
-                }
-                naviBar.barTintColor = self.navBarTintColor;
                 [self setNavBarTitleTextAttributes:self.navTitleColor];
-                [self setStatusBarBgColor:self.statusBarBackgroundColor];
                 naviBar.tintColor = self.navTintColor;
+                naviBar.barTintColor = self.navBarTintColor;
+                [self setBarAlpha:self.barAlpha];
+                naviBar.shadowImage = UIImage.new;
+                [self setStatusBarBgColor:self.statusBarBackgroundColor];
                 app.statusBarStyle = self.statusBarStyle;
             }
-            
         }
             break;
             
