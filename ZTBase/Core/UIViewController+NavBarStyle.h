@@ -11,8 +11,7 @@
 /**
  导航样式
  
- - ZTNavBarStyleDefault: 默认样式
- - ZTNavBarStyleCustom: 自定义颜色背景样式
+ - ZTNavBarStyleDefault: 默认样式（黑色背景）
  - ZTNavBarStyleWhite: 白色背景样式
  - ZTNavBarStyleClear: 透明背景样式
  */
@@ -50,6 +49,9 @@ typedef NS_ENUM(NSInteger,ZTNavBarStatus) {
  <false/>
  */
 @property(nonatomic, assign) UIStatusBarStyle  statusBarStyle;
+
+
+@property(nonatomic, assign) BOOL  statusBarHidden;
 
 /**
  状态栏背景色

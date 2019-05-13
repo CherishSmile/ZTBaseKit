@@ -93,7 +93,6 @@ _Pragma("clang diagnostic pop") \
 #define NETWORKERRO  @"网络异常，请检查您的网络设置"
 #define REQUESTERRO  @"服务器繁忙，请稍后重试"
 #define SEVERERRO    @"服务器异常，请联系客服"
-#define LASTPAGETEXT @"已经是最后一页了"
 
 /********************************************其他*********************************/
 

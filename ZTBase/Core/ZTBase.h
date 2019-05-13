@@ -11,6 +11,7 @@
 #import "ZTBaseFunction.h"
 #import "ZTBaseVC.h"
 #import "ZTWebVC.h"
+#import "ZTTableView.h"
 #import "ZTCollectionView.h"
 #import "ZTTextView.h"
 #import "ZTWebView.h"
