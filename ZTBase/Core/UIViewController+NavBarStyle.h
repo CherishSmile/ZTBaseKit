@@ -50,7 +50,9 @@ typedef NS_ENUM(NSInteger,ZTNavBarStatus) {
  */
 @property(nonatomic, assign) UIStatusBarStyle  statusBarStyle;
 
-
+/**
+ 状态栏是否隐藏
+ */
 @property(nonatomic, assign) BOOL  statusBarHidden;
 
 /**
