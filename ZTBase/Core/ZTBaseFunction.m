@@ -396,7 +396,7 @@ NSData * compressImageQuality(UIImage *image ,int maxLength)
     NSLog(@"压缩图片质量：%@,%@",@(data.length),[NSValue valueWithCGSize:[UIImage imageWithData:data].size]);
     return data;
 }
-UIImage * compressImageSize(UIImage *image,CGFloat maxLength)
+NSData * compressImageSize(UIImage *image,CGFloat maxLength)
 {
     UIImage *resultImage = image;
     NSData *data = UIImageJPEGRepresentation(resultImage, 1);
@@ -413,7 +413,7 @@ UIImage * compressImageSize(UIImage *image,CGFloat maxLength)
         data = UIImageJPEGRepresentation(resultImage, 1);
     }
     NSLog(@"压缩图片尺寸：%@，%@",@(data.length),[NSValue valueWithCGSize:resultImage.size]);
-    return resultImage;
+    return data;
     
 }
 

@@ -195,7 +195,7 @@
                 self.statusBarBackgroundColor = nil;
                 app.statusBarStyle = UIStatusBarStyleLightContent;
                 self.statusBarStyle = app.statusBarStyle;
-                app.statusBarHidden = YES;
+                app.statusBarHidden = NO;
                 self.statusBarHidden = app.statusBarHidden;
                 
                 self.isSetedStyle = YES;
@@ -226,7 +226,7 @@
                 [self setBarAlpha:1];
                 app.statusBarStyle = UIStatusBarStyleDefault;
                 self.statusBarStyle = app.statusBarStyle;
-                app.statusBarHidden = YES;
+                app.statusBarHidden = NO;
                 self.statusBarHidden = app.statusBarHidden;
                 
                 self.isSetedStyle = YES;
@@ -257,7 +257,7 @@
                 [self setBarAlpha:0];
                 app.statusBarStyle = UIStatusBarStyleLightContent;
                 self.statusBarStyle = app.statusBarStyle;
-                app.statusBarHidden = YES;
+                app.statusBarHidden = NO;
                 self.statusBarHidden = app.statusBarHidden;
                 
                 self.isSetedStyle = YES;

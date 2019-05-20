@@ -301,9 +301,9 @@ NSData * compressImageQuality(UIImage *image ,int maxLength);
  
  @param image 原始图片
  @param maxLength 图片最大尺寸
- @return 压缩后的图片
+ @return 图片的二进制数据
  */
-UIImage * compressImageSize(UIImage *image,CGFloat maxLength);
+NSData * compressImageSize(UIImage *image,CGFloat maxLength);
 
 /**
  空值转化
