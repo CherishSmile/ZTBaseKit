@@ -392,13 +392,14 @@ BOOL isAVCaptureActive(void);
  @return YES or NO
  */
 BOOL isAllowLoction (void);
+
 /**
- 是否允许通知
+ 用户通知是否可用
  
  @return YES or NO
  */
 
-BOOL isAllowNotfication(void);
+BOOL isUserNotificationEnable(void);
 
 /**
  获取时间字符串

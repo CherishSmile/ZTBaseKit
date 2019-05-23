@@ -15,6 +15,8 @@ typedef NS_ENUM(NSInteger,ZTHTTPResponseCode) {
     ZTHTTPResponseCodeNetworkError = 0
 };
 
+@class ZTUpLoadModel;
+
 @interface ZTNetModel : NSObject
 
 /**
@@ -33,6 +35,16 @@ typedef NS_ENUM(NSInteger,ZTHTTPResponseCode) {
 @property(nonatomic, assign) BOOL  isRestApi;
 
 /**
+ 是否上传文件
+ */
+@property(nonatomic, assign) BOOL  isUploadFile;
+
+/**
+ 上传文件的数据组
+ */
+@property(nonatomic,strong)NSArray<ZTUpLoadModel*> *dataAry;
+
+/**
  构造函数
 
  @param paramers 参数
@@ -46,34 +58,28 @@ typedef NS_ENUM(NSInteger,ZTHTTPResponseCode) {
 
 
 @interface ZTUpLoadModel : NSObject
+
 ///数据类型
 @property(nonatomic,strong)NSData * path;
+
 ///数据类型
-@property(nonatomic,strong)NSString * fileType;
-///数据名称
+@property(nonatomic,strong)NSString * MIMEType;
+
+///文件名称
 @property(nonatomic,strong)NSString * fileName;
+
 ///接受数据的方法名
 @property(nonatomic,strong)NSString * dataMethod;
 
 /**
  构造函数
-
- @param fileType 数据类型
+ 
+ @param MIMEType 数据类型
  @param name 数据名称
  @param method 接受数据的方法名
  @return ZTUpLoadModel
  */
--(instancetype)initFileType:(NSString *)fileType fileName:(NSString*)name dataMethod:(NSString*)method;
-
-@end
-
-
-@interface ZTNetUpLoadModel : ZTNetModel
-
-/**
- 上传文件的数据组
- */
-@property(nonatomic,strong)NSArray<ZTUpLoadModel*> *dataAry;
+-(instancetype)initMIMEType:(NSString *)MIMEType fileName:(NSString*)name dataMethod:(NSString*)method;
 
 @end
 
@@ -123,6 +129,6 @@ typedef void(^ZTRequestFailedBlock)(NSInteger statusCode,NSString * failDescript
 /**
  * post请求(上传文件)
  */
-+(NSURLSessionDataTask*)ZTUPFILE:(ZTNetUpLoadModel *)upModel  success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail;
++(NSURLSessionDataTask*)ZTUPFILE:(ZTNetModel *)upModel  success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail;
 
 @end

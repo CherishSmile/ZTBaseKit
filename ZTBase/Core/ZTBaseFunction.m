@@ -578,8 +578,9 @@ BOOL isAllowLoction ()
     return NO;
     
 }
-BOOL isAllowNotfication(void){
-    return [[UIApplication sharedApplication] isRegisteredForRemoteNotifications];
+BOOL isUserNotificationEnable(void){
+    UIUserNotificationSettings *setting = [[UIApplication sharedApplication] currentUserNotificationSettings];
+    return UIUserNotificationTypeNone != setting.types;
 }
 
 

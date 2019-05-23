@@ -39,20 +39,15 @@
 @end
 
 @implementation ZTUpLoadModel
--(instancetype)initFileType:(NSString *)fileType fileName:(NSString *)name dataMethod:(NSString *)method{
+-(instancetype)initMIMEType:(NSString *)MIMEType fileName:(NSString *)name dataMethod:(NSString *)method{
     self = [super init];
     if (self) {
-        _fileType = fileType;
+        _MIMEType = MIMEType;
         _fileName = name;
         _dataMethod = method;
     }
     return self;
 }
-@end
-
-
-@implementation ZTNetUpLoadModel
-
 @end
 
 
@@ -241,7 +236,7 @@
  @param success 成功回调
  @param fail 失败回调
  */
-+(NSURLSessionDataTask*)ZTUPFILE:(ZTNetUpLoadModel *)upModel success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail
++(NSURLSessionDataTask*)ZTUPFILE:(ZTNetModel *)upModel success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail
 {
     NSURLSessionDataTask *task = nil;
     if ([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus!=AFNetworkReachabilityStatusNotReachable)
@@ -252,7 +247,7 @@
 
         task = [manger POST:isNil(upModel.url) parameters:upModel.paramers constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
             for (ZTUpLoadModel * model in upModel.dataAry) {
-                [formData appendPartWithFileData:model.path name:model.dataMethod fileName:model.fileName mimeType:model.fileType];
+                [formData appendPartWithFileData:model.path name:model.dataMethod fileName:model.fileName mimeType:model.MIMEType];
             }
         } progress:^(NSProgress * _Nonnull uploadProgress) {
             
