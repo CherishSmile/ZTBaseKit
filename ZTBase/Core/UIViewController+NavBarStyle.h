@@ -11,13 +11,13 @@
 /**
  导航样式
  
- - ZTNavBarStyleDefault: 默认样式（黑色背景）
  - ZTNavBarStyleWhite: 白色背景样式
+ - ZTNavBarStyleBlack: 黑色背景样式
  - ZTNavBarStyleClear: 透明背景样式
  */
 typedef NS_ENUM(NSInteger,ZTNavBarStyle) {
-    ZTNavBarStyleDefault = 1,
-    ZTNavBarStyleWhite,
+    ZTNavBarStyleWhite = 1,
+    ZTNavBarStyleBlack,
     ZTNavBarStyleClear
 };
 

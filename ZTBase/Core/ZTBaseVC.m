@@ -59,7 +59,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self setNavBarStyle:(ZTNavBarStyleDefault)];
+    [self setNavBarStyle:ZTNavBarStyleWhite];
     if (ZTBaseConfiguration.defaultConfig.themeColor) {
         self.navBarTintColor = ZTBaseConfiguration.defaultConfig.themeColor;
     }
