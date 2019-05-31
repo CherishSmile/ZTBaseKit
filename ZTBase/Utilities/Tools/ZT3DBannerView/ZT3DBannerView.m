@@ -54,7 +54,7 @@
     ZT3DBannerView *scrollView = [[self alloc] initWithFrame:frame];
     scrollView.imgWidth = imageWidth;
     scrollView.itemMargnPadding = imageSpacing;
-    scrollView.data = data;
+    scrollView.imageData = data;
     return scrollView;
 }
 
@@ -67,7 +67,7 @@
     _showPageControl = YES;
     _hidesForSinglePage = YES;
     _autoScroll = YES;
-    self.data = [NSArray array];
+    self.imageData = [NSArray array];
 }
 
 -(void)setUpUI{
@@ -103,13 +103,13 @@
 //创建页码指示器
 -(void)createPageControl{
     if (_pageControl) [_pageControl removeFromSuperview];
-    if (self.data.count == 0) return;
-    if ((self.data.count == 1) && self.hidesForSinglePage) return;
+    if (self.imageData.count == 0) return;
+    if ((self.imageData.count == 1) && self.hidesForSinglePage) return;
     
     _pageControl = [[ZTPageControl alloc]initWithFrame:CGRectMake((self.frame.size.width - 200)/2, ZXMainScrollViewHeight - 30, 200, 30)];
     _pageControl.userInteractionEnabled = NO;
     _pageControl.currentPage = 0;
-    _pageControl.numberOfPages = self.data.count;
+    _pageControl.numberOfPages = self.imageData.count;
     _pageControl.pageControlStyle = ZTPageControlStyelRectangle;
     [self addSubview:_pageControl];
     _pageControl.pageIndicatorTintColor = self.otherPageControlColor;
@@ -140,11 +140,11 @@
     [self.centerIV addProjectionWithShadowOpacity:0.4];
     [self.rightIV addProjectionWithShadowOpacity:0.4];
 }
-- (void)setData:(NSArray *)data {
-    if (data.count < _data.count) {
+- (void)setImageData:(NSArray *)data {
+    if (data.count < _imageData.count) {
         [_mainScrollView setContentOffset:CGPointMake(ZXMainScrollViewWidth, 0) animated:NO];
     }
-    _data = data;
+    _imageData = data;
     self.currentImageIndex = 0;
     self.imgCount = data.count;
     self.pageControl.numberOfPages = self.imgCount;
@@ -166,24 +166,28 @@
     if(self.self.imgCount == 0){
         return;
     }
-    if([self isHttpString:self.data[currentImageIndex]]){
-        [self.centerIV setWebImageWithURL:[NSURL URLWithString:self.data[currentImageIndex]] placeholderImage:self.placeHolderImage];
+    
+    NSString * currentImageUrl = self.imageData[currentImageIndex];
+    if([self isHttpString:currentImageUrl]){
+        [self.centerIV setWebImageWithURL:[NSURL URLWithString:currentImageUrl] placeholderImage:self.placeHolderImage];
     }else {
-        self.centerIV.image = self.data[currentImageIndex];
+        self.centerIV.image = [UIImage imageNamed:currentImageUrl];
     }
     
     NSInteger leftIndex = (unsigned long)((_currentImageIndex - 1 + self.imgCount) % self.imgCount);
-    if([self isHttpString:self.data[leftIndex]]){
-        [self.leftIV setWebImageWithURL:[NSURL URLWithString:self.data[leftIndex]] placeholderImage:self.placeHolderImage];
+    NSString * leftImageUrl = self.imageData[leftIndex];
+    if([self isHttpString:leftImageUrl]){
+        [self.leftIV setWebImageWithURL:[NSURL URLWithString:leftImageUrl] placeholderImage:self.placeHolderImage];
     }else {
-        self.leftIV.image = self.data[leftIndex];
+        self.leftIV.image = [UIImage imageNamed:leftImageUrl];
     }
     
     NSInteger rightIndex = (unsigned long)((_currentImageIndex + 1) % self.imgCount);
-    if([self isHttpString:self.data[rightIndex]]){
-        [self.rightIV setWebImageWithURL:[NSURL URLWithString:self.data[rightIndex]] placeholderImage:self.placeHolderImage];
+    NSString * rightImageUrl = self.imageData[rightIndex];
+    if([self isHttpString:rightImageUrl]){
+        [self.rightIV setWebImageWithURL:[NSURL URLWithString:rightImageUrl] placeholderImage:self.placeHolderImage];
     }else {
-        self.rightIV.image = self.data[rightIndex];
+        self.rightIV.image = [UIImage imageNamed:rightImageUrl];
     }
     
     _pageControl.currentPage = currentImageIndex;

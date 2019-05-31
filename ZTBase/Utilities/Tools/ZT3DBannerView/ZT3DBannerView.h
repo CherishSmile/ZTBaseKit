@@ -33,7 +33,7 @@
 /** 图片的圆角半径 */
 @property (nonatomic, assign) CGFloat imageRadius;
 /** 数据源 */
-@property (nonatomic, strong) NSArray *data;
+@property (nonatomic, strong) NSArray<NSString *> * imageData;
 /** 图片高度差 默认0 */
 @property (nonatomic, assign) CGFloat imageHeightPoor;
 /** 初始alpha默认1 */
