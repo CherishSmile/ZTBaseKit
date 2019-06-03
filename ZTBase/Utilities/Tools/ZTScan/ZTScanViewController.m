@@ -10,9 +10,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <Photos/Photos.h>
 
-
 #define APPNAME  [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"]
-
 
 @interface ZTScanViewController ()
 @property(nonatomic, assign) CGRect  scanRect;
@@ -24,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
     self.view.backgroundColor = UIColor.blackColor;
 }
 
@@ -83,10 +81,8 @@
 {
     if (!_qRScanView)
     {
-        self.qRScanView = [[ZTScanView alloc]initWithFrame:self.view.bounds style:_style];
-        
+        self.qRScanView = [[ZTScanView alloc]initWithFrame:self.view.bounds style:self.style];
         self.qRScanView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-        
         [self.view addSubview:self.qRScanView];
         
     }
@@ -99,7 +95,7 @@
 
 - (void)reStartDevice
 {
-    [_scanObj startScan];
+    [self.scanObj startScan];
     self.flashBtn.selected = NO;
 }
 
@@ -111,11 +107,9 @@
     videoView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     [self.view insertSubview:videoView atIndex:0];
     __weak __typeof(self) weakSelf = self;
-    
     if (!_scanObj )
     {
         CGRect cropRect = CGRectZero;
-        
         if (_isOpenInterestRect) {
             
             //设置只识别框内区域
@@ -225,18 +219,13 @@
     if (_delegate) {
         [_delegate scanResultWithArray:array];
     }
-    
-    //也可以通过继承LBXScanViewController，重写本方法即可
+    //也可以通过继承ZTScanViewController，重写本方法即可
 }
-
-
-
 //开关闪光灯
 - (void)openOrCloseFlash
 {
     [_scanObj changeTorch];
 }
-
 
 #pragma mark --打开相册并识别图片
 

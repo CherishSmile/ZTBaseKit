@@ -26,9 +26,9 @@
         _photoframeAngleW = 24;
         _photoframeAngleH = 24;
         _photoframeLineW = 7;
+        _scanType = ZTScanTypeAll;
+        _animationImage = [UIImage imageNamed:@"scan_wangge"];
     }
     return self;
 }
-
 @end
-

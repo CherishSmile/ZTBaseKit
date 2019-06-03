@@ -29,15 +29,6 @@
  */
 -(id)initWithFrame:(CGRect)frame style:(ZTScanViewStyle*)style;
 
-/**
- *  设备启动中文字提示
- */
-//- (void)startDeviceReadyingWithText:(NSString*)text;
-
-/**
- *  设备启动完成
- */
-//- (void)stopDeviceReadying;
 
 /**
  *  开始扫描动画
@@ -48,8 +39,6 @@
  *  结束扫描动画
  */
 - (void)stopScanAnimation;
-
-//
 
 /**
  @brief  根据矩形区域，获取Native扫码识别兴趣区域

@@ -15,8 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ZTScanView()
 
 //扫码区域各种参数
-@property (nonatomic, strong,nullable) ZTScanViewStyle* viewStyle;
-
+@property (nonatomic, strong,nullable) ZTScanViewStyle * viewStyle;
 
 //扫码区域
 @property (nonatomic,assign)CGRect scanRetangleRect;
@@ -37,11 +36,15 @@ NS_ASSUME_NONNULL_END
 @implementation ZTScanView
 
 
--(id)initWithFrame:(CGRect)frame style:(ZTScanViewStyle*)style
+-(id)initWithFrame:(CGRect)frame style:(ZTScanViewStyle *)style
 {
     if (self = [super initWithFrame:frame])
     {
-        self.viewStyle = style;
+        if (style) {
+            self.viewStyle = style;
+        }else{
+            self.viewStyle = [[ZTScanViewStyle alloc] init];
+        }
         self.backgroundColor = [UIColor clearColor];
     }
     return self;

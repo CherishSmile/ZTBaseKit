@@ -47,19 +47,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark -中心位置矩形框
 /**
- @brief  是否需要绘制扫码矩形框，默认YES
+ 是否需要绘制扫码矩形框，默认YES
  */
 @property (nonatomic, assign) BOOL isNeedShowRetangle;
 
 
 /**
- *  默认扫码区域为正方形，如果扫码区域不是正方形，设置宽高比
+ 默认扫码区域为正方形，如果扫码区域不是正方形，设置宽高比
  */
 @property (nonatomic, assign) CGFloat whRatio;
 
 
 /**
- @brief  矩形框(视频显示透明区)域向上移动偏移量，0表示扫码透明区域在当前视图中心位置，< 0 表示扫码区域下移, >0 表示扫码区域上移
+ 矩形框(视频显示透明区)域向上移动偏移量，0表示扫码透明区域在当前视图中心位置，< 0 表示扫码区域下移, >0 表示扫码区域上移
  */
 @property (nonatomic, assign) CGFloat centerUpOffset;
 
@@ -100,9 +100,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign) CGFloat photoframeLineW;
 
-
-
-
 #pragma mark --动画效果
 /**
  @brief  扫码动画效果:线条或网格
@@ -112,9 +109,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  动画效果的图像，如线条或网格的图像，如果为nil，表示不需要动画效果
  */
-@property (nonatomic,strong,nullable) UIImage *animationImage;
+@property(nonatomic,strong,nullable) UIImage *animationImage;
 
-
+/**
+ 扫码类型
+ */
 @property(nonatomic, assign) ZTScanType  scanType;
 
 #pragma mark -非识别区域颜色,默认 RGBA (0,0,0,0.5)
@@ -122,7 +121,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  must be create by [UIColor colorWithRed: green: blue: alpha:]
  */
-@property (nonatomic, strong) UIColor *notRecoginitonArea;
+@property (nonatomic, strong) UIColor * notRecoginitonArea;
 
 
 @end
