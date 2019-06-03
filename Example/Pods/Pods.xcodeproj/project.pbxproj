@@ -382,6 +382,7 @@
 		F78476772258915E00938781 /* ZTCollectionViewAlignmentFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = F784766B2258915E00938781 /* ZTCollectionViewAlignmentFlowLayout.h */; };
 		F78476782258915E00938781 /* ZTCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F784766C2258915E00938781 /* ZTCollectionReusableView.m */; };
 		F7B3447B22A4C06D002EA3B0 /* scan_wangge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B3447A22A4C06D002EA3B0 /* scan_wangge@2x.png */; };
+		F7B3447D22A4C446002EA3B0 /* scan_shoudiantong@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B3447C22A4C446002EA3B0 /* scan_shoudiantong@2x.png */; };
 		F7BB549B22A12A6900EE6F40 /* ZTScanResult.h in Headers */ = {isa = PBXBuildFile; fileRef = F7BB549722A12A6900EE6F40 /* ZTScanResult.h */; };
 		F7BB549C22A12A6900EE6F40 /* ZTScanNative.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BB549822A12A6900EE6F40 /* ZTScanNative.m */; };
 		F7BB549D22A12A6900EE6F40 /* ZTScanNative.h in Headers */ = {isa = PBXBuildFile; fileRef = F7BB549922A12A6900EE6F40 /* ZTScanNative.h */; };
@@ -995,6 +996,7 @@
 		F784766B2258915E00938781 /* ZTCollectionViewAlignmentFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTCollectionViewAlignmentFlowLayout.h; sourceTree = "<group>"; };
 		F784766C2258915E00938781 /* ZTCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTCollectionReusableView.m; sourceTree = "<group>"; };
 		F7B3447A22A4C06D002EA3B0 /* scan_wangge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scan_wangge@2x.png"; sourceTree = "<group>"; };
+		F7B3447C22A4C446002EA3B0 /* scan_shoudiantong@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scan_shoudiantong@2x.png"; sourceTree = "<group>"; };
 		F7BB549722A12A6900EE6F40 /* ZTScanResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTScanResult.h; sourceTree = "<group>"; };
 		F7BB549822A12A6900EE6F40 /* ZTScanNative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTScanNative.m; sourceTree = "<group>"; };
 		F7BB549922A12A6900EE6F40 /* ZTScanNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTScanNative.h; sourceTree = "<group>"; };
@@ -2092,6 +2094,7 @@
 				F7BB54C722A1504600EE6F40 /* placeholder_neterror@2x.png */,
 				F7BB54C822A1504600EE6F40 /* web_guanbi@2x.png */,
 				F7BB54C922A1504600EE6F40 /* alert_close@2x.png */,
+				F7B3447C22A4C446002EA3B0 /* scan_shoudiantong@2x.png */,
 				F7BB54CA22A1504600EE6F40 /* scan_music.caf */,
 				F7B3447A22A4C06D002EA3B0 /* scan_wangge@2x.png */,
 				F7BB54CB22A1504600EE6F40 /* nav_back@2x.png */,
@@ -2688,6 +2691,7 @@
 				F7BB54D622A1504700EE6F40 /* placeholder_emptydata@2x.png in Resources */,
 				F7BB54D822A1504700EE6F40 /* placeholder_neterror@2x.png in Resources */,
 				F7BB54DC22A1504700EE6F40 /* nav_back@2x.png in Resources */,
+				F7B3447D22A4C446002EA3B0 /* scan_shoudiantong@2x.png in Resources */,
 				F7BB54D522A1504700EE6F40 /* placeholder_neterror@3x.png in Resources */,
 				F7BB54CE22A1504700EE6F40 /* hud_success@2x.png in Resources */,
 				F7BB54DE22A1504700EE6F40 /* alert_close@3x.png in Resources */,

@@ -336,7 +336,7 @@
         _flashBtn.hidden = YES;
         _flashBtn.selected = NO;
         [_flashBtn setTitle:@"轻点关闭" forState:(UIControlStateSelected)];
-        [_flashBtn setImage:[UIImage imageNamed:@"scan_shoudiantong"] forState:(UIControlStateNormal)];
+        [_flashBtn setImage:[[UIImage imageNamed:@"scan_shoudiantong"] imageWithRenderingMode:(UIImageRenderingModeAlwaysTemplate)] forState:(UIControlStateNormal)];
         [_flashBtn addTarget:self action:@selector(flashClick) forControlEvents:(UIControlEventTouchUpInside)];
         [self.qRScanView addSubview:_flashBtn];
     }
