@@ -4,6 +4,7 @@
 
 #define brightnessThresholdValue (-0.2) //亮度阈值
 
+#define ZTScanNativeBundle [NSBundle bundleWithPath:[[NSBundle bundleForClass:[ZTScanNative class]] pathForResource:@"ZTBase" ofType:@"bundle"]]
 
 static inline void soundCompleteCallBack(SystemSoundID soundID, void *clientData)
 {
@@ -11,7 +12,7 @@ static inline void soundCompleteCallBack(SystemSoundID soundID, void *clientData
 }
 
 static inline void PlayScanResultSound(void){
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"scan_music" ofType:@"caf"];
+    NSString *filePath = [ZTScanNativeBundle pathForResource:@"scan_music" ofType:@"caf"];
     NSURL *fileUrl = [NSURL URLWithString:filePath];
     SystemSoundID soundID = 0;
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)(fileUrl), &soundID);
