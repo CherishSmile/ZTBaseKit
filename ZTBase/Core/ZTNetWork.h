@@ -51,8 +51,8 @@ typedef NS_ENUM(NSInteger,ZTHTTPResponseCode) {
  @param url 请求url
  @return ZTNetModel
  */
--(instancetype)initParamers:(NSDictionary *)paramers urlString:(NSString *)url;
--(instancetype)initParamers:(NSDictionary *)paramers urlString:(NSString *)url restApi:(BOOL)isRestApi;
+-(instancetype)initParamers:(id)paramers urlString:(NSString *)url;
+-(instancetype)initParamers:(id)paramers urlString:(NSString *)url restApi:(BOOL)isRestApi;
 
 @end
 

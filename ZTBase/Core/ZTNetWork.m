@@ -10,7 +10,6 @@
 #import "ZTBaseFunction.h"
 #import "ZTBaseConfiguration.h"
 
-
 #define NTTIMEOUT 15.f
 #define NTTUPFileIMEOUT 60.f
 
@@ -18,7 +17,7 @@
 @end
 @implementation ZTNetModel
 
--(instancetype)initParamers:(NSDictionary *)paramers urlString:(NSString *)url{
+-(instancetype)initParamers:(id)paramers urlString:(NSString *)url{
     self = [super init];
     if (self) {
         _paramers = paramers;
@@ -27,7 +26,7 @@
     return self;
 }
 
--(instancetype)initParamers:(NSDictionary *)paramers urlString:(NSString *)url restApi:(BOOL)isRestApi{
+-(instancetype)initParamers:(id)paramers urlString:(NSString *)url restApi:(BOOL)isRestApi{
     if (self = [super init]) {
         _paramers = paramers;
         _url = url;
@@ -92,9 +91,9 @@
     }];
 }
 
-+(NSURLSessionDataTask*)ZTPUT:(ZTNetModel *)netModel success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail{
-    NSURLSessionDataTask *task = nil;
-    if ([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus!=AFNetworkReachabilityStatusNotReachable) {
++(NSURLSessionDataTask *)ZTPUT:(ZTNetModel *)netModel success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail{
+    __block NSURLSessionDataTask * task = nil;
+    if (AFNetworkReachabilityManager.sharedManager.networkReachabilityStatus!=AFNetworkReachabilityStatusNotReachable) {
         ZTNetWork *netWork = [self manager];
         AFHTTPSessionManager * manger = netWork.sessionManager;
         manger.requestSerializer.timeoutInterval = NTTIMEOUT;
@@ -123,9 +122,9 @@
     return task;
 }
 
-+(NSURLSessionDataTask*)ZTDELETE:(ZTNetModel *)netModel success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail{
-    NSURLSessionDataTask *task = nil;
-    if ([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus!=AFNetworkReachabilityStatusNotReachable) {
++(NSURLSessionDataTask *)ZTDELETE:(ZTNetModel *)netModel success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail{
+    __block NSURLSessionDataTask * task = nil;
+    if (AFNetworkReachabilityManager.sharedManager.networkReachabilityStatus!=AFNetworkReachabilityStatusNotReachable) {
         ZTNetWork *netWork = [self manager];
         AFHTTPSessionManager * manger = netWork.sessionManager;
         manger.requestSerializer.timeoutInterval = NTTIMEOUT;
@@ -155,9 +154,9 @@
 }
 
 
-+(NSURLSessionDataTask*)ZTGET:(ZTNetModel *)netModel success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail{
-    NSURLSessionDataTask *task = nil;
-    if ([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus!=AFNetworkReachabilityStatusNotReachable) {
++(NSURLSessionDataTask *)ZTGET:(ZTNetModel *)netModel success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail{
+    __block NSURLSessionDataTask * task = nil;
+    if (AFNetworkReachabilityManager.sharedManager.networkReachabilityStatus!=AFNetworkReachabilityStatusNotReachable) {
         ZTNetWork *netWork = [self manager];
         AFHTTPSessionManager * manger = netWork.sessionManager;
         manger.requestSerializer.timeoutInterval = NTTIMEOUT;
@@ -195,32 +194,62 @@
  @param success 成功回调
  @param fail 失败回调
  */
-+(NSURLSessionDataTask*)ZTPOST:(ZTNetModel *)netModel success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail
++(NSURLSessionDataTask *)ZTPOST:(ZTNetModel *)netModel success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail
 {
-    NSURLSessionDataTask *task = nil;
-    if ([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus!=AFNetworkReachabilityStatusNotReachable) {
+    __block NSURLSessionDataTask * task = nil;
+    if (AFNetworkReachabilityManager.sharedManager.networkReachabilityStatus!=AFNetworkReachabilityStatusNotReachable) {
         ZTNetWork *netWork = [self manager];
-        AFHTTPSessionManager * manger = netWork.sessionManager;
-        manger.requestSerializer.timeoutInterval = NTTIMEOUT;
-
-        task = [manger POST:isNil(netModel.url) parameters:netModel.paramers progress:^(NSProgress * _Nonnull uploadProgress) {
-            
-        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            [self printRequestLog:task.currentRequest param:netModel.paramers result:responseObject];
-            [netWork.tasks removeObject:task];
-            if (success) {
-                NSHTTPURLResponse *response = (NSHTTPURLResponse*)task.response;
-                success(response.statusCode,responseObject);
-            }
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            [self printRequestLog:task.currentRequest param:netModel.paramers result:error];
-            [netWork.tasks removeObject:task];
-            if (fail) {
-                NSHTTPURLResponse *response = (NSHTTPURLResponse*)task.response;
-                fail(response.statusCode,error.localizedDescription);
-            }
-        }];
-        [netWork.tasks addObject:task];
+        if (netModel.isRestApi) {
+            NSMutableURLRequest * request = [NSMutableURLRequest
+                                             requestWithURL:[NSURL URLWithString:isNil(netModel.url)]
+                                             cachePolicy:(NSURLRequestUseProtocolCachePolicy)
+                                             timeoutInterval:NTTIMEOUT];
+            request.HTTPMethod = @"POST";
+            [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+            request.HTTPBody = [NSJSONSerialization dataWithJSONObject:netModel.paramers options:NSJSONWritingPrettyPrinted error:nil];
+            task =  [NSURLSession.sharedSession dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                [netWork.tasks removeObject:task];
+                if (!error) {
+                    NSHTTPURLResponse * httpResponse = (NSHTTPURLResponse *)response;
+                    id responseObject = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableContainers) error:nil];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        if (success) {
+                            success(httpResponse.statusCode,responseObject);
+                        }
+                    });
+                }else{
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        if (fail) {
+                            NSHTTPURLResponse *response = (NSHTTPURLResponse*)task.response;
+                            fail(response.statusCode,error.localizedDescription);
+                        }
+                    });
+                }
+            }];
+            [task resume];
+            [netWork.tasks addObject:task];
+        }else{
+            AFHTTPSessionManager * manger = netWork.sessionManager;
+            manger.requestSerializer.timeoutInterval = NTTIMEOUT;
+            task = [manger POST:isNil(netModel.url) parameters:netModel.paramers progress:^(NSProgress * _Nonnull uploadProgress) {
+                
+            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                [self printRequestLog:task.currentRequest param:netModel.paramers result:responseObject];
+                [netWork.tasks removeObject:task];
+                if (success) {
+                    NSHTTPURLResponse *response = (NSHTTPURLResponse*)task.response;
+                    success(response.statusCode,responseObject);
+                }
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                [self printRequestLog:task.currentRequest param:netModel.paramers result:error];
+                [netWork.tasks removeObject:task];
+                if (fail) {
+                    NSHTTPURLResponse *response = (NSHTTPURLResponse*)task.response;
+                    fail(response.statusCode,error.localizedDescription);
+                }
+            }];
+            [netWork.tasks addObject:task];
+        }
     }
     else
     {
@@ -236,9 +265,9 @@
  @param success 成功回调
  @param fail 失败回调
  */
-+(NSURLSessionDataTask*)ZTUPFILE:(ZTNetModel *)upModel success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail
++(NSURLSessionDataTask *)ZTUPFILE:(ZTNetModel *)upModel success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail
 {
-    NSURLSessionDataTask *task = nil;
+    __block NSURLSessionDataTask * task = nil;
     if ([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus!=AFNetworkReachabilityStatusNotReachable)
     {
         ZTNetWork *netWork = [self manager];
