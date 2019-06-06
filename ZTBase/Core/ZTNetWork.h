@@ -10,8 +10,20 @@
 #import <AFNetworking/AFNetworking.h>
 
 
+
+typedef NSString * ZTContentType;
+FOUNDATION_EXTERN ZTContentType const ZTContentTypeAppXWWWFormUrlencoded;
+FOUNDATION_EXTERN ZTContentType const ZTContentTypeAppJson;
+FOUNDATION_EXTERN ZTContentType const ZTContentTypeAppJS;
+FOUNDATION_EXTERN ZTContentType const ZTContentTypeAppXml;
+FOUNDATION_EXTERN ZTContentType const ZTContentTypeTextPlain;
+FOUNDATION_EXTERN ZTContentType const ZTContentTypeTextXml;
+FOUNDATION_EXTERN ZTContentType const ZTContentTypeTextHtml;
+
+
 typedef NS_ENUM(NSInteger,ZTHTTPResponseCode) {
     ZTHTTPResponseCodeSuccess = 200,
+    ZTHTTPResponseCodeUnauthorized = 401,
     ZTHTTPResponseCodeNetworkError = 0
 };
 
@@ -30,9 +42,9 @@ typedef NS_ENUM(NSInteger,ZTHTTPResponseCode) {
 @property(nonatomic, strong) NSString * url;
 
 /**
- 是否是REST API
+ 请求ContentType，不设置默认application/x-www-form-urlencoded
  */
-@property(nonatomic, assign) BOOL  isRestApi;
+@property(nonatomic, copy) ZTContentType  requestContentType;
 
 /**
  是否上传文件
@@ -52,7 +64,7 @@ typedef NS_ENUM(NSInteger,ZTHTTPResponseCode) {
  @return ZTNetModel
  */
 -(instancetype)initParamers:(id)paramers urlString:(NSString *)url;
--(instancetype)initParamers:(id)paramers urlString:(NSString *)url restApi:(BOOL)isRestApi;
+-(instancetype)initParamers:(id)paramers urlString:(NSString *)url requestContentType:(ZTContentType)contentType;
 
 @end
 
@@ -109,26 +121,26 @@ typedef void(^ZTRequestFailedBlock)(NSInteger statusCode,NSString * failDescript
 /**
  * delete请求
  */
-+(NSURLSessionDataTask*)ZTDELETE:(ZTNetModel *)netModel   success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail;
++(NSURLSessionDataTask *)ZTDELETE:(ZTNetModel *)netModel   success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail;
 
 /**
  * put请求
  */
-+(NSURLSessionDataTask*)ZTPUT:(ZTNetModel *)netModel   success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail;
++(NSURLSessionDataTask *)ZTPUT:(ZTNetModel *)netModel   success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail;
 
 /**
  * get请求
  */
-+(NSURLSessionDataTask*)ZTGET:(ZTNetModel *)netModel   success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail;
++(NSURLSessionDataTask *)ZTGET:(ZTNetModel *)netModel   success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail;
 
 /**
  * post请求
  */
-+(NSURLSessionDataTask*)ZTPOST:(ZTNetModel *)netModel   success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail;
++(NSURLSessionDataTask *)ZTPOST:(ZTNetModel *)netModel   success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail;
 
 /**
  * post请求(上传文件)
  */
-+(NSURLSessionDataTask*)ZTUPFILE:(ZTNetModel *)upModel  success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail;
++(NSURLSessionDataTask *)ZTUPFILE:(ZTNetModel *)upModel  success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail;
 
 @end
