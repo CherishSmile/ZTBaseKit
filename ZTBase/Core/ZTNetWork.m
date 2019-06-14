@@ -109,7 +109,7 @@ ZTContentType const ZTContentTypeTextHtml = @"text/html";
         AFHTTPSessionManager * manger = netWork.sessionManager;
         manger.requestSerializer.timeoutInterval = NTTIMEOUT;
         
-       task = [manger PUT:isNil(netModel.url) parameters:netModel.paramers success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+       task = [manger PUT:ZTStringFromNullableString(netModel.url) parameters:netModel.paramers success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
            [netWork.tasks removeObject:task];
            [self printRequestLog:task.currentRequest param:netModel.paramers result:responseObject];
            if (success) {
@@ -140,7 +140,7 @@ ZTContentType const ZTContentTypeTextHtml = @"text/html";
         AFHTTPSessionManager * manger = netWork.sessionManager;
         manger.requestSerializer.timeoutInterval = NTTIMEOUT;
 
-        task=[manger DELETE:isNil(netModel.url) parameters:netModel.paramers success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        task=[manger DELETE:ZTStringFromNullableString(netModel.url) parameters:netModel.paramers success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             [netWork.tasks removeObject:task];
             [self printRequestLog:task.currentRequest param:netModel.paramers result:responseObject];
             if (success) {
@@ -172,7 +172,7 @@ ZTContentType const ZTContentTypeTextHtml = @"text/html";
         AFHTTPSessionManager * manger = netWork.sessionManager;
         manger.requestSerializer.timeoutInterval = NTTIMEOUT;
         
-        task = [manger GET:isNil(netModel.url) parameters:netModel.paramers progress:^(NSProgress * _Nonnull downloadProgress) {
+        task = [manger GET:ZTStringFromNullableString(netModel.url) parameters:netModel.paramers progress:^(NSProgress * _Nonnull downloadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             [self printRequestLog:task.currentRequest param:netModel.paramers result:responseObject];
@@ -224,7 +224,7 @@ ZTContentType const ZTContentTypeTextHtml = @"text/html";
             }];
         }
         
-        task = [manger POST:isNil(netModel.url) parameters:netModel.paramers progress:^(NSProgress * _Nonnull uploadProgress) {
+        task = [manger POST:ZTStringFromNullableString(netModel.url) parameters:netModel.paramers progress:^(NSProgress * _Nonnull uploadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             [self printRequestLog:task.currentRequest param:netModel.paramers result:responseObject];
@@ -266,7 +266,7 @@ ZTContentType const ZTContentTypeTextHtml = @"text/html";
         AFHTTPSessionManager * manger = netWork.sessionManager;
         manger.requestSerializer.timeoutInterval = NTTUPFileIMEOUT;
 
-        task = [manger POST:isNil(upModel.url) parameters:upModel.paramers constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        task = [manger POST:ZTStringFromNullableString(upModel.url) parameters:upModel.paramers constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
             for (ZTUpLoadModel * model in upModel.dataAry) {
                 [formData appendPartWithFileData:model.path name:model.dataMethod fileName:model.fileName mimeType:model.MIMEType];
             }
@@ -316,7 +316,7 @@ ZTContentType const ZTContentTypeTextHtml = @"text/html";
  */
 +(void)printRequestLog:(NSURLRequest *)request param:(NSDictionary*)requestParam result:(id)responseObject{
     if (ZTConfig.isOpenDebug) {
-        NSLog(@"接口地址：%@\n请求方式：%@\n请求参数：\n%@\n请求头：\n%@\n请求结果：\n%@",request.URL.absoluteString,request.HTTPMethod,requestParam,request.allHTTPHeaderFields,changeToJsonString(responseObject));
+        NSLog(@"接口地址：%@\n请求方式：%@\n请求参数：\n%@\n请求头：\n%@\n请求结果：\n%@",request.URL.absoluteString,request.HTTPMethod,requestParam,request.allHTTPHeaderFields,ZTJsonStringFromObject(responseObject));
     }
 }
 

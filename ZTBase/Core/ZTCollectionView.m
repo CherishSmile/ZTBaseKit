@@ -150,9 +150,9 @@
         }
     }
     if (self.requestResult==ZTRequestResultSuccess) {
-        emptyImage = emptyImage?:imageNamed(@"placeholder_emptydata");
+        emptyImage = emptyImage?:ZTImageWithNamed(@"placeholder_emptydata");
     }else{
-        emptyImage = imageNamed(@"placeholder_neterror");
+        emptyImage = ZTImageWithNamed(@"placeholder_neterror");
     }
     return emptyImage;
 }

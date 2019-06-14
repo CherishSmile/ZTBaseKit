@@ -16,9 +16,9 @@ static inline  NSDictionary * queryDict(NSString * query){
     NSMutableDictionary * queryDic = [NSMutableDictionary dictionary];
     for (NSString * string in queryArr) {
         NSArray * stringArr = [string componentsSeparatedByString:@"="];
-        NSString * keyString = [isNil(stringArr.firstObject) stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSString * valueString = [isNil(stringArr.lastObject) stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        [queryDic setObject:isNil(valueString) forKey:isNil(keyString)];
+        NSString * keyString = [ZTStringFromNullableString(stringArr.firstObject) stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString * valueString = [ZTStringFromNullableString(stringArr.lastObject) stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [queryDic setObject:ZTStringFromNullableString(valueString) forKey:ZTStringFromNullableString(keyString)];
     }
     return queryDic.copy;
 }
@@ -168,7 +168,7 @@ static NSString * WEBTITLE = @"title";
 
 #pragma mark - UIWebViewDelegate
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType API_DEPRECATED("No longer supported.", ios(2.0, 12.0)){
-    if([request.URL.scheme isEqualToString:isNil(self.webScheme)]){
+    if([request.URL.scheme isEqualToString:ZTStringFromNullableString(self.webScheme)]){
         id delegate = self.delegate;
         if ([delegate conformsToProtocol:@protocol(ZTWebScriptMessageHandler)]) {
             if ([delegate respondsToSelector:@selector(webView:didReceiveScriptMessageWithFunctionName:functionParameters:)]) {

@@ -84,6 +84,16 @@
             }
         }
             break;
+        case ZTRefreshStyleAll:
+        {
+            if (self.mj_header) {
+                [self.mj_header endRefreshing];
+            }
+            if (self.mj_footer) {
+                [self.mj_footer endRefreshing];
+            }
+        }
+            break;
         default:
             break;
     }
@@ -142,9 +152,9 @@
         }
     }
     if (self.requestResult==ZTRequestResultSuccess) {
-        emptyImage = emptyImage?:imageNamed(@"placeholder_emptydata");
+        emptyImage = emptyImage?:ZTImageWithNamed(@"placeholder_emptydata");
     }else{
-        emptyImage = imageNamed(@"placeholder_neterror");
+        emptyImage = ZTImageWithNamed(@"placeholder_neterror");
     }
     return emptyImage;
 }

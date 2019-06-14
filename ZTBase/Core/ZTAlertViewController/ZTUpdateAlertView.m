@@ -16,7 +16,7 @@
 static CGFloat hwRatio = 0.55 ;
 
 static inline CGFloat alertWidth(void){
-    return SCREEN_WIDTH-2*getPtW(10*PADDING);
+    return SCREEN_WIDTH-2*ZTPtFromPx(10*PADDING);
 };
 
 @interface ZTUpdateAlertView ()
@@ -67,32 +67,32 @@ static inline CGFloat alertWidth(void){
         [self.bottomView addSubview:self.titlelbl];
         [self.bottomView addSubview:self.contentlbl];
         [self.titlelbl mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(getPtW(4*PADDING));
-            make.right.mas_equalTo(-getPtW(4*PADDING));
-            make.bottom.mas_equalTo(self.contentlbl.mas_top).offset(-getPtH(2*PADDING));
+            make.left.mas_equalTo(ZTPtFromPx(4*PADDING));
+            make.right.mas_equalTo(-ZTPtFromPx(4*PADDING));
+            make.bottom.mas_equalTo(self.contentlbl.mas_top).offset(-ZTPtFromPx(2*PADDING));
         }];
         [self.contentlbl mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(getPtW(4*PADDING));
-            make.right.mas_equalTo(-getPtW(4*PADDING));
+            make.left.mas_equalTo(ZTPtFromPx(4*PADDING));
+            make.right.mas_equalTo(-ZTPtFromPx(4*PADDING));
         }];
     }else if (self.isExistTitle&&!self.isExistMessage){
         [self.bottomView addSubview:self.titlelbl];
         [self.titlelbl mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(getPtW(4*PADDING));
-            make.right.mas_equalTo(-getPtW(4*PADDING));
+            make.left.mas_equalTo(ZTPtFromPx(4*PADDING));
+            make.right.mas_equalTo(-ZTPtFromPx(4*PADDING));
         }];
     }else if (!self.isExistTitle&&self.isExistMessage){
         [self.bottomView addSubview:self.contentlbl];
         [self.contentlbl mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(getPtW(4*PADDING));
-            make.right.mas_equalTo(-getPtW(4*PADDING));
+            make.left.mas_equalTo(ZTPtFromPx(4*PADDING));
+            make.right.mas_equalTo(-ZTPtFromPx(4*PADDING));
         }];
     }else{
         self.titlelbl.text = [self noSetTitleAndMessage];
         [self.bottomView addSubview:self.titlelbl];
         [self.titlelbl mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(getPtW(4*PADDING));
-            make.right.mas_equalTo(-getPtW(4*PADDING));
+            make.left.mas_equalTo(ZTPtFromPx(4*PADDING));
+            make.right.mas_equalTo(-ZTPtFromPx(4*PADDING));
         }];
     }
     
@@ -103,10 +103,10 @@ static inline CGFloat alertWidth(void){
             make.centerX.mas_equalTo(self.topImage);
             make.top.mas_equalTo(self.titlelbl.mas_top);
             if (self.isExistMessage) {
-                make.bottom.mas_equalTo(self.contentlbl.mas_bottom).offset(getPtH(4*PADDING));
+                make.bottom.mas_equalTo(self.contentlbl.mas_bottom).offset(ZTPtFromPx(4*PADDING));
                 
             }else{
-                make.bottom.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(4*PADDING));
+                make.bottom.mas_equalTo(self.titlelbl.mas_bottom).offset(ZTPtFromPx(4*PADDING));
                 
             }
         }];
@@ -115,14 +115,14 @@ static inline CGFloat alertWidth(void){
         [self.defaultActions enumerateObjectsUsingBlock:^(ZTAlertAction * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [self.bottomView addSubview:obj];
             [obj mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.mas_equalTo(getPtW(4*PADDING));
-                make.right.mas_equalTo(-getPtW(4*PADDING));
-                make.height.mas_equalTo(getPtH(6*PADDING));
+                make.left.mas_equalTo(ZTPtFromPx(4*PADDING));
+                make.right.mas_equalTo(-ZTPtFromPx(4*PADDING));
+                make.height.mas_equalTo(ZTPtFromPx(6*PADDING));
                 if (self.isExistMessage) {
-                    make.top.mas_equalTo(self.contentlbl.mas_bottom).offset(getPtH(9*PADDING)*idx+getPtH(4*PADDING));
+                    make.top.mas_equalTo(self.contentlbl.mas_bottom).offset(ZTPtFromPx(9*PADDING)*idx+ZTPtFromPx(4*PADDING));
                     
                 }else{
-                    make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(9*PADDING)*idx+getPtH(4*PADDING));
+                    make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(ZTPtFromPx(9*PADDING)*idx+ZTPtFromPx(4*PADDING));
                     
                 }
             }];
@@ -132,7 +132,7 @@ static inline CGFloat alertWidth(void){
             make.width.mas_equalTo(alertWidth());
             make.centerX.mas_equalTo(self.topImage);
             make.top.mas_equalTo(self.titlelbl.mas_top);
-            make.bottom.mas_equalTo(lastBtn.mas_bottom).offset(getPtH(4*PADDING));
+            make.bottom.mas_equalTo(lastBtn.mas_bottom).offset(ZTPtFromPx(4*PADDING));
         }];
     }
     [self.bgView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -147,16 +147,16 @@ static inline CGFloat alertWidth(void){
         [self addSubview:cancleAction];
         [cancleAction mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(self.bgView);
-            make.top.mas_equalTo(self.bgView.mas_bottom).offset(getPtW(4*PADDING));
-            make.width.height.mas_equalTo(getPtW(6*PADDING));
+            make.top.mas_equalTo(self.bgView.mas_bottom).offset(ZTPtFromPx(4*PADDING));
+            make.width.height.mas_equalTo(ZTPtFromPx(6*PADDING));
         }];
     }
     
     [self layoutIfNeeded];
     
-    drawRoundedCorner(self.bottomView, UIRectCornerBottomLeft|UIRectCornerBottomRight, CGSizeMake(6, 6));
+    ZTDrawRoundedCorner(self.bottomView, UIRectCornerBottomLeft|UIRectCornerBottomRight, CGSizeMake(6, 6));
     [self.actions enumerateObjectsUsingBlock:^(ZTAlertAction * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        drawRoundedCorner(obj, UIRectCornerAllCorners, obj.bounds.size);
+        ZTDrawRoundedCorner(obj, UIRectCornerAllCorners, obj.bounds.size);
     }];
 }
 
@@ -172,13 +172,13 @@ static inline CGFloat alertWidth(void){
 }
 
 -(BOOL)isExistTitle{
-    return self.title&&isNil(self.title).length;
+    return self.title&&ZTStringFromNullableString(self.title).length;
 }
 -(BOOL)isExistMessage{
     BOOL isExistMessage = NO;
     if ([self.content isKindOfClass:NSString.class]) {
         NSString * message = (NSString *)self.content;
-        isExistMessage = isNil(message).length;
+        isExistMessage = ZTStringFromNullableString(message).length;
     }
     if ([self.content isKindOfClass:NSAttributedString.class]) {
         NSAttributedString * message = (NSAttributedString *)self.content;
@@ -189,7 +189,7 @@ static inline CGFloat alertWidth(void){
 #pragma mark - setter
 -(void)setTitle:(NSString *)title{
     _title = title;
-    self.titlelbl.text = isNil(title);
+    self.titlelbl.text = ZTStringFromNullableString(title);
 }
 -(void)setContent:(id)content{
     _content = content;
@@ -222,7 +222,7 @@ static inline CGFloat alertWidth(void){
     if (!_topImage) {
         _topImage = [UIImageView new];
         _topImage.contentMode = UIViewContentModeScaleAspectFill;
-        _topImage.image = imageNamed(@"update_huojian");
+        _topImage.image = ZTImageWithNamed(@"update_huojian");
     }
     return _topImage;
 }

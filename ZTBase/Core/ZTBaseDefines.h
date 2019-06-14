@@ -75,17 +75,21 @@ _Pragma("clang diagnostic pop") \
 //#define GetFont(x)     [UIFont systemFontOfSize:x]
 //#define GetBoldFont(x) [UIFont boldSystemFontOfSize:x]
 
-#define F0  getPtW(20.f)
-#define F1  getPtW(22.f)
-#define F2  getPtW(24.f)
-#define F3  getPtW(26.f)
-#define F4  getPtW(28.f)
-#define F5  getPtW(30.f)
-#define F6  getPtW(32.f)
-#define F7  getPtW(34.f)
-#define F8  getPtW(36.f)
-#define F9  getPtW(38.f)
-#define F10 getPtW(40.f)
+#define IsNil(x)
+
+#define GetPt(px) ZTPtFromPx(px)
+
+#define F0  GetPt(20.f)
+#define F1  GetPt(22.f)
+#define F2  GetPt(24.f)
+#define F3  GetPt(26.f)
+#define F4  GetPt(28.f)
+#define F5  GetPt(30.f)
+#define F6  GetPt(32.f)
+#define F7  GetPt(34.f)
+#define F8  GetPt(36.f)
+#define F9  GetPt(38.f)
+#define F10 GetPt(40.f)
 /********************************************默认图片******************************/
 #define GetImg(imageName) [UIImage imageNamed:imageName]
 /********************************************标题*********************************/

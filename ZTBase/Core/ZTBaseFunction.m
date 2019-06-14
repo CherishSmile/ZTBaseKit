@@ -16,7 +16,7 @@
 #import <SDWebImage/UIButton+WebCache.h>
 
 
-UITextField * initTextField(NSString * placeholder,UIFont * font)
+UITextField * ZTCreateTextField(NSString * placeholder,UIFont * font)
 {
     UITextField * textfield=[UITextField new];
     textfield.font = font;
@@ -25,12 +25,12 @@ UITextField * initTextField(NSString * placeholder,UIFont * font)
     textfield.clearButtonMode = UITextFieldViewModeWhileEditing;
     return textfield;
 }
-UITextView * initTextView(UIFont * font){
+UITextView * ZTCreateTextView(UIFont * font){
     UITextView *textView = [UITextView new];
     textView.font = font;
     return textView;
 }
-UILabel * initLable(NSString *text,UIFont * font)
+UILabel * ZTCreateLable(NSString *text,UIFont * font)
 {
     UILabel * lbl=[UILabel new];
     lbl.backgroundColor=[UIColor clearColor];
@@ -38,53 +38,53 @@ UILabel * initLable(NSString *text,UIFont * font)
     lbl.text = text;
     return lbl;
 }
-UIButton * initButton(NSString *title,UIButtonType type,UIFont * font){
+UIButton * ZTCreateButton(NSString *title,UIButtonType type,UIFont * font){
     UIButton *button = [UIButton buttonWithType:type];
     [button setTitle:title forState:UIControlStateNormal];
     button.titleLabel.font = font;
     return button;
 }
-UIImage * createImage(CGRect frame,UIColor * color)
+UIImage * ZTCreateImage(CGRect frame,UIColor * color)
 {
     UIGraphicsBeginImageContext(frame.size);
     CGContextRef context= UIGraphicsGetCurrentContext();
     [color set];
     CGContextFillRect(context, frame);
-    UIImage * image=UIGraphicsGetImageFromCurrentImageContext();;
+    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();;
     UIGraphicsEndImageContext();
     return image;
 }
 
-void drawShadow(UIView *view,UIColor *color){
-    drawShadowWithDirection(view, color, NO);
+void ZTDrawShadow(UIView *view,UIColor *color){
+    ZTDrawShadowWithDirection(view, color, NO);
 }
 
-void drawShadowWithDirection(UIView *view,UIColor *color,BOOL isUp){
+void ZTDrawShadowWithDirection(UIView *view,UIColor *color,BOOL isUp){
     view.layer.shadowColor = color.CGColor;
     view.layer.shadowOffset = CGSizeMake(0, isUp?-3:3);
     view.layer.shadowOpacity = 0.8;
     view.layer.masksToBounds = NO;
 }
 
-void drawBorder(UIView * view,UIColor * color,float radiuce)
+void ZTDrawBorder(UIView * view,UIColor * color,float radiuce)
 {
-    drawBorderWidth( view,color,0.5,radiuce);
+    ZTDrawBorderWidth( view,color,0.5,radiuce);
 }
-void drawBorderWidth(UIView * view,UIColor * color,float width,float radiuce)
+void ZTDrawBorderWidth(UIView * view,UIColor * color,float width,float radiuce)
 {
     view.layer.borderColor=color.CGColor;
     view.layer.borderWidth=width;
     view.layer.cornerRadius=radiuce;
     view.layer.masksToBounds=YES;
 }
-void drawRoundedCorner(UIView *view,UIRectCorner corners,CGSize cornerRadii){
+void ZTDrawRoundedCorner(UIView *view,UIRectCorner corners,CGSize cornerRadii){
     UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:corners cornerRadii:cornerRadii];
     CAShapeLayer *layer = [CAShapeLayer layer];
     layer.frame = view.bounds;
     layer.path = path.CGPath;
     view.layer.mask = layer;
 }
-void drawLine(UIView *view,UIColor *lineColor,CGPoint startPoint,CGPoint endPoint){
+void ZTDrawLine(UIView *view,UIColor *lineColor,CGPoint startPoint,CGPoint endPoint){
     // 线的路径
     UIBezierPath *linePath = [UIBezierPath bezierPath];
     // 起点
@@ -99,7 +99,7 @@ void drawLine(UIView *view,UIColor *lineColor,CGPoint startPoint,CGPoint endPoin
     
     [view.layer addSublayer:lineLayer];
 }
-void drawLineWithWidth(UIView *view,UIColor *lineColor,CGFloat lineWidth,CGPoint startPoint,CGPoint endPoint){
+void ZTDrawLineWithWidth(UIView *view,UIColor *lineColor,CGFloat lineWidth,CGPoint startPoint,CGPoint endPoint){
     // 线的路径
     UIBezierPath *linePath = [UIBezierPath bezierPath];
     // 起点
@@ -115,7 +115,7 @@ void drawLineWithWidth(UIView *view,UIColor *lineColor,CGFloat lineWidth,CGPoint
     [view.layer addSublayer:lineLayer];
 }
 /******************转json字符串*********************/
-NSString * changeToJsonDicString(NSDictionary * jsonDict){
+NSString * ZTJsonStringFromDictionary(NSDictionary * jsonDict){
     NSError *error;
     if (!jsonDict) {
         return nil;
@@ -125,7 +125,7 @@ NSString * changeToJsonDicString(NSDictionary * jsonDict){
         return jsonString;
     }
 }
-NSString * changeToJsonAryString(NSArray * jsonArr){
+NSString * ZTJsonStringFromArray(NSArray * jsonArr){
     NSError *error;
     if (!jsonArr) {
         return nil;
@@ -135,7 +135,7 @@ NSString * changeToJsonAryString(NSArray * jsonArr){
         return jsonString;
     }
 }
-NSString * changeToJsonString(id jsonObject){
+NSString * ZTJsonStringFromObject(id jsonObject){
     NSError *error;
     NSString * jsonString = [NSString stringWithFormat:@"%@",jsonObject];
     if([jsonObject isKindOfClass:[NSDictionary class]]||[jsonObject isKindOfClass:[NSArray class]]){
@@ -146,11 +146,11 @@ NSString * changeToJsonString(id jsonObject){
     return jsonString;
 }
 
-UIBarButtonItem * setRightItem(UIViewController * mySelf,id imageOrTitle,SEL action)
+UIBarButtonItem * ZTSetRightItem(UIViewController * mySelf,id imageOrTitle,SEL action)
 {
-    return  setBarItem(mySelf, imageOrTitle, action, YES);
+    return  ZTSetBarItem(mySelf, imageOrTitle, action, YES);
 }
-UIBarButtonItem * setBarItem(UIViewController * mySelf,id imageOrTitle,SEL action,BOOL isRight)
+UIBarButtonItem * ZTSetBarItem(UIViewController * mySelf,id imageOrTitle,SEL action,BOOL isRight)
 {
     UIBarButtonItem * item = nil;
     if ([imageOrTitle isKindOfClass:[NSString class]]) {
@@ -173,7 +173,7 @@ UIBarButtonItem * setBarItem(UIViewController * mySelf,id imageOrTitle,SEL actio
     return item;
 }
 
-UIBarButtonItem * setBarItemWithUrl(UIViewController * mySelf,NSURL *imageUrl,id target,SEL action,ZTNavBarItemPosition positon, NSInteger itemTag)
+UIBarButtonItem * ZTSetBarItemWithUrl(UIViewController * mySelf,NSURL *imageUrl,id target,SEL action,ZTNavBarItemPosition positon, NSInteger itemTag)
 {
     UIButton * itemBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
     itemBtn.bounds = CGRectMake(0, 0, 40, 40);
@@ -199,11 +199,11 @@ UIBarButtonItem * setBarItemWithUrl(UIViewController * mySelf,NSURL *imageUrl,id
     return item;
 }
 
-BOOL validatePhoneNumber(NSString * number)
+BOOL ZTPhoneNumberIsValid(NSString * number)
 {
     return number.length==11;
 }
-BOOL validateIDNumber(NSString * number)
+BOOL ZTIDNumberIsValid(NSString * number)
 {
     BOOL flag;
     if (number.length <= 0) {
@@ -215,7 +215,7 @@ BOOL validateIDNumber(NSString * number)
     return [idCardPredicate evaluateWithObject:number];
 }
 
-BOOL validateLicensePlateNumber(NSString * number) {
+BOOL ZTLicensePlateNumberIsValid(NSString * number) {
     /**
      *  车牌号正则表达式
      *  ---前两位---
@@ -233,19 +233,19 @@ BOOL validateLicensePlateNumber(NSString * number) {
     return [carTest evaluateWithObject:number];
 }
 
-BOOL validateEmail(NSString * email)
+BOOL ZTEmailIsValid(NSString * email)
 {
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     return [emailTest evaluateWithObject:email];
 }
 
-BOOL validatePW(NSString * pswStr) {
+BOOL ZTPassWordIsValid(NSString * pswStr) {
     NSString * pattern  =   @"^[A-Za-z0-9_]{6,12}$";
     NSPredicate * pred  =   [NSPredicate predicateWithFormat:@"SELF MATCHES %@",pattern];
     return [pred evaluateWithObject:pswStr];
 }
-BOOL validateAllNumber(NSString * string){
+BOOL ZTStringIsAllNumber(NSString * string){
     NSString *condition = @"^[0-9]*$";//是否都是数字
     //    NSString *condition = @"^[A-Za-z]+$";//是否都是字母
     //    NSString *condition = @"^[A-Za-z0-9]+$";//是否都是字母和数字{6,16}
@@ -255,18 +255,18 @@ BOOL validateAllNumber(NSString * string){
     return [predicate evaluateWithObject:string];
 }
 
-BOOL validateAllLetter(NSString * string){
+BOOL ZTStringIsAllLetter(NSString * string){
     NSString *condition = @"^[A-Za-z]+$";//是否都是字母
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES%@",condition];
     return [predicate evaluateWithObject:string];
 }
 
-BOOL validateNumberOrLetter(NSString * string){
+BOOL ZTStringIsNumberOrLetter(NSString * string){
     NSString * pattern  =   @"^[A-Za-z0-9]$";
     NSPredicate * pred  =   [NSPredicate predicateWithFormat:@"SELF MATCHES %@",pattern];
     return [pred evaluateWithObject:string];
 }
-BOOL validateBankCard(NSString * bankCard)
+BOOL ZTStringIsBankCard(NSString * bankCard)
 {
     if (bankCard.length < 16) {
         return NO;
@@ -312,7 +312,7 @@ BOOL validateBankCard(NSString * bankCard)
 }
 
 
-UIAlertController * showAlertController(NSString * title,NSString * message,NSString * sureTitle,ZTGlobalNOParameterBlock sureClick,NSString *cancleTitle,ZTGlobalNOParameterBlock cancleClick){
+UIAlertController * ZTShowAlertController(NSString * title,NSString * message,NSString * sureTitle,ZTGlobalNOParameterBlock sureClick,NSString *cancleTitle,ZTGlobalNOParameterBlock cancleClick){
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:(UIAlertControllerStyleAlert)];
     
     if (cancleTitle&&cancleTitle.length) {
@@ -331,14 +331,14 @@ UIAlertController * showAlertController(NSString * title,NSString * message,NSSt
         }];
         [alertVC addAction:sureAction];
     }
-    [getActiVC() presentViewController:alertVC animated:YES completion:nil];
+    [ZTActivityController() presentViewController:alertVC animated:YES completion:nil];
     return alertVC;
 }
 
-BOOL showLocationPermissionAlert(void(^CompletionBlock)(BOOL isCancle)){
-    if (!isAllowLoction()) {
-        showAlertController(@"提示", [NSString stringWithFormat:@"您暂无权限开启定位\n请在“iPhone->设置->%@”中开启",APPNAME], @"去设置", ^{
-            openSettingsURL();
+BOOL ZTShowLocationPermissionAlert(void(^CompletionBlock)(BOOL isCancle)){
+    if (!ZTLoctionIsValid()) {
+        ZTShowAlertController(@"提示", [NSString stringWithFormat:@"您暂无权限开启定位\n请在“iPhone->设置->%@”中开启",APPNAME], @"去设置", ^{
+            ZTOpenSettingsURL();
             if (CompletionBlock) {
                 CompletionBlock(NO);
             }
@@ -348,10 +348,10 @@ BOOL showLocationPermissionAlert(void(^CompletionBlock)(BOOL isCancle)){
             }
         });
     }
-    return isAllowLoction();
+    return ZTLoctionIsValid();
 }
 
-UIAlertController * showActionSheet(NSString * title,NSString *message,NSArray *selectTitles,ZTGlobalStringBlock sureClick,NSString *cancleTitle,ZTGlobalNOParameterBlock cancleClick){
+UIAlertController * ZTShowActionSheet(NSString * title,NSString *message,NSArray *selectTitles,ZTGlobalStringBlock sureClick,NSString *cancleTitle,ZTGlobalNOParameterBlock cancleClick){
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:(UIAlertControllerStyleActionSheet)];
     for (NSString *selectTitle in selectTitles) {
         UIAlertAction *selectAction = [UIAlertAction actionWithTitle:selectTitle style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
@@ -369,12 +369,12 @@ UIAlertController * showActionSheet(NSString * title,NSString *message,NSArray *
         }];
         [alertVC addAction:cancleAction];
     }
-    [getActiVC() presentViewController:alertVC animated:YES completion:nil];
+    [ZTActivityController() presentViewController:alertVC animated:YES completion:nil];
     return alertVC;
 }
 
 
-NSData * compressImageQuality(UIImage *image ,int maxLength)
+NSData * ZTImageQualityCompress(UIImage *image ,int maxLength)
 {
     //二分法压缩图片质量
     CGFloat compression = 1;
@@ -396,7 +396,7 @@ NSData * compressImageQuality(UIImage *image ,int maxLength)
     NSLog(@"压缩图片质量：%@,%@",@(data.length),[NSValue valueWithCGSize:[UIImage imageWithData:data].size]);
     return data;
 }
-NSData * compressImageSize(UIImage *image,CGFloat maxLength)
+NSData * ZTImageSizeCompress(UIImage *image,CGFloat maxLength)
 {
     UIImage *resultImage = image;
     NSData *data = UIImageJPEGRepresentation(resultImage, 1);
@@ -418,7 +418,7 @@ NSData * compressImageSize(UIImage *image,CGFloat maxLength)
 }
 
 
-NSString * isNil(NSString * string)
+NSString * ZTStringFromNullableString(NSString * string)
 {
     if (!string||[string isKindOfClass:[NSNull class]]||[string isEqual:[NSNull null]]) {
         return @"";
@@ -429,17 +429,17 @@ NSString * isNil(NSString * string)
     }
 }
 
-NSString * stringFromZeroOrNil(id object){
+NSString * ZTStringFromZeroOrNil(id object){
     NSString * nullString = [NSString stringWithFormat:@"%@",object];
     if ([object isKindOfClass:[NSNull class]]||[object isEqual:[NSNull null]]||nullString.integerValue==0) {
         nullString = @"";
     }else{
-        nullString = isNil(nullString);
+        nullString = ZTStringFromNullableString(nullString);
     }
     return nullString;
 }
 
-void showProgressDialog(NSString *showText,UIView *locationView,MBProgressHUDMode hudMode,NSTimeInterval delay,BOOL isUserAction)
+void ZTShowProgressDialog(NSString *showText,UIView *locationView,MBProgressHUDMode hudMode,NSTimeInterval delay,BOOL isUserAction)
 {
     if (!locationView) {
         return;
@@ -456,10 +456,10 @@ void showProgressDialog(NSString *showText,UIView *locationView,MBProgressHUDMod
         HUD.margin = 12;
         [HUD showAnimated:YES];
     }
-    HUD.label.text = isNil(showText);
+    HUD.label.text = ZTStringFromNullableString(showText);
     HUD.userInteractionEnabled = isUserAction;
     if (hudMode == MBProgressHUDModeCustomView) {
-        UIImage * image = [imageNamed(@"hud_success") imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        UIImage * image = [ZTImageWithNamed(@"hud_success") imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         HUD.customView = [[UIImageView alloc] initWithImage:image];
     }
     else
@@ -472,7 +472,7 @@ void showProgressDialog(NSString *showText,UIView *locationView,MBProgressHUDMod
     }
     
 }
-void showToast(NSString *showText,UIView *locationView,NSTimeInterval delay,void(^CompleteHandler)(void)){
+void ZTShowToast(NSString *showText,UIView *locationView,NSTimeInterval delay,void(^CompleteHandler)(void)){
     if (!locationView) {
         return;
     }
@@ -488,7 +488,7 @@ void showToast(NSString *showText,UIView *locationView,NSTimeInterval delay,void
         HUD.margin = 12;
         [HUD showAnimated:YES];
     }
-    HUD.label.text = isNil(showText);
+    HUD.label.text = ZTStringFromNullableString(showText);
     HUD.mode = MBProgressHUDModeText;
     [HUD hideAnimated:YES afterDelay:delay];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(fabs(delay) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -498,7 +498,7 @@ void showToast(NSString *showText,UIView *locationView,NSTimeInterval delay,void
     });
 }
 
-void showCustomToast(NSString *showText,UIView *locationView,NSTimeInterval delay,void(^CompleteHandler)(void)){
+void ZTShowCustomToast(NSString *showText,UIView *locationView,NSTimeInterval delay,void(^CompleteHandler)(void)){
     if (!locationView) {
         return;
     }
@@ -514,9 +514,9 @@ void showCustomToast(NSString *showText,UIView *locationView,NSTimeInterval dela
         HUD.margin = 12;
         [HUD showAnimated:YES];
     }
-    HUD.label.text = isNil(showText);
+    HUD.label.text = ZTStringFromNullableString(showText);
     HUD.mode = MBProgressHUDModeCustomView;
-    UIImage * image = [imageNamed(@"hud_success") imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage * image = [ZTImageWithNamed(@"hud_success") imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     HUD.customView = [[UIImageView alloc] initWithImage:image];
     [HUD hideAnimated:YES afterDelay:delay];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(fabs(delay) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -526,18 +526,18 @@ void showCustomToast(NSString *showText,UIView *locationView,NSTimeInterval dela
     });
 }
 
-void dismissProgressDialog(UIView *locationView)
+void ZTDismissProgressDialog(UIView *locationView)
 {
     if (!locationView) {
         return;
     }
     [MBProgressHUD hideHUDForView:locationView animated:YES];
 }
-UIWindow *getWindonw(void)
+UIWindow *ZTKeyWindonw(void)
 {
     return [UIApplication sharedApplication].keyWindow;
 }
-UIWindow * getKeyBoardWindow(){
+UIWindow * ZTKeyBoardWindow(){
     if (@available(iOS 10.0, *)) {
         return [UIApplication sharedApplication].windows.lastObject;
     } else {
@@ -550,11 +550,11 @@ UIWindow * getKeyBoardWindow(){
         }
     }
 }
-UIInterfaceOrientation getStatusBarOrientation(){
+UIInterfaceOrientation ZTStatusBarOrientation(){
     return [UIApplication sharedApplication].statusBarOrientation;
 }
 
-BOOL isAVCaptureActive(void)
+BOOL ZTAVCaptureIsValid(void)
 {
     AVCaptureDevice *aDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     NSError *inputError = nil;
@@ -566,7 +566,7 @@ BOOL isAVCaptureActive(void)
     }
     return YES;
 }
-BOOL isAllowLoction ()
+BOOL ZTLoctionIsValid ()
 {
     if ([CLLocationManager locationServicesEnabled]&&([CLLocationManager authorizationStatus]==kCLAuthorizationStatusNotDetermined||[CLLocationManager authorizationStatus]==kCLAuthorizationStatusAuthorizedAlways||[CLLocationManager authorizationStatus]==kCLAuthorizationStatusAuthorizedWhenInUse)) {
         return YES;
@@ -578,13 +578,13 @@ BOOL isAllowLoction ()
     return NO;
     
 }
-BOOL isUserNotificationEnable(void){
+BOOL ZTUserNotificationIsValid(void){
     UIUserNotificationSettings *setting = [[UIApplication sharedApplication] currentUserNotificationSettings];
     return UIUserNotificationTypeNone != setting.types;
 }
 
 
-NSString * getTimeStringFromDate(NSDate *timeDate,NSString * timeformat)
+NSString * ZTTimeStringFromDate(NSDate *timeDate,NSString * timeformat)
 {
     //
     NSDateFormatter *formatter =  [[NSDateFormatter alloc] init];
@@ -595,7 +595,7 @@ NSString * getTimeStringFromDate(NSDate *timeDate,NSString * timeformat)
     NSString * strTime= [formatter stringFromDate:timeDate];
     return strTime;
 }
-NSString * getTimeDate(long long time,NSString * timeformat)
+NSString * ZTTimeStringFromTimeInterval(NSTimeInterval time,NSString * timeformat)
 {
     //
     NSDate * date=[NSDate dateWithTimeIntervalSince1970:time/1000];
@@ -607,17 +607,17 @@ NSString * getTimeDate(long long time,NSString * timeformat)
     NSString * strTime= [formatter stringFromDate:date];
     return strTime;
 }
-NSString * getCurrentTime(NSString * timeformat){
+NSString * ZTTimeStringFromNowDate(NSString * timeformat){
     NSDate * currentDate=[NSDate date];
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:timeformat];
     NSString * timeString=[dateFormatter stringFromDate:currentDate];
     return timeString;
 }
-NSTimeInterval  getCurrentTimeInterval(void){
+NSTimeInterval  ZTTimeIntervalFromNowDate(void){
     return [[NSDate date] timeIntervalSince1970]*1000;
 }
-NSTimeInterval  getTimeInterval(NSString *formatTime,NSString *format){
+NSTimeInterval  ZTTimeIntervalFromFormatterTime(NSString *formatTime,NSString *format){
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
     [formatter setTimeStyle:NSDateFormatterShortStyle];
@@ -627,7 +627,7 @@ NSTimeInterval  getTimeInterval(NSString *formatTime,NSString *format){
     NSDate* date = [formatter dateFromString:formatTime]; //------------将字符串按formatter转成nsdate
     return [date timeIntervalSince1970]*1000;
 }
-BOOL callNumber(NSString * phoneNumber){
+BOOL ZTCallNumber(NSString * phoneNumber){
     NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",phoneNumber]];
     BOOL isCanCall = [UIApplication.sharedApplication canOpenURL:url];
     if (isCanCall) {
@@ -635,26 +635,26 @@ BOOL callNumber(NSString * phoneNumber){
     }
     return isCanCall;
 }
-BOOL iPhoneDevice ()
+BOOL ZTDeviceIsIPhone ()
 {
     NSString* deviceType = [UIDevice currentDevice].model;
     NSRange range = [deviceType rangeOfString:@"iPhone"];
     return range.location != NSNotFound;
 }
 
-CGFloat floatRoundDown(CGFloat number){
+CGFloat ZTFloatRoundDown(CGFloat number){
     NSDecimalNumberHandler *roundDown = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:(NSRoundDown) scale:5 raiseOnExactness:NO raiseOnOverflow:NO raiseOnUnderflow:NO raiseOnDivideByZero:YES];
     NSDecimalNumber *decimalNumber = [[NSDecimalNumber decimalNumberWithDecimal:@(number).decimalValue] decimalNumberByRoundingAccordingToBehavior:roundDown];
     return decimalNumber.doubleValue;
 }
-CGFloat floatRoundDownWithScale(CGFloat number,NSInteger scale){
+CGFloat ZTFloatRoundDownWithScale(CGFloat number,NSInteger scale){
     NSDecimalNumberHandler *roundDown = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:(NSRoundDown) scale:scale raiseOnExactness:NO raiseOnOverflow:NO raiseOnUnderflow:NO raiseOnDivideByZero:YES];
     NSDecimalNumber *decimalNumber = [[NSDecimalNumber decimalNumberWithDecimal:@(number).decimalValue] decimalNumberByRoundingAccordingToBehavior:roundDown];
     return decimalNumber.doubleValue;
 }
 
 //像素适配（宽）
-CGFloat getPtW(CGFloat width){
+CGFloat ZTPtFromPx(CGFloat width){
     CGFloat pixelW ;
     if (UIInterfaceOrientationIsPortrait(UIApplication.sharedApplication.statusBarOrientation)) {
         pixelW = width * SCREEN_WIDTH * PixelCoefficient;
@@ -666,12 +666,9 @@ CGFloat getPtW(CGFloat width){
     return pixelW;
 
 }
-//像素适配（高）
-CGFloat getPtH(CGFloat height){
-    return getPtW(height);
-}
 
-BOOL isBlankString(NSString *string){
+
+BOOL ZTStringIsBlankString(NSString *string){
     if (string == nil || string == NULL) {
         return YES;
     }
@@ -684,7 +681,7 @@ BOOL isBlankString(NSString *string){
     return NO;
 }
 
-UIViewController * getActiVC()
+UIViewController * ZTActivityController()
 {
     UIViewController *result = nil;
     
@@ -723,7 +720,7 @@ UIViewController * getActiVC()
     return result;
 }
 
-NSString * byteSizeConversion(CGFloat bSize){
+NSString * ZTByteSizeConversion(CGFloat bSize){
     NSString *size ;
     if (bSize < 1024) {
         size = [NSString stringWithFormat:@"%.0f字节",bSize];
@@ -736,7 +733,7 @@ NSString * byteSizeConversion(CGFloat bSize){
     }
     return size;
 }
-NSArray<UIViewController*> * getViewControllersFromNavSubControllers(UINavigationController *nav,Class vcClass){
+NSArray<UIViewController*> * ZTViewControllersFromNavSubControllers(UINavigationController *nav,Class vcClass){
     NSString *classString = NSStringFromClass(vcClass);
     NSMutableArray<UIViewController*> *vcs = [NSMutableArray array];
     for (UIViewController *vc in nav.viewControllers) {
@@ -747,14 +744,14 @@ NSArray<UIViewController*> * getViewControllersFromNavSubControllers(UINavigatio
     return vcs.copy;
 }
 
-UIViewController *controllerFromString(NSString *string){
+UIViewController *ZTControllerFromString(NSString *string){
     Class vcClass = NSClassFromString(string);
     UIViewController *vc = [[vcClass alloc] init];
     return vc;
 }
 
 //对一个字符串进行base64编码,并且返回
-NSString *base64EncodeString(NSString *string)
+NSString *ZTBase64EncodeString(NSString *string)
 {
     //1.先转换为二进制数据
     NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
@@ -763,7 +760,7 @@ NSString *base64EncodeString(NSString *string)
     return [data base64EncodedStringWithOptions:0];
 }
 //对base64编码之后的字符串解码,并且返回
-NSString *base64DecodeString(NSString *string)
+NSString *ZTBase64DecodeString(NSString *string)
 {
     //注意:该字符串是base64编码后的字符串
     //1.转换为二进制数据(完成了解码的过程)
@@ -774,7 +771,7 @@ NSString *base64DecodeString(NSString *string)
 }
 
 
-NSString *base64FromImage(id image){
+NSString *ZTBase64FromImage(id image){
     NSString *imageBase64 = @"";
     if ([image isKindOfClass:[UIImage class]]) {
         imageBase64 = [UIImageJPEGRepresentation(image, 1) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
@@ -785,11 +782,11 @@ NSString *base64FromImage(id image){
     return imageBase64;
 }
 
-NSString *base64FromVideo(NSData *videoData){
+NSString *ZTBase64FromVideo(NSData *videoData){
     return [videoData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
 }
 
-NSDictionary *dictionaryWithJsonString(NSString *jsonString) {
+NSDictionary *ZTDictionaryWithJsonString(NSString *jsonString) {
     
     if (jsonString == nil) {
         return nil;
@@ -807,14 +804,14 @@ NSDictionary *dictionaryWithJsonString(NSString *jsonString) {
     
 }
 
-NSURL *urlFromString(NSString *originImageUrl){
+NSURL *ZTUrlFromString(NSString *originImageUrl){
     NSString *nowImageUrl = [NSString stringWithFormat:@"%@",originImageUrl];
     nowImageUrl  = [nowImageUrl stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
     NSURL *url = [NSURL URLWithString:nowImageUrl];
     return url;
 }
 
-UIImage *drawTextOnImage(NSString *text,UIImage *image){
+UIImage *ZTImageByDrawText(NSString *text,UIImage *image){
     //设置字体样式
     UIFont *font = [UIFont systemFontOfSize:80];
     NSDictionary *dict =@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor whiteColor]};
@@ -830,17 +827,17 @@ UIImage *drawTextOnImage(NSString *text,UIImage *image){
     UIGraphicsEndImageContext();
     return newImage;
 }
-void openSettingsURL(void){
+void ZTOpenSettingsURL(void){
     NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
     if ([[UIApplication sharedApplication] canOpenURL:url]) {
         [[UIApplication sharedApplication] openURL:url];
     }
 }
 
-void openSafari(NSURL * url){
+void ZTOpenSafari(NSURL * url){
     if (@available(iOS 9.0, *)) {
         SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:url];
-        [getActiVC() presentViewController:safariVC animated:YES completion:nil];
+        [ZTActivityController() presentViewController:safariVC animated:YES completion:nil];
     }else{
         if ([[UIApplication sharedApplication] canOpenURL:url]) {
             [[UIApplication sharedApplication] openURL:url];
@@ -849,7 +846,7 @@ void openSafari(NSURL * url){
 }
 
 
-void setButtonTextAndImage(UIButton *btn){
+void ZTButtonImageUpTextDown(UIButton *btn){
     
     CGSize imageSize = btn.imageView.bounds.size;
     CGSize titleSize = btn.titleLabel.bounds.size;
@@ -863,28 +860,28 @@ void setButtonTextAndImage(UIButton *btn){
     btn.titleEdgeInsets = UIEdgeInsetsMake(0, - imageSize.width, - (totalHeight - titleSize.height), 0);
 }
 
-NSString *dateStringFormTimeInterval(NSTimeInterval time){
+NSString *ZTDateStringFormTimeInterval(NSTimeInterval time){
     NSString *daraString = @"";
-    NSInteger currentYear = getCurrentTime(@"yyyy").integerValue;
-    NSInteger timeYear = getTimeDate(time, @"yyyy").integerValue;
-    NSInteger currentDay = getCurrentTime(@"dd").integerValue;
-    NSInteger timeDay = getTimeDate(time, @"dd").integerValue;
+    NSInteger currentYear = ZTTimeStringFromNowDate(@"yyyy").integerValue;
+    NSInteger timeYear = ZTTimeStringFromTimeInterval(time, @"yyyy").integerValue;
+    NSInteger currentDay = ZTTimeStringFromNowDate(@"dd").integerValue;
+    NSInteger timeDay = ZTTimeStringFromTimeInterval(time, @"dd").integerValue;
     if (currentDay==timeDay) {
-        daraString = getTimeDate(time, @"HH:mm");
+        daraString = ZTTimeStringFromTimeInterval(time, @"HH:mm");
     }else if ((currentDay-timeDay)==1){
-        daraString = getTimeDate(time, @"昨天");
+        daraString = ZTTimeStringFromTimeInterval(time, @"昨天");
     }else {
         if (currentYear==timeYear) {
-            daraString = getTimeDate(time, @"yyyy.MM.dd");
+            daraString = ZTTimeStringFromTimeInterval(time, @"yyyy.MM.dd");
         }else{
-            daraString = getTimeDate(time, @"yyyy.MM.dd");
+            daraString = ZTTimeStringFromTimeInterval(time, @"yyyy.MM.dd");
         }
     }
     return daraString;
 }
 
 
-ZTVersionType compareVersion(NSString *originVersion,NSString *currentVersion){
+ZTVersionType ZTCompareVersion(NSString *originVersion,NSString *currentVersion){
     // 都为空，相等，返回0
     if (!originVersion && !currentVersion) {
         return ZTVersionTypeEqual;
@@ -930,8 +927,8 @@ ZTVersionType compareVersion(NSString *originVersion,NSString *currentVersion){
 }
 
 
-NSString * encryptString(NSString *orignString,NSRange range){
-    if (isNil(orignString).length) {
+NSString * ZTEncryptString(NSString *orignString,NSRange range){
+    if (ZTStringFromNullableString(orignString).length) {
         NSString *encryStr = @"";
         for (NSInteger i=range.location; i<range.length+range.location; i++) {
             encryStr = [encryStr stringByAppendingString:@"*"];
@@ -942,25 +939,25 @@ NSString * encryptString(NSString *orignString,NSRange range){
     }
 }
 
-NSAttributedString *attributeStringFromJointString(NSString *firstString,UIColor *firstColor ,NSString *secondString,UIColor *secondColor){
+NSAttributedString *ZTAttributeStringFromJointString(NSString *firstString,UIColor *firstColor ,NSString *secondString,UIColor *secondColor){
     NSMutableAttributedString *firstAttr = [[NSMutableAttributedString alloc] initWithString:firstString attributes:@{NSForegroundColorAttributeName:firstColor}];
     NSMutableAttributedString *secondAttr = [[NSMutableAttributedString alloc] initWithString:secondString attributes:@{NSForegroundColorAttributeName:secondColor}];
     [firstAttr appendAttributedString:secondAttr];
     return firstAttr.copy;
 }
 
-NSAttributedString *attributeStringFromString(NSString *originString ,NSString *replaceString, UIColor *replaceColor){
+NSAttributedString *ZTAttributeStringFromString(NSString *originString ,NSString *replaceString, UIColor *replaceColor){
     NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:originString];
     [attr addAttribute:NSForegroundColorAttributeName value:replaceColor range:[originString rangeOfString:replaceString]];
     return attr;
 }
 
-NSAttributedString * attributedStringFromHtml(NSString *htmlString){
+NSAttributedString * ZTAttributedStringFromHtml(NSString *htmlString){
     NSAttributedString * attrStr = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
     return attrStr;
 }
 
-NSAttributedString * attributedStringFromStringWithLineSpace(NSString *textString,CGFloat lineSpace){
+NSAttributedString * ZTAttributedStringFromStringWithLineSpace(NSString *textString,CGFloat lineSpace){
     
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineSpacing = lineSpace;
@@ -969,10 +966,10 @@ NSAttributedString * attributedStringFromStringWithLineSpace(NSString *textStrin
     return attrStr;
 }
 
-NSString * calculateCacheSize(void){
+NSString * ZTCalculateCacheSize(void){
     return [ZTFileManager sizeFormattedOfDirectoryAtPath:[ZTFileManager cachesDir]];
 }
-BOOL clearCache(void){
+BOOL ZTClearCache(void){
     [[SDImageCache sharedImageCache] clearMemory];
     [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
         
@@ -980,26 +977,26 @@ BOOL clearCache(void){
     return [ZTFileManager clearCachesDirectory];
 }
 
-unsigned long hexColorFromString(NSString *string){
+unsigned long ZTHexColorFromString(NSString *string){
     unsigned long hexColor = strtoul([string UTF8String],0,16);
     return hexColor;
 }
 
-BOOL isHttpOrHttpsUrl(NSString *url){
+BOOL ZTUrlIsHttpOrHttps(NSString *url){
     BOOL isUrl = NO;
-    NSString *linkUrl = isNil(url).lowercaseString;
+    NSString *linkUrl = ZTStringFromNullableString(url).lowercaseString;
     if ([linkUrl hasPrefix:@"http://"]||[linkUrl hasPrefix:@"https://"]) {
         isUrl = YES;
     }
     return isUrl;
 }
 
-NSString *RMBStringFromPirce(id price){
+NSString *ZTRMBStringFromPirce(id price){
     NSString *rmbString = nil;
     if (price) {
         rmbString = [NSString stringWithFormat:@"%@",price];
-        if (isNil(rmbString).length) {
-            if (!([rmbString containsString:@"¥"]||[rmbString containsString:@"￥"])) {
+        if (ZTStringFromNullableString(rmbString).length) {
+            if (!([rmbString containsString:@"¥"]||[rmbString containsString:@"￥"]||[rmbString containsString:@"元"])) {
                 rmbString = [NSString stringWithFormat:@"¥%@",rmbString];
             }
         }
@@ -1009,12 +1006,12 @@ NSString *RMBStringFromPirce(id price){
     return rmbString;
 }
 
-NSString *goodsNumberStringFromNumber(id number){
+NSString *ZTGoodsNumberStringFromNumber(id number){
     
     NSString *numberString = nil;
     if (number) {
         numberString = [NSString stringWithFormat:@"%@",number];
-        if (isNil(numberString).length) {
+        if (ZTStringFromNullableString(numberString).length) {
             if (!([numberString containsString:@"x"]||[numberString containsString:@"X"]||[numberString containsString:@"×"])) {
                 numberString = [NSString stringWithFormat:@"x%@",numberString];
             }
@@ -1025,11 +1022,11 @@ NSString *goodsNumberStringFromNumber(id number){
     
     return numberString;
 }
-NSString *CNPhoneNumberStringFromNumber(id number){
+NSString *ZTCNPhoneNumberStringFromNumber(id number){
     NSString *numberString = nil;
     if (number) {
         numberString = [NSString stringWithFormat:@"%@",number];
-        if (isNil(numberString).length) {
+        if (ZTStringFromNullableString(numberString).length) {
             if (![numberString hasPrefix:@"86"]&&![numberString hasPrefix:@"+86"]) {
                 numberString = [NSString stringWithFormat:@"86%@",numberString];
             }
@@ -1040,8 +1037,8 @@ NSString *CNPhoneNumberStringFromNumber(id number){
     return numberString;
 }
 
-void invokeFunctionFromString(id instanceObject,NSString *methodName,id object){
-    if (!instanceObject||!isNil(methodName).length||isBlankString(methodName)) {
+void ZTInvokeFunctionFromString(id instanceObject,NSString *methodName,id object){
+    if (!instanceObject||!ZTStringFromNullableString(methodName).length||ZTStringIsBlankString(methodName)) {
         return;
     }
     methodName = [methodName hasSuffix:@":"]?methodName:[methodName stringByAppendingString:@":"];
@@ -1053,8 +1050,8 @@ void invokeFunctionFromString(id instanceObject,NSString *methodName,id object){
         func(instanceObject,selector,object);
     }
 }
-id invokeFunctionWithReturnValueFromString(id instanceObject,NSString *methodName,id object){
-    if (!instanceObject||!isNil(methodName).length||isBlankString(methodName)) {
+id ZTInvokeFunctionWithReturnValueFromString(id instanceObject,NSString *methodName,id object){
+    if (!instanceObject||!ZTStringFromNullableString(methodName).length||ZTStringIsBlankString(methodName)) {
         return nil;
     }
     methodName = [methodName hasSuffix:@":"]?methodName:[methodName stringByAppendingString:@":"];
@@ -1068,17 +1065,17 @@ id invokeFunctionWithReturnValueFromString(id instanceObject,NSString *methodNam
     return nil;
 }
 
-NSString * uniqueString(void){
+NSString * ZTUniqueString(void){
     return [NSUUID UUID].UUIDString;
 }
 
 
-CAGradientLayer * creatGradientLayer(CGRect rect,CGFloat cornerRadius){
-    CAGradientLayer *gl = creatGradientLayerWithColor(UIColorFromRGB(0x00C0FE), UIColorFromRGB(0x0A90F5), rect, cornerRadius);
+CAGradientLayer * ZTCreateGradientLayer(CGRect rect,CGFloat cornerRadius){
+    CAGradientLayer *gl = ZTCreatGradientLayerWithColor(UIColorFromRGB(0x00C0FE), UIColorFromRGB(0x0A90F5), rect, cornerRadius);
     return gl;
 }
 
-CAGradientLayer * creatGradientLayerWithColor(UIColor *color1,UIColor *color2,CGRect rect,CGFloat cornerRadius){
+CAGradientLayer * ZTCreatGradientLayerWithColor(UIColor *color1,UIColor *color2,CGRect rect,CGFloat cornerRadius){
     /**
      1、colors  渐变的颜色
      2、locations 颜色变化位置的取值范围
@@ -1096,9 +1093,9 @@ CAGradientLayer * creatGradientLayerWithColor(UIColor *color1,UIColor *color2,CG
     return gl;
 }
 
-UIImage * imageNamed(NSString * name){
+UIImage * ZTImageWithNamed(NSString * name){
     UIImage * image = nil;
-    if (isNil(name).length) {
+    if (ZTStringFromNullableString(name).length) {
         image = [UIImage imageNamed:name];
         if (!image) {
             image = [UIImage imageNamed:name inBundle:ZTBaseBundle compatibleWithTraitCollection:nil];

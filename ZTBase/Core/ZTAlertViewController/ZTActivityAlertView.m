@@ -34,13 +34,13 @@
     [self addSubview:self.closeBtn];
     [self.activityImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.mas_equalTo(self);
-        make.width.mas_equalTo(getPtW(60*PADDING));
-        make.height.mas_equalTo(getPtH(68*PADDING));
+        make.width.mas_equalTo(ZTPtFromPx(60*PADDING));
+        make.height.mas_equalTo(ZTPtFromPx(68*PADDING));
     }];
     [self.closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.activityImage.mas_bottom).offset(getPtH(75));
+        make.top.mas_equalTo(self.activityImage.mas_bottom).offset(ZTPtFromPx(75));
         make.centerX.mas_equalTo(self.activityImage);
-        make.width.height.mas_equalTo(getPtW(6*PADDING));
+        make.width.height.mas_equalTo(ZTPtFromPx(6*PADDING));
     }];
 }
 
@@ -71,25 +71,25 @@
     _imageObject = imageObject;
     if ([imageObject isKindOfClass:UIImage.class]) {
         self.activityImage.image = imageObject;
-        CGFloat width = getPtW(60*PADDING);
+        CGFloat width = ZTPtFromPx(60*PADDING);
         CGFloat height = width * (self.activityImage.image.size.height/self.activityImage.image.size.width);
         [self.activityImage mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(self);
-            make.centerY.mas_equalTo(-getPtH(30));
+            make.centerY.mas_equalTo(-ZTPtFromPx(30));
             make.width.mas_equalTo(width);
             make.height.mas_equalTo(height);
         }];
     }
     if ([imageObject isKindOfClass:NSURL.class]) {
         @WeakObj(self);
-        [self.activityImage sd_setImageWithURL:imageObject placeholderImage:imageNamed(@"prelook") completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        [self.activityImage sd_setImageWithURL:imageObject placeholderImage:ZTImageWithNamed(@"prelook") completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
             @StrongObj(self);
             if (!error&&image) {
-                CGFloat width = getPtW(60*PADDING);
+                CGFloat width = ZTPtFromPx(60*PADDING);
                 CGFloat height = width * (self.activityImage.image.size.height/self.activityImage.image.size.width);
                 [self.activityImage mas_remakeConstraints:^(MASConstraintMaker *make) {
                     make.centerX.mas_equalTo(self);
-                    make.centerY.mas_equalTo(-getPtH(30));
+                    make.centerY.mas_equalTo(-ZTPtFromPx(30));
                     make.width.mas_equalTo(width);
                     make.height.mas_equalTo(height);
                 }];
@@ -113,7 +113,7 @@
 -(UIButton *)closeBtn{
     if (!_closeBtn) {
         _closeBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
-        [_closeBtn setImage:imageNamed(@"alert_close") forState:(UIControlStateNormal)];
+        [_closeBtn setImage:ZTImageWithNamed(@"alert_close") forState:(UIControlStateNormal)];
         [_closeBtn addTarget:self action:@selector(closeClick) forControlEvents:(UIControlEventTouchUpInside)];
     }
     return _closeBtn;

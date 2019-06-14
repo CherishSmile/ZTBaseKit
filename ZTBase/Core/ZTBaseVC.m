@@ -26,7 +26,7 @@
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     self.navigationItem.hidesBackButton = YES;
     if (self.navigationController.viewControllers.count>1) {
-        self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithImage:imageNamed(@"nav_back") style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+        self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithImage:ZTImageWithNamed(@"nav_back") style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
     }else{
         self.navigationItem.leftBarButtonItem = nil;
     }
@@ -104,11 +104,11 @@ CGFloat navHeight(UIViewController *currentVC){
     if (currentVC) {
         return currentVC.navBarHeight;
     }else{
-        return getActiVC().navBarHeight;
+        return ZTActivityController().navBarHeight;
     }
 }
 CGFloat tabBarHeight(void){
-    UIViewController *currentVC = getActiVC();
+    UIViewController *currentVC = ZTActivityController();
     CGFloat tabHeight = 0;
     if (currentVC.tabBarController) {
         tabHeight += CGRectGetHeight(currentVC.tabBarController.tabBar.bounds);

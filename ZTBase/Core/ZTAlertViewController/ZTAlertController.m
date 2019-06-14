@@ -538,7 +538,7 @@ ZTAlertController * showCustomAlertController(NSString * title,NSString * messag
         }
         [alertVC addAction:sureAction];
     }
-    [getActiVC() presentViewController:alertVC animated:YES completion:nil];
+    [ZTActivityController() presentViewController:alertVC animated:YES completion:nil];
     return alertVC;
 }
 

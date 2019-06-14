@@ -41,7 +41,7 @@
     self.navigationController.progressHeight = @2;
     
     if (self.isUseLocation) {
-        showLocationPermissionAlert(nil);
+        ZTShowLocationPermissionAlert(nil);
     }
     
     [self setNavBarItem];
@@ -93,7 +93,7 @@
 -(void)goBack{
     if ([self.baseWebView canGoBack]) {
         [self.baseWebView goBack];
-        dismissProgressDialog(self.view);
+        ZTDismissProgressDialog(self.view);
     }else{
         [self.navigationController popViewControllerAnimated:YES];
     }
@@ -196,7 +196,7 @@
         _baseWebView.webTitleHandler = ^(NSString * _Nonnull title) {
             @StrongObj(self);
             if (self.isUseWebTitle) {
-                self.navigationItem.title = isNil(title);
+                self.navigationItem.title = ZTStringFromNullableString(title);
             }
         };
         _baseWebView.estimatedProgressHandler = ^(CGFloat estimatedProgress, NSError * _Nonnull error) {
@@ -212,14 +212,14 @@
 
 -(UIBarButtonItem *)closeItem{
     if (!_closeItem) {
-        _closeItem = [[UIBarButtonItem alloc] initWithImage:imageNamed(@"web_guanbi") style:(UIBarButtonItemStylePlain) target:self action:@selector(closeClick)];
+        _closeItem = [[UIBarButtonItem alloc] initWithImage:ZTImageWithNamed(@"web_guanbi") style:(UIBarButtonItemStylePlain) target:self action:@selector(closeClick)];
     }
     return _closeItem;
 }
 
 -(UIBarButtonItem *)backItem{
     if (!_backItem) {
-        _backItem = [[UIBarButtonItem alloc] initWithImage:imageNamed(@"nav_back") style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+        _backItem = [[UIBarButtonItem alloc] initWithImage:ZTImageWithNamed(@"nav_back") style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
     }
     return _backItem;
 }

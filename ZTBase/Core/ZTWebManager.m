@@ -44,13 +44,13 @@
  @param urlString html
  */
 -(void)loadHtml:(NSString *)urlString{
-    if (isNil(urlString).length) {
+    if (ZTStringFromNullableString(urlString).length) {
         if ([urlString hasPrefix:@"http://"]||[urlString hasPrefix:@"https://"]) {
-            NSURL *url = urlFromString(urlString);
+            NSURL *url = ZTUrlFromString(urlString);
             [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
         }else{
             NSString *htmlPath = [[NSBundle mainBundle] pathForResource:urlString ofType:@"html"];
-            if (isNil(htmlPath).length) {
+            if (ZTStringFromNullableString(htmlPath).length) {
                 NSURL *url = [NSURL fileURLWithPath:htmlPath];
                 [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
             }else{

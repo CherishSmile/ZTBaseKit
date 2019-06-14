@@ -158,8 +158,6 @@
     return objc_getAssociatedObject(self, _cmd);
 }
 
-
-
 /**
  设置导航样式(放在viewWillAppear中，可控制每个不同的NavBar)
  

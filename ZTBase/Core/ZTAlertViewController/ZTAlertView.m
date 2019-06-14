@@ -69,29 +69,29 @@
         }];
         [self.messagelbl mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(self.bgView);
-            make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(2*PADDING));
-            make.left.mas_equalTo(getPtW(3*PADDING));
-            make.right.mas_equalTo(-getPtW(3*PADDING));
+            make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(ZTPtFromPx(2*PADDING));
+            make.left.mas_equalTo(ZTPtFromPx(3*PADDING));
+            make.right.mas_equalTo(-ZTPtFromPx(3*PADDING));
         }];
     }else if (self.isExistTitle&&!self.isExistMessage){
         [self.bgView addSubview:self.titlelbl];
         [self.titlelbl mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(getPtW(3*PADDING));
-            make.right.mas_equalTo(-getPtW(3*PADDING));
+            make.left.mas_equalTo(ZTPtFromPx(3*PADDING));
+            make.right.mas_equalTo(-ZTPtFromPx(3*PADDING));
         }];
     }else if (!self.isExistTitle&&self.isExistMessage){
         [self.bgView addSubview:self.messagelbl];
         [self.messagelbl mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(self.bgView);
-            make.left.mas_equalTo(getPtW(3*PADDING));
-            make.right.mas_equalTo(-getPtW(3*PADDING));
+            make.left.mas_equalTo(ZTPtFromPx(3*PADDING));
+            make.right.mas_equalTo(-ZTPtFromPx(3*PADDING));
         }];
     }else{
         self.titlelbl.text = [self noSetTitleAndMessage];
         [self.bgView addSubview:self.titlelbl];
         [self.titlelbl mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(getPtW(3*PADDING));
-            make.right.mas_equalTo(-getPtW(3*PADDING));
+            make.left.mas_equalTo(ZTPtFromPx(3*PADDING));
+            make.right.mas_equalTo(-ZTPtFromPx(3*PADDING));
         }];
     }
     
@@ -100,17 +100,17 @@
             [self.bgView addSubview:obj];
             [obj mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerX.mas_equalTo(self.bgView);
-                make.height.mas_equalTo(getPtH(5*PADDING));
-                make.width.mas_equalTo(getPtW(24*PADDING));
+                make.height.mas_equalTo(ZTPtFromPx(5*PADDING));
+                make.width.mas_equalTo(ZTPtFromPx(24*PADDING));
                 
                 
                 if (self.isExistMessage){
-                    make.top.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(5*PADDING)*idx+getPtH(3*PADDING));
+                    make.top.mas_equalTo(self.messagelbl.mas_bottom).offset(ZTPtFromPx(5*PADDING)*idx+ZTPtFromPx(3*PADDING));
                     
                 }else if (self.isExistTitle){
-                    make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(5*PADDING)*idx+getPtH(3*PADDING));
+                    make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(ZTPtFromPx(5*PADDING)*idx+ZTPtFromPx(3*PADDING));
                 }else{
-                    make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(5*PADDING)*idx+getPtH(3*PADDING));
+                    make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(ZTPtFromPx(5*PADDING)*idx+ZTPtFromPx(3*PADDING));
                 }
             }];
         }];
@@ -120,23 +120,23 @@
     if (self.actions.count==0) {
         [self.bgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.mas_equalTo(self);
-            make.width.mas_equalTo(SCREEN_WIDTH-2*getPtW(8*PADDING));
+            make.width.mas_equalTo(SCREEN_WIDTH-2*ZTPtFromPx(8*PADDING));
             if (self.isExistTitle) {
-                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
+                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-ZTPtFromPx(3*PADDING));
             }else if (self.isExistMessage){
-                make.top.mas_equalTo(self.messagelbl.mas_top).offset(-getPtH(3*PADDING));
+                make.top.mas_equalTo(self.messagelbl.mas_top).offset(-ZTPtFromPx(3*PADDING));
             }else{
-                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
+                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-ZTPtFromPx(3*PADDING));
             }
             
             if (self.isExistTextFields) {
-                make.bottom.mas_equalTo(textField.mas_bottom).offset(getPtH(3*PADDING));
+                make.bottom.mas_equalTo(textField.mas_bottom).offset(ZTPtFromPx(3*PADDING));
             }else if (self.isExistMessage){
-                make.bottom.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(3*PADDING));
+                make.bottom.mas_equalTo(self.messagelbl.mas_bottom).offset(ZTPtFromPx(3*PADDING));
             }else if (self.isExistTitle){
-                make.bottom.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(3*PADDING));
+                make.bottom.mas_equalTo(self.titlelbl.mas_bottom).offset(ZTPtFromPx(3*PADDING));
             }else{
-                make.bottom.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(3*PADDING));
+                make.bottom.mas_equalTo(self.titlelbl.mas_bottom).offset(ZTPtFromPx(3*PADDING));
                 
             }
             
@@ -164,14 +164,14 @@
         
         [self.bgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.mas_equalTo(self);
-            make.width.mas_equalTo(SCREEN_WIDTH-2*getPtW(8*PADDING));
+            make.width.mas_equalTo(SCREEN_WIDTH-2*ZTPtFromPx(8*PADDING));
             
             if (self.isExistTitle) {
-                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
+                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-ZTPtFromPx(3*PADDING));
             }else if (self.isExistMessage){
-                make.top.mas_equalTo(self.messagelbl.mas_top).offset(-getPtH(3*PADDING));
+                make.top.mas_equalTo(self.messagelbl.mas_top).offset(-ZTPtFromPx(3*PADDING));
             }else{
-                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
+                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-ZTPtFromPx(3*PADDING));
             }
             make.bottom.mas_equalTo(actionBtn1.mas_bottom);
             
@@ -191,13 +191,13 @@
         }];
         [actionBtn1 mas_makeConstraints:^(MASConstraintMaker *make) {
             if (self.isExistTextFields) {
-                make.top.mas_equalTo(textField.mas_bottom).offset(getPtH(3*PADDING));
+                make.top.mas_equalTo(textField.mas_bottom).offset(ZTPtFromPx(3*PADDING));
             }else if (self.isExistMessage){
-                make.top.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(3*PADDING));
+                make.top.mas_equalTo(self.messagelbl.mas_bottom).offset(ZTPtFromPx(3*PADDING));
             }else if (self.isExistTitle){
-                make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(3*PADDING));
+                make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(ZTPtFromPx(3*PADDING));
             }else{
-                make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(3*PADDING));
+                make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(ZTPtFromPx(3*PADDING));
                 
             }
             
@@ -212,7 +212,7 @@
             //            }
             make.left.mas_equalTo(self.bgView);
             make.right.mas_equalTo(self.bgView.mas_centerX);
-            make.height.mas_equalTo(getPtH(10*PADDING));
+            make.height.mas_equalTo(ZTPtFromPx(10*PADDING));
         }];
         [actionBtn2 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.height.width.mas_equalTo(actionBtn1);
@@ -223,18 +223,18 @@
             [self.bgView addSubview:obj];
             [obj mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.right.mas_equalTo(self.bgView);
-                make.height.mas_equalTo(getPtH(10*PADDING));
+                make.height.mas_equalTo(ZTPtFromPx(10*PADDING));
                 
                 if (self.isExistTextFields) {
-                    make.top.mas_equalTo(textField.mas_bottom).offset(getPtH(10*PADDING)*idx+getPtH(3*PADDING));
+                    make.top.mas_equalTo(textField.mas_bottom).offset(ZTPtFromPx(10*PADDING)*idx+ZTPtFromPx(3*PADDING));
                     
                 }else if (self.isExistMessage){
-                    make.top.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(10*PADDING)*idx+getPtH(3*PADDING));
+                    make.top.mas_equalTo(self.messagelbl.mas_bottom).offset(ZTPtFromPx(10*PADDING)*idx+ZTPtFromPx(3*PADDING));
                     
                 }else if (self.isExistTitle){
-                    make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(10*PADDING)*idx+getPtH(3*PADDING));
+                    make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(ZTPtFromPx(10*PADDING)*idx+ZTPtFromPx(3*PADDING));
                 }else{
-                    make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(10*PADDING)*idx+getPtH(3*PADDING));
+                    make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(ZTPtFromPx(10*PADDING)*idx+ZTPtFromPx(3*PADDING));
                     
                 }
                 
@@ -252,14 +252,14 @@
         ZTAlertAction *lastBtn = self.actions.lastObject;
         [self.bgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.mas_equalTo(self);
-            make.width.mas_equalTo(SCREEN_WIDTH-2*getPtW(8*PADDING));
+            make.width.mas_equalTo(SCREEN_WIDTH-2*ZTPtFromPx(8*PADDING));
             
             if (self.isExistTitle) {
-                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
+                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-ZTPtFromPx(3*PADDING));
             }else if (self.isExistMessage){
-                make.top.mas_equalTo(self.messagelbl.mas_top).offset(-getPtH(3*PADDING));
+                make.top.mas_equalTo(self.messagelbl.mas_top).offset(-ZTPtFromPx(3*PADDING));
             }else{
-                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
+                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-ZTPtFromPx(3*PADDING));
             }
             make.bottom.mas_equalTo(lastBtn.mas_bottom);
             
@@ -285,14 +285,14 @@
     
     if (self.actions.count==2) {
         [self.actions enumerateObjectsUsingBlock:^(ZTAlertAction * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            drawLineWithWidth(obj, ZTSeparatorColor, 1, CGPointZero, CGPointMake(CGRectGetMaxX(obj.frame), 0));
+            ZTDrawLineWithWidth(obj, ZTSeparatorColor, 1, CGPointZero, CGPointMake(CGRectGetMaxX(obj.frame), 0));
             if (idx==0) {
-                drawLineWithWidth(obj, ZTSeparatorColor, 1, CGPointMake(CGRectGetMaxX(obj.frame), 0), CGPointMake(CGRectGetMaxX(obj.frame), CGRectGetMaxY(obj.frame)));
+                ZTDrawLineWithWidth(obj, ZTSeparatorColor, 1, CGPointMake(CGRectGetMaxX(obj.frame), 0), CGPointMake(CGRectGetMaxX(obj.frame), CGRectGetMaxY(obj.frame)));
             }
         }];
     }else{
         [self.actions enumerateObjectsUsingBlock:^(ZTAlertAction * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            drawLineWithWidth(obj, ZTSeparatorColor, 1, CGPointZero, CGPointMake(CGRectGetMaxX(obj.frame), 0));
+            ZTDrawLineWithWidth(obj, ZTSeparatorColor, 1, CGPointZero, CGPointMake(CGRectGetMaxX(obj.frame), 0));
         }];
     }
 }
@@ -351,13 +351,13 @@
 }
 
 -(BOOL)isExistTitle{
-    return self.title&&isNil(self.title).length;
+    return self.title&&ZTStringFromNullableString(self.title).length;
 }
 -(BOOL)isExistMessage{
     BOOL isExistMessage = NO;
     if ([self.message isKindOfClass:NSString.class]) {
         NSString * message = (NSString *)self.message;
-        isExistMessage = isNil(message).length;
+        isExistMessage = ZTStringFromNullableString(message).length;
     }
     if ([self.message isKindOfClass:NSAttributedString.class]) {
         NSAttributedString * message = (NSAttributedString *)self.message;
@@ -415,7 +415,7 @@
     if (!_bgView) {
         _bgView = [UIView new];
         _bgView.backgroundColor = [UIColor whiteColor];
-        drawBorder(_bgView, [UIColor whiteColor], 12);
+        ZTDrawBorder(_bgView, [UIColor whiteColor], 12);
     }
     return _bgView;
 }
