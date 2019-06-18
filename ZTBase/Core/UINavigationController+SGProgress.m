@@ -13,17 +13,16 @@ NSInteger const SGProgresstagId = 222122323;
 NSInteger const SGProgressMasktagId = 221222322;
 NSInteger const SGProgressMiniMasktagId = 221222321;
 
-static char *progressH = "progressHeight";
-
 @implementation UINavigationController (SGProgress)
 
+-(void)setProgressHeight:(CGFloat)progressHeight{
+    objc_setAssociatedObject(self, @selector(progressHeight), @(progressHeight), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
--(void)setProgressHeight:(NSNumber*)progressHeight{
-    objc_setAssociatedObject(self, &progressH, progressHeight, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+-(CGFloat)progressHeight{
+    return [objc_getAssociatedObject(self, _cmd) floatValue];
 }
--(NSNumber*)progressHeight{
-    return objc_getAssociatedObject(self, &progressH);
-}
+
 - (CGRect)getSGMaskFrame
 {
 	float navBarHeight = self.navigationBar.frame.size.height;
@@ -59,7 +58,7 @@ static char *progressH = "progressHeight";
 
 - (UIView *)setupSGProgressSubviewWithTintColor:(UIColor *)tintColor
 {
-    float height = self.progressHeight.floatValue>0?self.progressHeight.floatValue:1.5;
+    float height = self.progressHeight>0?self.progressHeight:1.5;
 	float y = self.navigationBar.frame.size.height - height;
 	
 	UIView *progressView;

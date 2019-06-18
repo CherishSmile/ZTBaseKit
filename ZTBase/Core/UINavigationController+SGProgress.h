@@ -16,7 +16,7 @@
 /**
  * 进度条的高度
  */
-@property(nonatomic,strong)NSNumber *progressHeight;
+@property(nonatomic, assign) CGFloat  progressHeight;
 
 - (void)showSGProgress;
 - (void)showSGProgressWithDuration:(float)duration;

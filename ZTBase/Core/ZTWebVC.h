@@ -27,6 +27,16 @@ typedef void(^ZTWebBackCompletionHandler)(id result);
 @property(nonatomic, strong) Class webManagerClass;
 
 /**
+ 进度条颜色
+ */
+@property(nonatomic, strong) UIColor * progressColor;
+
+/**
+ 进度条高度
+ */
+@property(nonatomic, assign) CGFloat  progressHeight;
+
+/**
  是否使用UIWebView
  */
 @property(nonatomic, assign) BOOL  isUseUIWeb;

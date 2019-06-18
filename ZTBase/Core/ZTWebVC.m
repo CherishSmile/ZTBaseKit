@@ -28,6 +28,8 @@
     if (self = [super init]) {
         self.isUseWebTitle = true;
         self.isShowProgress = true;
+        self.progressColor = UIColorFromRGB(0x25A8F5);
+        self.progressHeight = 2;
     }
     return self;
 }
@@ -38,7 +40,7 @@
     self.navigationController.navigationBarHidden = self.isHiddenNavBar;
     self.navigationController.navigationBar.translucent = NO;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.navigationController.progressHeight = @2;
+    self.navigationController.progressHeight = self.progressHeight;
     
     if (self.isUseLocation) {
         ZTShowLocationPermissionAlert(nil);
@@ -125,7 +127,7 @@
 /**
  js调用OC 添加处理脚本
  
- @param nativeNames OC方法名数组
+ @param messageNames OC方法名数组
  */
 -(void)addJavaScriptMessages:(NSArray<NSString *> *)messageNames{
     [self.webManager addJavaScriptMessages:messageNames];
@@ -202,7 +204,7 @@
         _baseWebView.estimatedProgressHandler = ^(CGFloat estimatedProgress, NSError * _Nonnull error) {
             @StrongObj(self);
             if (self.isShowProgress) {
-                [self.navigationController setSGProgressPercentage:estimatedProgress*100 andTintColor:UIColorFromRGB(0x25A8F5)];
+                [self.navigationController setSGProgressPercentage:estimatedProgress*100 andTintColor:self.progressColor];
             }
         };
     }
