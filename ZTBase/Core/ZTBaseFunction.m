@@ -13,7 +13,6 @@
 #import <SafariServices/SafariServices.h>
 #import "ZTFileManager.h"
 #import <SDWebImage/SDImageCache.h>
-#import <SDWebImage/UIButton+WebCache.h>
 
 
 UITextField * ZTCreateTextField(NSString * placeholder,UIFont * font)
@@ -176,24 +175,66 @@ UIBarButtonItem * ZTSetBarItem(UIViewController * mySelf,id imageOrTitle,SEL act
 UIBarButtonItem * ZTSetBarItemWithUrl(UIViewController * mySelf,NSURL *imageUrl,id target,SEL action,ZTNavBarItemPosition positon, NSInteger itemTag)
 {
     UIButton * itemBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    itemBtn.bounds = CGRectMake(0, 0, 40, 40);
-    [itemBtn sd_setImageWithURL:imageUrl forState:(UIControlStateNormal) placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-        
-    }];
+    itemBtn.bounds = CGRectMake(0, 0, 30, 30);
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        NSData * imageData = [NSData dataWithContentsOfURL:imageUrl];
+        UIImage * image = [UIImage imageWithData:imageData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [itemBtn setImage:image forState:(UIControlStateNormal)];
+        });
+    });
+    itemBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [itemBtn addTarget:target action:action forControlEvents:(UIControlEventTouchUpInside)];
     itemBtn.tag = itemTag;
     UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithCustomView:itemBtn];
     if (mySelf) {
         if (positon) {
-            NSMutableArray * rightItems = mySelf.navigationItem.rightBarButtonItems.mutableCopy;
-            [rightItems addObject:item];
-            mySelf.navigationItem.rightBarButtonItems = rightItems?rightItems.copy:@[item];
+            NSMutableArray<UIBarButtonItem *> * rightItems = mySelf.navigationItem.rightBarButtonItems.mutableCopy;
+            __block BOOL isExitItem = NO;
+            __block NSInteger index = -1;
+            [rightItems enumerateObjectsUsingBlock:^(UIBarButtonItem * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (obj.customView.tag==itemTag) {
+                    isExitItem = YES;
+                    index = idx;
+                    * stop = YES;
+                }
+            }];
+            if (imageUrl&&imageUrl.absoluteString.length) {
+                if (!isExitItem) {
+                    [rightItems addObject:item];
+                    mySelf.navigationItem.rightBarButtonItems = rightItems?rightItems.copy:@[item];
+                }
+            }else{
+                if (index>-1) {
+                    [rightItems removeObjectAtIndex:index];
+                    mySelf.navigationItem.rightBarButtonItems = rightItems?rightItems.copy:@[item];
+                }
+            }
+            
         }
         else
         {
-            NSMutableArray * leftItems = mySelf.navigationItem.leftBarButtonItems.mutableCopy;
-            [leftItems addObject:item];
-            mySelf.navigationItem.leftBarButtonItems = leftItems?leftItems.copy:@[item];
+            NSMutableArray<UIBarButtonItem *> * leftItems = mySelf.navigationItem.leftBarButtonItems.mutableCopy;
+            __block BOOL isExitItem = NO;
+            __block NSInteger index = -1;
+            [leftItems enumerateObjectsUsingBlock:^(UIBarButtonItem * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (obj.customView.tag==itemTag) {
+                    isExitItem = YES;
+                    index = idx;
+                    * stop = YES;
+                }
+            }];
+            if (imageUrl&&imageUrl.absoluteString.length) {
+                if (!isExitItem) {
+                    [leftItems addObject:item];
+                    mySelf.navigationItem.leftBarButtonItems = leftItems?leftItems.copy:@[item];
+                }
+            }else{
+                if (index>-1) {
+                    [leftItems removeObjectAtIndex:index];
+                    mySelf.navigationItem.leftBarButtonItems = leftItems?leftItems.copy:@[item];
+                }
+            }
         }
     }
     return item;

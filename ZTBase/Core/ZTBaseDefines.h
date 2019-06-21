@@ -75,7 +75,7 @@ _Pragma("clang diagnostic pop") \
 //#define GetFont(x)     [UIFont systemFontOfSize:x]
 //#define GetBoldFont(x) [UIFont boldSystemFontOfSize:x]
 
-#define IsNil(x)
+#define IsNil(x)  ZTStringFromNullableString(x)
 
 #define GetPt(px) ZTPtFromPx(px)
 
