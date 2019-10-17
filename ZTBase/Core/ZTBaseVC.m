@@ -74,6 +74,20 @@
     }
 }
 
+- (BOOL)prefersStatusBarHidden{
+    return NO;
+}
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleDefault;
+}
+-(UIStatusBarAnimation)preferredStatusBarUpdateAnimation{
+    return UIStatusBarAnimationFade;
+}
+-(BOOL)shouldAutorotate{
+    return NO;
+}
+
+
 #pragma mark - setter
 -(void)setIsClosePopGestureRecognizer:(BOOL)isClosePopGestureRecognizer{
     _isClosePopGestureRecognizer = isClosePopGestureRecognizer;

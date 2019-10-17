@@ -39,27 +39,6 @@ typedef NS_ENUM(NSInteger,ZTNavBarStatus) {
 @property(nonatomic, assign, readonly) CGFloat navBarHeight;
 
 
-@property(nonatomic, strong, readonly) UIVisualEffectView * navVisualEffectView;
-
-
-/**
- 状态栏样式
- 请在plist文件中设置这个属性，否则不生效
- <key>UIViewControllerBasedStatusBarAppearance</key>
- <false/>
- */
-@property(nonatomic, assign) UIStatusBarStyle  statusBarStyle;
-
-/**
- 状态栏是否隐藏
- */
-@property(nonatomic, assign) BOOL  statusBarHidden;
-
-/**
- 状态栏背景色
- */
-@property(nonatomic, strong) UIColor * statusBarBackgroundColor;
-
 /**
  导航透明度
  */

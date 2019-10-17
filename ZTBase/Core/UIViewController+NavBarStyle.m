@@ -31,58 +31,6 @@
     return CGRectGetHeight(UIApplication.sharedApplication.statusBarFrame)+CGRectGetHeight(self.navigationController.navigationBar.frame);
 }
 
--(UIVisualEffectView *)navVisualEffectView{
-    __block UIVisualEffectView * effectView = nil;
-    [self.navigationController.navigationBar.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj isKindOfClass:UIVisualEffectView.class]) {
-            effectView = (UIVisualEffectView *)obj;
-        }else{
-            for (UIView * subView in obj.subviews) {
-                if ([subView isKindOfClass:UIVisualEffectView.class]) {
-                    effectView = (UIVisualEffectView *)subView;
-                }
-            }
-        }
-    }];
-    return effectView;
-}
-
-/**
- 状态栏样式
- */
--(void)setStatusBarStyle:(UIStatusBarStyle)statusBarStyle{
-    objc_setAssociatedObject(self, @selector(statusBarStyle), @(statusBarStyle), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    UIApplication.sharedApplication.statusBarStyle = statusBarStyle;
-}
-
-- (UIStatusBarStyle)statusBarStyle{
-    return [objc_getAssociatedObject(self, _cmd) integerValue];
-}
-
-/**
- 状态栏显隐
- */
--(void)setStatusBarHidden:(BOOL)statusBarHidden{
-    objc_setAssociatedObject(self, @selector(statusBarHidden), @(statusBarHidden), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    UIApplication.sharedApplication.statusBarHidden = statusBarHidden;
-}
--(BOOL)statusBarHidden{
-    return [objc_getAssociatedObject(self, _cmd) boolValue];
-}
-
-
-/**
- 状态栏背景色
- */
--(void)setStatusBarBackgroundColor:(UIColor *)statusBarBackgroundColor{
-    objc_setAssociatedObject(self, @selector(statusBarBackgroundColor), statusBarBackgroundColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self setStatusBarBgColor:statusBarBackgroundColor];
-}
--(UIColor *)statusBarBackgroundColor{
-    return objc_getAssociatedObject(self, _cmd);
-}
-
-
 /**
  导航样式
  */
@@ -164,7 +112,6 @@
  @param style 样式
  */
 -(void)setNavBarStyle:(ZTNavBarStyle)style{
-    UIApplication * app = [UIApplication sharedApplication];
     UINavigationController * naviController = self.navigationController;
     UINavigationBar * naviBar = self.navigationController.navigationBar;
     switch (style) {
@@ -178,13 +125,7 @@
                 naviBar.shadowImage = UIImage.new;
                 naviBar.barTintColor = UIColor.whiteColor;
                 self.navBarTintColor = UIColor.whiteColor;
-                self.statusBarBackgroundColor = nil;
                 [self setBarAlpha:1];
-                app.statusBarStyle = UIStatusBarStyleDefault;
-                self.statusBarStyle = app.statusBarStyle;
-                app.statusBarHidden = NO;
-                self.statusBarHidden = app.statusBarHidden;
-                
                 self.isSetedStyle = YES;
             }else{
                 [self setNavBarTitleTextAttributes:self.navTitleColor];
@@ -192,9 +133,6 @@
                 naviBar.barTintColor = self.navBarTintColor;
                 [self setBarAlpha:self.barAlpha];
                 naviBar.shadowImage = UIImage.new;
-                [self setStatusBarBgColor:self.statusBarBackgroundColor];
-                app.statusBarStyle = self.statusBarStyle;
-                app.statusBarHidden = self.statusBarHidden;
             }
             
         }
@@ -219,13 +157,6 @@
                 [self setBarAlpha:1];
                 /**设置导航底部线条*/
                 naviBar.shadowImage = UIImage.new;
-
-                /**设置状态栏*/
-                self.statusBarBackgroundColor = nil;
-                app.statusBarStyle = UIStatusBarStyleLightContent;
-                self.statusBarStyle = app.statusBarStyle;
-                app.statusBarHidden = NO;
-                self.statusBarHidden = app.statusBarHidden;
                 
                 self.isSetedStyle = YES;
             }else{
@@ -234,9 +165,6 @@
                 naviBar.barTintColor = self.navBarTintColor;
                 [self setBarAlpha:self.barAlpha];
                 naviBar.shadowImage = UIImage.new;
-                [self setStatusBarBgColor:self.statusBarBackgroundColor];
-                app.statusBarStyle = self.statusBarStyle;
-                app.statusBarHidden = self.statusBarHidden;
             }
             
         }
@@ -251,13 +179,8 @@
                 self.navTintColor = UIColor.whiteColor;
                 naviBar.barTintColor = UIColor.whiteColor;
                 self.navBarTintColor = UIColor.whiteColor;
-                self.statusBarBackgroundColor = UIColor.clearColor;
                 [self setBarAlpha:0];
-                app.statusBarStyle = UIStatusBarStyleLightContent;
-                self.statusBarStyle = app.statusBarStyle;
-                app.statusBarHidden = NO;
-                self.statusBarHidden = app.statusBarHidden;
-                
+    
                 self.isSetedStyle = YES;
             }else{
                 [self setNavBarTitleTextAttributes:self.navTitleColor];
@@ -265,9 +188,6 @@
                 naviBar.barTintColor = self.navBarTintColor;
                 [self setBarAlpha:self.barAlpha];
                 naviBar.shadowImage = UIImage.new;
-                [self setStatusBarBgColor:self.statusBarBackgroundColor];
-                app.statusBarStyle = self.statusBarStyle;
-                app.statusBarHidden = self.statusBarHidden;
             }
         }
             break;
@@ -291,14 +211,4 @@
                                                                   NSFontAttributeName:GetBoldFont(F7)
                                                                   };
 }
-
-
--(void)setStatusBarBgColor:(UIColor *)statusBarBackgroundColor{
-    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
-    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
-        statusBar.backgroundColor = statusBarBackgroundColor;
-    }
-}
-
-
 @end
