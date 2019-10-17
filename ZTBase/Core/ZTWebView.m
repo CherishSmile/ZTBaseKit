@@ -16,8 +16,8 @@ static inline  NSDictionary * queryDict(NSString * query){
     NSMutableDictionary * queryDic = [NSMutableDictionary dictionary];
     for (NSString * string in queryArr) {
         NSArray * stringArr = [string componentsSeparatedByString:@"="];
-        NSString * keyString = [ZTStringFromNullableString(stringArr.firstObject) stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSString * valueString = [ZTStringFromNullableString(stringArr.lastObject) stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString * keyString = [ZTStringFromNullableString(stringArr.firstObject) stringByRemovingPercentEncoding];
+        NSString * valueString = [ZTStringFromNullableString(stringArr.lastObject) stringByRemovingPercentEncoding];
         [queryDic setObject:ZTStringFromNullableString(valueString) forKey:ZTStringFromNullableString(keyString)];
     }
     return queryDic.copy;
@@ -380,7 +380,7 @@ static NSString * WEBTITLE = @"title";
         if (@available(iOS 10.0, *)) {
             self.baseWKWeb.configuration.mediaTypesRequiringUserActionForPlayback = mediaPlaybackRequiresUserAction;
         } else {
-            self.baseWKWeb.configuration.mediaPlaybackRequiresUserAction = mediaPlaybackRequiresUserAction;
+            self.baseWKWeb.configuration.requiresUserActionForMediaPlayback = mediaPlaybackRequiresUserAction;
         }
     }
 }
