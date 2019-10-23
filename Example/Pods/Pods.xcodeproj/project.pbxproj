@@ -775,7 +775,6 @@
 		898D89121F02EDD50C58B987C08899A7 /* Pods-ZTBase_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ZTBase_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		89D0BDD8DE681F9031F4198DD2189E5B /* MJRefreshStateHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshStateHeader.h; path = MJRefresh/Custom/Header/MJRefreshStateHeader.h; sourceTree = "<group>"; };
 		89FC3E798CE2FA9ADD21801958DBEDA5 /* SDImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCache.m; path = SDWebImage/SDImageCache.m; sourceTree = "<group>"; };
-		8B0A3B049020584ED6CD1A71F0877CE4 /* ZTBase-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ZTBase-Info.plist"; sourceTree = "<group>"; };
 		8B77E07BB6D4971B26A8252FDB042F90 /* Pods-ZTBase_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ZTBase_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		8C08B364F0B7727E2047E12DC80B2FAF /* NSObject+KMNavigationBarTransition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+KMNavigationBarTransition.h"; path = "KMNavigationBarTransition/NSObject+KMNavigationBarTransition.h"; sourceTree = "<group>"; };
 		8C169355A97FAD73595EF6CFB82329EE /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1648,7 +1647,6 @@
 				6FDEC6E9B68C7E61D829E1707FF23FDC /* ZTBase.modulemap */,
 				6B3B1D567EFDE4DDABC7A7C9BC392B18 /* ZTBase.xcconfig */,
 				C22DC753560FE437FE9414489EF7E642 /* ZTBase-dummy.m */,
-				8B0A3B049020584ED6CD1A71F0877CE4 /* ZTBase-Info.plist */,
 				0B12ED77D4A80A9D80C1C08CAE84A0ED /* ZTBase-prefix.pch */,
 				E0D1BDE776FC662D05A7B1CBFA826010 /* ZTBase-umbrella.h */,
 			);
