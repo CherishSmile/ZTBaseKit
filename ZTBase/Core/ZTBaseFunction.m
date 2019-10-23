@@ -84,19 +84,7 @@ void ZTDrawRoundedCorner(UIView *view,UIRectCorner corners,CGSize cornerRadii){
     view.layer.mask = layer;
 }
 void ZTDrawLine(UIView *view,UIColor *lineColor,CGPoint startPoint,CGPoint endPoint){
-    // 线的路径
-    UIBezierPath *linePath = [UIBezierPath bezierPath];
-    // 起点
-    [linePath moveToPoint:startPoint];
-    // 其他点
-    [linePath addLineToPoint:endPoint];
-    
-    CAShapeLayer *lineLayer = [CAShapeLayer layer];
-    lineLayer.lineWidth = 1;
-    lineLayer.strokeColor = lineColor.CGColor;
-    lineLayer.path = linePath.CGPath;
-    
-    [view.layer addSublayer:lineLayer];
+    ZTDrawLineWithWidth(view, lineColor, 1, startPoint, endPoint);
 }
 void ZTDrawLineWithWidth(UIView *view,UIColor *lineColor,CGFloat lineWidth,CGPoint startPoint,CGPoint endPoint){
     // 线的路径
@@ -105,12 +93,22 @@ void ZTDrawLineWithWidth(UIView *view,UIColor *lineColor,CGFloat lineWidth,CGPoi
     [linePath moveToPoint:startPoint];
     // 其他点
     [linePath addLineToPoint:endPoint];
-    
-    CAShapeLayer *lineLayer = [CAShapeLayer layer];
+
+    NSString * layerName = [NSString stringWithFormat:@"%@%@",[NSValue valueWithCGPoint:startPoint],[NSValue valueWithCGPoint:endPoint]];
+    __block CAShapeLayer *lineLayer = nil;
+    [view.layer.sublayers enumerateObjectsUsingBlock:^(__kindof CALayer * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+       if ([obj.name isEqualToString:layerName]) {
+           lineLayer = obj;
+           *stop = YES;
+       }
+    }];
+    if (!lineLayer) {
+       lineLayer = [CAShapeLayer layer];
+       lineLayer.name = layerName;
+    }
     lineLayer.lineWidth = lineWidth;
     lineLayer.strokeColor = lineColor.CGColor;
     lineLayer.path = linePath.CGPath;
-    
     [view.layer addSublayer:lineLayer];
 }
 /******************转json字符串*********************/

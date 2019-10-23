@@ -119,7 +119,7 @@ _Pragma("clang diagnostic pop") \
 #define NAVHEIGHT(vc) navHeight(vc)
 #define TOOLBARHEIGHT tabBarHeight()
 
-#define CELLHEIGHT    getPtH(100)
+#define CELLHEIGHT    GetPt(100)
 
 
 
