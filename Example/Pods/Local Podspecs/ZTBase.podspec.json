@@ -1,6 +1,6 @@
 {
   "name": "ZTBase",
-  "version": "0.1.3",
+  "version": "0.4.8",
   "summary": "ZTBase is the basic framework of OC project.",
   "homepage": "https://github.com/CherishSmile/ZTBase",
   "license": {
@@ -8,24 +8,21 @@
     "file": "LICENSE"
   },
   "authors": {
-    "ZWL": "1332291552@qq.com"
+    "CherishSmile": "misteralvin@yeah.net"
   },
   "source": {
     "git": "https://github.com/CherishSmile/ZTBase.git",
-    "tag": "0.1.3"
+    "tag": "0.4.8"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
   "requires_arc": true,
-  "source_files": [
-    "ZTBase/ZTBase/**/*.{h,m}",
-    "ZTBase/Utilities/**/*.{h,m}"
-  ],
-  "public_header_files": [
-    "ZTBase/ZTBase/**/*.h",
-    "ZTBase/Utilities/**/*.h"
-  ],
+  "resource_bundles": {
+    "ZTBase": [
+      "ZTBase/**/*.{png,caf}"
+    ]
+  },
   "dependencies": {
     "AFNetworking": [
 
@@ -45,6 +42,9 @@
     "SDWebImage": [
 
     ],
+    "SDAutoLayout": [
+
+    ],
     "MBProgressHUD": [
 
     ],
@@ -54,5 +54,22 @@
     "DZNEmptyDataSet": [
 
     ]
-  }
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "ZTBase/Core/**/*.{h,m}",
+      "public_header_files": "ZTBase/Core/**/*.h"
+    },
+    {
+      "name": "Utilities",
+      "source_files": "ZTBase/Utilities/**/*.{h,m}",
+      "public_header_files": "ZTBase/Utilities/**/*.h",
+      "dependencies": {
+        "ZTBase/Core": [
+
+        ]
+      }
+    }
+  ]
 }
