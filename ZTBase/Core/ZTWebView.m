@@ -11,17 +11,22 @@
 #import <AFNetworking/UIWebView+AFNetworking.h>
 #import "ZTBaseFunction.h"
 
-static inline  NSDictionary * queryDict(NSString * query){
+static inline  id queryObject(NSString * query){
     NSArray * queryArr = [query componentsSeparatedByString:@"&"];
-    NSMutableDictionary * queryDic = [NSMutableDictionary dictionary];
-    for (NSString * string in queryArr) {
-        NSArray * stringArr = [string componentsSeparatedByString:@"="];
-        NSString * keyString = [ZTStringFromNullableString(stringArr.firstObject) stringByRemovingPercentEncoding];
-        NSString * valueString = [ZTStringFromNullableString(stringArr.lastObject) stringByRemovingPercentEncoding];
-        [queryDic setObject:ZTStringFromNullableString(valueString) forKey:ZTStringFromNullableString(keyString)];
+    if (queryArr.count>1) {
+        NSMutableDictionary * queryDic = [NSMutableDictionary dictionary];
+        for (NSString * string in queryArr) {
+            NSArray * stringArr = [string componentsSeparatedByString:@"="];
+            NSString * keyString = [ZTStringFromNullableString(stringArr.firstObject) stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
+            NSString * valueString = [ZTStringFromNullableString(stringArr.lastObject) stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
+            [queryDic setObject:ZTStringFromNullableString(valueString) forKey:ZTStringFromNullableString(keyString)];
+        }
+        return queryDic.copy;
+    }else{
+        return queryArr.firstObject;
     }
-    return queryDic.copy;
 }
+
 
 static NSString * WEBPROGRESS = @"estimatedProgress";
 static NSString * WEBTITLE = @"title";
@@ -172,7 +177,7 @@ static NSString * WEBTITLE = @"title";
         id delegate = self.delegate;
         if ([delegate conformsToProtocol:@protocol(ZTWebScriptMessageHandler)]) {
             if ([delegate respondsToSelector:@selector(webView:didReceiveScriptMessageWithFunctionName:functionParameters:)]) {
-                [delegate webView:self didReceiveScriptMessageWithFunctionName:request.URL.host functionParameters:queryDict(request.URL.query)];
+                [delegate webView:self didReceiveScriptMessageWithFunctionName:request.URL.host functionParameters:queryObject(request.URL.query)];
                 return NO;
             }else{
                 if([self.delegate respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]){

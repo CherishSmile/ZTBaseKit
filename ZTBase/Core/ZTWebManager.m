@@ -14,13 +14,16 @@
 @property(nonatomic, strong) ZTWebView * webView;
 @property(nonatomic, strong) NSArray * baseMessageNames;
 @property(nonatomic, strong) NSArray * messageNames;
-
+@property(nonatomic, strong) NSURL * originURL;
 @end
 
 @implementation ZTWebManager
 
 -(instancetype)initWithWebView:(ZTWebView *)webView{
     if (self = [super init]) {
+        if (ZTBaseConfiguration.defaultConfig.webScheme.length) {
+           self.webView.webScheme = ZTBaseConfiguration.defaultConfig.webScheme;
+        }
         self.webView = webView;
     }
     return self;
@@ -119,6 +122,18 @@
     if (self.webView.webType==ZTWebViewTypeWKWebView) {
         if (cookieHandler) {
             cookieHandler(self.webView.configuration.userContentController);
+        }
+    }
+}
+/**
+ 给uiwebview添加cookie
+ */
+-(void)addUIWebCookie:(void(^)(NSURL * url,void(^)(NSURL * url)))cookieHandler{
+    if (self.webView.webType==ZTWebViewTypeUIWebView) {
+        if (cookieHandler) {
+            cookieHandler(self.originURL ,^(NSURL * url){
+                [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+            });
         }
     }
 }

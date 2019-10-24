@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL  isOpenDebug;
 /** 主题色 */
 @property(nonatomic, strong) UIColor * themeColor;
+/// UIWebView js调用原生方法，定义的的协议名称
+@property(nonatomic, copy) NSString * webScheme;
 
 @end
 
