@@ -50,11 +50,13 @@
     if (ZTStringFromNullableString(urlString).length) {
         if ([urlString hasPrefix:@"http://"]||[urlString hasPrefix:@"https://"]) {
             NSURL *url = ZTUrlFromString(urlString);
+            self.originURL = url;
             [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
         }else{
             NSString *htmlPath = [[NSBundle mainBundle] pathForResource:urlString ofType:@"html"];
             if (ZTStringFromNullableString(htmlPath).length) {
                 NSURL *url = [NSURL fileURLWithPath:htmlPath];
+                self.originURL = url;
                 [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
             }else{
                 [self.webView loadHTMLString:urlString baseURL:nil];
