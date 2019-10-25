@@ -392,6 +392,7 @@
     if (!_alertView) {
         _alertView = [[ZTAlertView alloc] initWithTitle:self.alertTitle message:self.alertMessage actions:self.actions textFields:self.textFields];
         _alertView.messageAlignment = self.messageAlignment;
+        _alertView.linkAttributes = self.linkAttributes;
     }
     return _alertView;
 }

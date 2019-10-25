@@ -412,7 +412,7 @@
 
 -(void)setLinkAttributes:(NSDictionary *)linkAttributes{
     _linkAttributes = linkAttributes;
-    self.messagelbl.linkAttribute = linkAttributes;
+    self.messagelbl.linkAttributes = linkAttributes;
 }
 
 #pragma mark - getter
