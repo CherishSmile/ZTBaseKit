@@ -1,6 +1,6 @@
 {
   "name": "ZTBase",
-  "version": "0.4.8",
+  "version": "0.5.1",
   "summary": "ZTBase is the basic framework of OC project.",
   "homepage": "https://github.com/CherishSmile/ZTBase",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/CherishSmile/ZTBase.git",
-    "tag": "0.4.8"
+    "tag": "0.5.1"
   },
   "platforms": {
     "ios": "9.0"
