@@ -410,6 +410,11 @@
     self.messagelbl.textAlignment = messageAlignment;
 }
 
+-(void)setLinkAttributes:(NSDictionary *)linkAttributes{
+    _linkAttributes = linkAttributes;
+    self.messagelbl.linkAttribute = linkAttributes;
+}
+
 #pragma mark - getter
 -(UIView *)bgView{
     if (!_bgView) {

@@ -74,6 +74,8 @@ typedef void(^ZTAlertCompleteHandler)(void);
 
 @property(nonatomic, strong) id message;
 
+@property(nonatomic, strong) NSDictionary * linkAttributes;
+
 + (instancetype)alertControllerWithTitle:(nullable NSString *)title attributedMessage:(nullable NSAttributedString *)message preferredStyle:(ZTAlertControllerStyle)preferredStyle;
 
 /**

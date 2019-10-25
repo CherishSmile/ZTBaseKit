@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 
-
 typedef void(^ZTAlertViewCompleteHandler)(void);
 
 @class ZTAlertAction;
@@ -18,6 +17,9 @@ typedef void(^ZTAlertViewCompleteHandler)(void);
 @property(nonatomic, assign) NSTextAlignment  messageAlignment;
 
 @property(nonatomic, strong) id message;
+
+@property(nonatomic, strong) NSDictionary * linkAttributes;
+
 
 - (instancetype)initWithTitle:(NSString *)title message:(id)message actions:(NSArray<ZTAlertAction *> *)actions textFields:(NSArray<UITextField *> *)textFields;
 

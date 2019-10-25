@@ -446,6 +446,23 @@
     return objc_getAssociatedObject(self, _cmd);
 }
 
+-(void)setLinkAttributes:(NSDictionary *)linkAttributes{
+    objc_setAssociatedObject(self, @selector(linkAttributes), linkAttributes, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    switch (self.preferredStyle) {
+        case ZTAlertControllerStyleAlert:
+        {
+            _alertView.linkAttributes = linkAttributes;
+        }
+            break;
+        default:
+            break;
+    }
+}
+-(NSDictionary *)linkAttributes{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+
 + (instancetype)alertControllerWithTitle:(nullable NSString *)title attributedMessage:(nullable NSAttributedString *)message preferredStyle:(ZTAlertControllerStyle)preferredStyle{
     ZTAlertController *alertVC = [[ZTAlertController alloc] init];
     alertVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
