@@ -1,4 +1,3 @@
-use_frameworks!
 inhibit_all_warnings!
 
 platform :ios, '9.0'
@@ -14,9 +13,4 @@ target 'ZTBase_Example' do
   pod 'KMNavigationBarTransition'
   pod 'DZNEmptyDataSet'
   pod 'ZTBase', :path => '../'
-  target 'ZTBase_Tests' do
-    inherit! :search_paths
-
-    
-  end
 end
