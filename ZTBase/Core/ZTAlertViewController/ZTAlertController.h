@@ -72,6 +72,8 @@ typedef void(^ZTAlertCompleteHandler)(void);
 
 @interface ZTAlertController (AlertView)
 
+@property(nonatomic, strong) UIColor * titleColor;
+
 @property(nonatomic, strong) id message;
 
 @property(nonatomic, strong) NSDictionary * linkAttributes;

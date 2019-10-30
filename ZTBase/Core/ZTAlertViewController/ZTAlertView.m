@@ -59,6 +59,7 @@
 }
 
 - (void)createSubviews{
+    
     [self addSubview:self.bgView];
     
     if (self.isExistTitle&&self.isExistMessage) {
@@ -139,21 +140,6 @@
                 make.bottom.mas_equalTo(self.titlelbl.mas_bottom).offset(ZTPtFromPx(3*PADDING));
                 
             }
-            
-            
-            //            if (self.isExistTitle&&self.isExistMessage) {
-            //                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
-            //                make.bottom.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(3*PADDING));
-            //            }else if (self.isExistTitle&&!self.isExistMessage){
-            //                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
-            //                make.bottom.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(3*PADDING));
-            //            }else if (!self.isExistTitle&&self.isExistMessage){
-            //                make.top.mas_equalTo(self.messagelbl.mas_top).offset(-getPtH(3*PADDING));
-            //                make.bottom.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(3*PADDING));
-            //            }else{
-            //                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
-            //                make.bottom.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(3*PADDING));
-            //            }
         }];
         
     }else if (self.actions.count==2){
@@ -174,20 +160,6 @@
                 make.top.mas_equalTo(self.titlelbl.mas_top).offset(-ZTPtFromPx(3*PADDING));
             }
             make.bottom.mas_equalTo(actionBtn1.mas_bottom);
-            
-            //            if (self.isExistTitle&&self.isExistMessage) {
-            //                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
-            //                make.bottom.mas_equalTo(actionBtn1.mas_bottom);
-            //            }else if (self.isExistTitle&&!self.isExistMessage){
-            //                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
-            //                make.bottom.mas_equalTo(actionBtn1.mas_bottom);
-            //            }else if (!self.isExistTitle&&self.isExistMessage){
-            //                make.top.mas_equalTo(self.messagelbl.mas_top).offset(-getPtH(3*PADDING));
-            //                make.bottom.mas_equalTo(actionBtn1.mas_bottom);
-            //            }else{
-            //                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
-            //                make.bottom.mas_equalTo(actionBtn1.mas_bottom);
-            //            }
         }];
         [actionBtn1 mas_makeConstraints:^(MASConstraintMaker *make) {
             if (self.isExistTextFields) {
@@ -200,16 +172,6 @@
                 make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(ZTPtFromPx(3*PADDING));
                 
             }
-            
-            //            if (self.isExistTitle&&self.isExistMessage) {
-            //                make.top.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(3*PADDING));
-            //            }else if (self.isExistTitle&&!self.isExistMessage){
-            //                make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(3*PADDING));
-            //            }else if (!self.isExistTitle&&self.isExistMessage){
-            //                make.top.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(3*PADDING));
-            //            }else{
-            //                make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(3*PADDING));
-            //            }
             make.left.mas_equalTo(self.bgView);
             make.right.mas_equalTo(self.bgView.mas_centerX);
             make.height.mas_equalTo(ZTPtFromPx(10*PADDING));
@@ -237,16 +199,6 @@
                     make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(ZTPtFromPx(10*PADDING)*idx+ZTPtFromPx(3*PADDING));
                     
                 }
-                
-                //                if (self.isExistTitle&&self.isExistMessage) {
-                //                    make.top.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(10*PADDING)*idx+getPtH(3*PADDING));
-                //                }else if (self.isExistTitle&&!self.isExistMessage){
-                //                    make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(10*PADDING)*idx+getPtH(3*PADDING));
-                //                }else if (!self.isExistTitle&&self.isExistMessage){
-                //                    make.top.mas_equalTo(self.messagelbl.mas_bottom).offset(getPtH(10*PADDING)*idx+getPtH(3*PADDING));
-                //                }else{
-                //                    make.top.mas_equalTo(self.titlelbl.mas_bottom).offset(getPtH(10*PADDING)*idx+getPtH(3*PADDING));
-                //                }
             }];
         }];
         ZTAlertAction *lastBtn = self.actions.lastObject;
@@ -262,20 +214,6 @@
                 make.top.mas_equalTo(self.titlelbl.mas_top).offset(-ZTPtFromPx(3*PADDING));
             }
             make.bottom.mas_equalTo(lastBtn.mas_bottom);
-            
-            //            if (self.isExistTitle&&self.isExistMessage) {
-            //                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
-            //                make.bottom.mas_equalTo(lastBtn.mas_bottom);
-            //            }else if (self.isExistTitle&&!self.isExistMessage){
-            //                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
-            //                make.bottom.mas_equalTo(lastBtn.mas_bottom);
-            //            }else if (!self.isExistTitle&&self.isExistMessage){
-            //                make.top.mas_equalTo(self.messagelbl.mas_top).offset(-getPtH(3*PADDING));
-            //                make.bottom.mas_equalTo(lastBtn.mas_bottom);
-            //            }else{
-            //                make.top.mas_equalTo(self.titlelbl.mas_top).offset(-getPtH(3*PADDING));
-            //                make.bottom.mas_equalTo(lastBtn.mas_bottom);
-            //            }
         }];
         
     }
@@ -391,6 +329,11 @@
     _textFields = textFields;
 }
 
+-(void)setTitleColor:(UIColor *)titleColor{
+    _titleColor = titleColor;
+    self.titlelbl.textColor = titleColor;
+}
+
 -(void)setTitle:(NSString *)title{
     _title = title;
     self.titlelbl.text = title;
@@ -420,7 +363,7 @@
     if (!_bgView) {
         _bgView = [UIView new];
         _bgView.backgroundColor = [UIColor whiteColor];
-        ZTDrawBorder(_bgView, [UIColor whiteColor], 12);
+        ZTDrawBorder(_bgView, [UIColor clearColor], 12);
     }
     return _bgView;
 }

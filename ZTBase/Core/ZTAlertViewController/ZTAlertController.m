@@ -393,6 +393,7 @@
         _alertView = [[ZTAlertView alloc] initWithTitle:self.alertTitle message:self.alertMessage actions:self.actions textFields:self.textFields];
         _alertView.messageAlignment = self.messageAlignment;
         _alertView.linkAttributes = self.linkAttributes;
+        _alertView.titleColor = self.titleColor;
     }
     return _alertView;
 }
@@ -430,6 +431,21 @@
 
 @implementation ZTAlertController (AlertView)
 
+-(void)setTitleColor:(UIColor *)titleColor{
+    objc_setAssociatedObject(self, @selector(titleColor), titleColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+       switch (self.preferredStyle) {
+           case ZTAlertControllerStyleAlert:
+           {
+               _alertView.titleColor = titleColor;
+           }
+               break;
+           default:
+               break;
+       }
+}
+-(UIColor *)titleColor{
+    return objc_getAssociatedObject(self, _cmd);
+}
 
 -(void)setMessage:(id)message{
     objc_setAssociatedObject(self, @selector(message), message, OBJC_ASSOCIATION_RETAIN_NONATOMIC);

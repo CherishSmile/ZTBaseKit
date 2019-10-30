@@ -14,6 +14,8 @@ typedef void(^ZTAlertViewCompleteHandler)(void);
 @class ZTAlertAction;
 @interface ZTAlertView : UIView
 
+@property(nonatomic, strong) UIColor * titleColor;
+
 @property(nonatomic, assign) NSTextAlignment  messageAlignment;
 
 @property(nonatomic, strong) id message;
