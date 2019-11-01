@@ -308,7 +308,7 @@
 		F2C7F5D3CE0FA8F9DE4FAA3E19005A6C /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E935E69144BE83855D1047191ACE62 /* NSObject+MJCoding.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		F3050765E6F8E5DB895AA09BAC02B5C2 /* UINavigationBar+KMNavigationBarTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 84C2258BBCFF92C36FBA7E233AD9DE6A /* UINavigationBar+KMNavigationBarTransition.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F7200089DD79D7EC34F1B21A3CD0D609 /* IQTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8EABC1582C857D480DF402E6ADE5D621 /* IQTextView.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		F72870CC236C173B00C1E869 /* ZTBaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F72870CB236C173B00C1E869 /* ZTBaseKit.framework */; };
+		F72870CE236C19A900C1E869 /* ZTBaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F72870CD236C19A900C1E869 /* ZTBaseKit.framework */; };
 		F7AA0C91AF4C4F57A8E882FF9BA02033 /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A16E566443D860FFE5186E35A133F57 /* NSObject+MJKeyValue.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		F8FA63219194C2E24C789E47E7BCAC6D /* SDImageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 57424F8A580FC5E2096CB2024D50D187 /* SDImageFrame.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		F9AD2CFBEDD600706B921428D25DFA3A /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = A63ACE412F520B227B7047C770A6EB50 /* UIImageView+AFNetworking.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -827,7 +827,7 @@
 		F4EF299B943E012437FDFA14E83CFC13 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIWebView+AFNetworking.h"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		F60D1CA4C2F0DDA96D0BE0217F43B22F /* SDWebImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloader.h; path = SDWebImage/Core/SDWebImageDownloader.h; sourceTree = "<group>"; };
 		F65CDB4E7FF2961804DC42907597B39D /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+AFNetworking.m"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
-		F72870CB236C173B00C1E869 /* ZTBaseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZTBaseKit.framework; sourceTree = "<group>"; };
+		F72870CD236C19A900C1E869 /* ZTBaseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZTBaseKit.framework; path = ZTBase/ZTBaseKit.framework; sourceTree = "<group>"; };
 		F8286EF8F0C7D957C9C420905439E5F6 /* SDWebImageDownloaderRequestModifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloaderRequestModifier.m; path = SDWebImage/Core/SDWebImageDownloaderRequestModifier.m; sourceTree = "<group>"; };
 		F85A51CFD8DC90B2226DCC9E830F3A25 /* NSBezierPath+RoundedCorners.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSBezierPath+RoundedCorners.h"; path = "SDWebImage/Private/NSBezierPath+RoundedCorners.h"; sourceTree = "<group>"; };
 		F8D57A29480E744F0D6E7D2C72D1BD4A /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
@@ -878,7 +878,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F72870CC236C173B00C1E869 /* ZTBaseKit.framework in Frameworks */,
+				F72870CE236C19A900C1E869 /* ZTBaseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1204,7 +1204,7 @@
 		5DD7C297B18D0656224438F99627B193 /* ZTBase */ = {
 			isa = PBXGroup;
 			children = (
-				F72870CB236C173B00C1E869 /* ZTBaseKit.framework */,
+				F72870CD236C19A900C1E869 /* ZTBaseKit.framework */,
 				7473F9A86BB39D07219611E8C3CCF726 /* Pod */,
 				91676D9F1633967D3D3800A155B0D8B8 /* Support Files */,
 			);
