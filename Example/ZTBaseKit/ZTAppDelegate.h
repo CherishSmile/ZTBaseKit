@@ -1,9 +1,9 @@
 //
 //  ZTAppDelegate.h
-//  ZTBase
+//  ZTBaseKit
 //
-//  Created by 祝万龙 on 03/21/2019.
-//  Copyright (c) 2019 祝万龙. All rights reserved.
+//  Created by 1332291552@qq.com on 11/01/2019.
+//  Copyright (c) 2019 1332291552@qq.com. All rights reserved.
 //
 
 @import UIKit;

@@ -1,109 +1,16 @@
 PODS:
-  - AFNetworking (3.2.1):
-    - AFNetworking/NSURLSession (= 3.2.1)
-    - AFNetworking/Reachability (= 3.2.1)
-    - AFNetworking/Security (= 3.2.1)
-    - AFNetworking/Serialization (= 3.2.1)
-    - AFNetworking/UIKit (= 3.2.1)
-  - AFNetworking/NSURLSession (3.2.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.2.1)
-  - AFNetworking/Security (3.2.1)
-  - AFNetworking/Serialization (3.2.1)
-  - AFNetworking/UIKit (3.2.1):
-    - AFNetworking/NSURLSession
-  - DZNEmptyDataSet (1.8.1)
-  - IQKeyboardManager (6.5.2)
-  - KMNavigationBarTransition (1.1.5)
-  - Masonry (1.1.0)
-  - MBProgressHUD (1.1.0)
-  - MJExtension (3.2.1)
-  - MJRefresh (3.2.0)
-  - SDAutoLayout (2.2.1)
-  - SDWebImage (5.2.3):
-    - SDWebImage/Core (= 5.2.3)
-  - SDWebImage/Core (5.2.3)
-  - ZTBase (0.5.1):
-    - AFNetworking
-    - DZNEmptyDataSet
-    - IQKeyboardManager
-    - KMNavigationBarTransition
-    - Masonry
-    - MBProgressHUD
-    - MJExtension
-    - MJRefresh
-    - SDAutoLayout
-    - SDWebImage
-    - ZTBase/Core (= 0.5.1)
-    - ZTBase/Utilities (= 0.5.1)
-  - ZTBase/Core (0.5.1):
-    - AFNetworking
-    - DZNEmptyDataSet
-    - IQKeyboardManager
-    - KMNavigationBarTransition
-    - Masonry
-    - MBProgressHUD
-    - MJExtension
-    - MJRefresh
-    - SDAutoLayout
-    - SDWebImage
-  - ZTBase/Utilities (0.5.1):
-    - AFNetworking
-    - DZNEmptyDataSet
-    - IQKeyboardManager
-    - KMNavigationBarTransition
-    - Masonry
-    - MBProgressHUD
-    - MJExtension
-    - MJRefresh
-    - SDAutoLayout
-    - SDWebImage
-    - ZTBase/Core
+  - ZTBaseKit (0.1.0)
 
 DEPENDENCIES:
-  - AFNetworking
-  - DZNEmptyDataSet
-  - IQKeyboardManager
-  - KMNavigationBarTransition
-  - Masonry
-  - MBProgressHUD
-  - MJExtension
-  - MJRefresh
-  - SDWebImage
-  - ZTBase (from `../`)
-
-SPEC REPOS:
-  trunk:
-    - AFNetworking
-    - DZNEmptyDataSet
-    - IQKeyboardManager
-    - KMNavigationBarTransition
-    - Masonry
-    - MBProgressHUD
-    - MJExtension
-    - MJRefresh
-    - SDAutoLayout
-    - SDWebImage
+  - ZTBaseKit (from `../`)
 
 EXTERNAL SOURCES:
-  ZTBase:
+  ZTBaseKit:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  IQKeyboardManager: 17a44c12fc47b1a0d3cbb8a89378953ac5ad8b1f
-  KMNavigationBarTransition: 7a52c9bc25b39b6e3343e980b453facee1591b82
-  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
-  MJExtension: 635f2c663dcb1bf76fa4b715b2570a5710aec545
-  MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
-  SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
-  SDWebImage: 46a7f73228f84ce80990c786e4372cf4db5875ce
-  ZTBase: 53bdfa0007aa111e243b27becca489562e20eab2
+  ZTBaseKit: e56b799c6a17907e2673f14cbe8bf01c8e2a5fc5
 
-PODFILE CHECKSUM: 3cc11d32554ae183af2695dcc4818982e8539cf4
+PODFILE CHECKSUM: 94125aba85bd7f3c80a1cca5c49baead487fdd87
 
 COCOAPODS: 1.8.4

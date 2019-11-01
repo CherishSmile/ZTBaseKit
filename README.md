@@ -1,9 +1,9 @@
-# ZTBase
+# ZTBaseKit
 
-[![CI Status](https://img.shields.io/travis/祝万龙/ZTBase.svg?style=flat)](https://travis-ci.org/祝万龙/ZTBase)
-[![Version](https://img.shields.io/cocoapods/v/ZTBase.svg?style=flat)](https://cocoapods.org/pods/ZTBase)
-[![License](https://img.shields.io/cocoapods/l/ZTBase.svg?style=flat)](https://cocoapods.org/pods/ZTBase)
-[![Platform](https://img.shields.io/cocoapods/p/ZTBase.svg?style=flat)](https://cocoapods.org/pods/ZTBase)
+[![CI Status](https://img.shields.io/travis/1332291552@qq.com/ZTBaseKit.svg?style=flat)](https://travis-ci.org/1332291552@qq.com/ZTBaseKit)
+[![Version](https://img.shields.io/cocoapods/v/ZTBaseKit.svg?style=flat)](https://cocoapods.org/pods/ZTBaseKit)
+[![License](https://img.shields.io/cocoapods/l/ZTBaseKit.svg?style=flat)](https://cocoapods.org/pods/ZTBaseKit)
+[![Platform](https://img.shields.io/cocoapods/p/ZTBaseKit.svg?style=flat)](https://cocoapods.org/pods/ZTBaseKit)
 
 ## Example
 
@@ -13,17 +13,17 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-ZTBase is available through [CocoaPods](https://cocoapods.org). To install
+ZTBaseKit is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'ZTBase'
+pod 'ZTBaseKit'
 ```
 
 ## Author
 
-CherishSmile, misteralvin@yeah.net
+1332291552@qq.com, misteralvin@yeah.net
 
 ## License
 
-ZTBase is available under the MIT license. See the LICENSE file for more info.
+ZTBaseKit is available under the MIT license. See the LICENSE file for more info.
