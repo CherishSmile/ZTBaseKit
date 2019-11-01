@@ -1,0 +1,35 @@
+//
+//
+//
+//  github:https://github.com/MxABC/LBXScan
+//  Created by lbxia on 15/3/4.
+//  Copyright (c) 2015年 lbxia. All rights reserved.
+//
+
+
+@import UIKit;
+@import Foundation;
+@import AVFoundation;
+
+AVF_EXPORT AVMetadataObjectType const AVMetadataObjectTypePlateNumber;
+
+@interface ZTScanResult : NSObject
+
+- (instancetype)initWithScanString:(NSString*)str imgScan:(UIImage*)img barCodeType:(NSString*)type;
+
+/**
+ 条码字符串
+ */
+
+@property (nonatomic, copy) NSString* strScanned;
+/**
+ 扫码图像
+ */
+@property (nonatomic, strong) UIImage* imgScanned;
+/**
+ 扫码码的类型,AVMetadataObjectType  如AVMetadataObjectTypeQRCode，AVMetadataObjectTypeEAN13Code等
+ */
+@property (nonatomic, copy) AVMetadataObjectType strBarCodeType;
+
+@end
+

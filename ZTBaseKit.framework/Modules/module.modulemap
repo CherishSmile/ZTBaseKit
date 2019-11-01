@@ -1,0 +1,6 @@
+framework module ZTBaseKit {
+  umbrella header "ZTBaseKit.h"
+
+  export *
+  module * { export * }
+}
