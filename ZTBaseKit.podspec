@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ZTBaseKit'
-  s.version          = '0.6.4'
+  s.version          = '0.6.5'
   s.summary          = 'ZTBaseKit is the basic framework of OC project.'
   s.homepage         = 'https://github.com/CherishSmile/ZTBaseKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -21,6 +21,8 @@ Pod::Spec.new do |s|
   s.source_files = 'ZTBaseKit/ZTBaseKit.framework/Headers/*.{h}'
   s.vendored_frameworks = 'ZTBaseKit/ZTBaseKit.framework'
   s.public_header_files = 'ZTBaseKit/ZTBaseKit.framework/Headers/*.{h}'
+  s.resource = 'ZTBaseKit/ZTBaseKit.framework/Resource.bundle'
+
   
   s.dependency 'AFNetworking'
   s.dependency 'MJRefresh'
