@@ -56,7 +56,7 @@
  @param headerBlock 下拉刷新回调
  @param footerBlock 上拉加载回调
  */
--(void)setRefreshType:(ZTRefreshStyle)type headerBlock:(MJRefreshComponentRefreshingBlock)headerBlock footerBlock:(MJRefreshComponentRefreshingBlock)footerBlock;
+-(void)setRefreshType:(ZTRefreshStyle)type headerBlock:(MJRefreshComponentAction)headerBlock footerBlock:(MJRefreshComponentAction)footerBlock;
 
 /**
  停止刷新
