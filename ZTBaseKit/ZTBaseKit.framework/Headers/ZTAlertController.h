@@ -115,6 +115,9 @@ typedef void(^ZTAlertCompleteHandler)(void);
  */
 @property(nonatomic, assign) UIDatePickerMode  datePickerModel;
 
+@property (nullable, nonatomic, strong) NSDate *minimumDate; // specify min/max date range. default is nil. When min > max, the values are ignored. Ignored in countdown timer mode
+@property (nullable, nonatomic, strong) NSDate *maximumDate; // default is nil
+
 @end
 
 @interface ZTAlertController (ActivityView)
