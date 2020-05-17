@@ -7,6 +7,17 @@
 
 #import <UIKit/UIKit.h>
 
+
+@class ZT3DBannerView;
+@protocol ZT3DBannerViewDelegate <UIScrollViewDelegate>
+
+@optional
+
+-(void)bannerView:(ZT3DBannerView *)bannerView didClickImageAtIndex:(NSInteger)currentIndex;
+
+@end
+
+
 @interface ZT3DBannerView : UIView<UIScrollViewDelegate>
 /**
  图片间有间距  又要有翻页效果～～
@@ -27,6 +38,8 @@
                   imageWidth:(CGFloat)imageWidth
                         data:(NSArray *)data;
 
+
+@property(nonatomic, weak) id<ZT3DBannerViewDelegate> delegate;
 
 /** 点击中间图片的回调 */
 @property (nonatomic, copy) void (^clickImageBlock)(NSInteger currentIndex);
