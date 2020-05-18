@@ -22,12 +22,21 @@ typedef void(^ZTWebViewEstimatedProgressHandler)(CGFloat estimatedProgress,NSErr
 
 typedef void(^ZTWebViewTitleHandler)(NSString * title);
 
+
+@interface ZTWebViewConfiguration : NSObject
+
+@property(nonatomic, assign) ZTWebViewType  webViewType;
+@property(nonatomic, assign) BOOL  allowsInlineMediaPlayback;
+@property(nonatomic, assign) BOOL  mediaPlaybackRequiresUserAction;
+@end
+
+
 @protocol ZTWebViewDelegate;
 @protocol ZTWebScriptMessageHandler;
 
 @interface ZTWebView : UIView
 
-- (instancetype)initWithFrame:(CGRect)frame webType:(ZTWebViewType)webType;
+- (instancetype)initWithFrame:(CGRect)frame configuration:(ZTWebViewConfiguration *)configuration;
 
 
 @property(nonatomic, weak) id<ZTWebViewDelegate> delegate;
@@ -41,9 +50,9 @@ typedef void(^ZTWebViewTitleHandler)(NSString * title);
 
 @property(nonatomic, copy) NSString * webScheme;
 
-@property(nonatomic, assign) BOOL  allowsInlineMediaPlayback;
+@property(nonatomic, strong, readonly) ZTWebViewConfiguration * configuration;
 
-@property(nonatomic, assign) BOOL  mediaPlaybackRequiresUserAction;
+@property(nonatomic, strong, readonly) WKWebViewConfiguration * wkConfiguration;
 
 @property(nullable, nonatomic, readonly, copy) NSURL *URL;
 
@@ -54,8 +63,6 @@ typedef void(^ZTWebViewTitleHandler)(NSString * title);
 @property(nonatomic, copy) ZTWebViewEstimatedProgressHandler estimatedProgressHandler;
 
 @property(nonatomic, copy) ZTWebViewTitleHandler webTitleHandler;
-
-@property(nonatomic, strong, readonly) WKWebViewConfiguration * configuration;
 
 @property(nonatomic, strong) ZTScriptMessageHandler * messageHandler;
 
