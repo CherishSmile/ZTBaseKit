@@ -26,6 +26,10 @@ typedef void(^ZTWebBackCompletionHandler)(id result);
 
 @property(nonatomic, strong) Class webManagerClass;
 
+@property(nonatomic, assign) BOOL  allowsInlineMediaPlayback;
+
+@property(nonatomic, assign) BOOL  mediaPlaybackRequiresUserAction;
+
 /**
  进度条颜色
  */
