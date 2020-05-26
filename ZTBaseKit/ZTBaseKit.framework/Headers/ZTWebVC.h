@@ -74,7 +74,10 @@ typedef void(^ZTWebBackCompletionHandler)(id result);
  导航返回
  */
 -(void)goBack;
-
+/**
+ 关闭页面
+*/
+-(void)closeClick;
 
 /**
  OC调用js（请在页面加载完成之后，调用此方法，否则可能会无效）
