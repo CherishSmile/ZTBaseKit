@@ -65,6 +65,8 @@ typedef void(^ZTWebBackCompletionHandler)(id result);
  */
 @property(nonatomic, assign) BOOL  isUseLocation;
 
+@property(nonatomic, assign) BOOL  openWebIsClearCache;
+
 /**
  html的url地址
  */
