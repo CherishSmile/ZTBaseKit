@@ -12,11 +12,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSInteger,ZTWebViewType) {
-    ZTWebViewTypeWKWebView,
-    ZTWebViewTypeUIWebView
-};
-
 
 typedef void(^ZTWebViewEstimatedProgressHandler)(CGFloat estimatedProgress,NSError * error);
 
@@ -25,7 +20,6 @@ typedef void(^ZTWebViewTitleHandler)(NSString * title);
 
 @interface ZTWebViewConfiguration : NSObject
 
-@property(nonatomic, assign) ZTWebViewType  webViewType;
 @property(nonatomic, assign) BOOL  allowsInlineMediaPlayback;
 @property(nonatomic, assign) BOOL  mediaPlaybackRequiresUserAction;
 @end
@@ -45,8 +39,6 @@ typedef void(^ZTWebViewTitleHandler)(NSString * title);
 - (void)loadRequest:(NSURLRequest *)request;
 - (void)loadHTMLString:(NSString *)string baseURL:(nullable NSURL *)baseURL;
 - (void)loadData:(NSData *)data MIMEType:(NSString *)MIMEType textEncodingName:(NSString *)textEncodingName baseURL:(NSURL *)baseURL;
-
-@property(nonatomic, assign, readonly) ZTWebViewType  webType;
 
 @property(nonatomic, copy) NSString * webScheme;
 
@@ -161,12 +153,6 @@ typedef void(^ZTWebViewTitleHandler)(NSString * title);
  @param webView The web view whose underlying web content process was terminated.
  */
 - (void)webViewWebContentProcessDidTerminate:(ZTWebView *)webView API_AVAILABLE(macosx(10.11), ios(9.0));
-
-
-/**
- UIWebViewDelegate
- */
-- (BOOL)webView:(ZTWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType API_DEPRECATED("No longer supported.", ios(2.0, 12.0));
 
 
 @end

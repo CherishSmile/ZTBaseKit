@@ -163,7 +163,6 @@ IB_DESIGNABLE
 
 /**
  Indicates if links will be detected within an extended area around the touch
- to emulate the link detection behaviour of UIWebView. 
  Default value is NO. Enabling this may adversely impact performance.
  */
 @property (nonatomic, assign) BOOL extendsLinkTouchArea;

@@ -30,7 +30,6 @@ FOUNDATION_EXPORT const unsigned char ZTBaseKitVersionString[];
 #import <ZTBaseKit/ZTWebVC.h>
 #import <ZTBaseKit/ZTWebView.h>
 #import <ZTBaseKit/ZTWebManager.h>
-#import <ZTBaseKit/ZTUIWebViewProgress.h>
 #import <ZTBaseKit/ZTScriptMessageHandler.h>
 
 #pragma mark - ZTAlertController

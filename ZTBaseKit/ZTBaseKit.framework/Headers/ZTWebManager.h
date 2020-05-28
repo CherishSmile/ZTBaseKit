@@ -65,11 +65,6 @@ typedef void(^ZTWebViewReceiveScriptMessageHandler)(ZTWebView * webView,NSString
 -(void)addWKWebCookie:(void(^)(WKUserContentController *userCC))cookieHandler;
 
 /**
- 给uiwebview添加cookie
- */
--(void)addUIWebCookie:(void(^)(NSURL * url,void(^)(NSURL * url)))cookieHandler;
-
-/**
  删除注入脚本
  */
 -(void)removeScript;
@@ -87,7 +82,6 @@ typedef void(^ZTWebViewReceiveScriptMessageHandler)(ZTWebView * webView,NSString
  */
 +(void)clearAllWebCache;
 +(void)clearWKWebCache;
-+(void)clearUIWebCache;
 
 @end
 

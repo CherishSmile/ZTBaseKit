@@ -41,11 +41,6 @@ typedef void(^ZTWebBackCompletionHandler)(id result);
 @property(nonatomic, assign) CGFloat  progressHeight;
 
 /**
- 是否使用UIWebView
- */
-@property(nonatomic, assign) BOOL  isUseUIWeb;
-
-/**
  导航是否隐藏
  */
 @property(nonatomic, assign) BOOL  isHiddenNavBar;
