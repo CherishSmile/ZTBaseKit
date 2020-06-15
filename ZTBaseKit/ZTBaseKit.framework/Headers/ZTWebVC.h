@@ -18,6 +18,8 @@ typedef void(^ZTWebBackCompletionHandler)(id result);
 
 @interface ZTWebVC : ZTBaseVC
 
+@property(nonatomic, strong) NSArray<NSHTTPCookie *> * httpCookies;
+
 @property(nonatomic, copy) ZTWebBackCompletionHandler  webBackCompletionHandler;
 
 @property(nonatomic, strong, readonly) ZTWebView * baseWebView;
