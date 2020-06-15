@@ -31,7 +31,7 @@ typedef void(^ZTWebViewReceiveScriptMessageHandler)(ZTWebView * webView,NSString
  
  @param urlString html
  */
--(void)loadHtml:(NSString *)urlString;
+-(void)loadHtml:(NSString *)urlString withCookies:(NSDictionary *)cookies;
 
 
 /**

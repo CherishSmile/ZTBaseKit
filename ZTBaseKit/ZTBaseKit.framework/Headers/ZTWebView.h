@@ -23,8 +23,6 @@ typedef void(^ZTWebViewTitleHandler)(NSString * title);
 @property(nonatomic, assign) BOOL  allowsInlineMediaPlayback;
 @property(nonatomic, assign) BOOL  mediaPlaybackRequiresUserAction;
 
-@property(nonatomic, strong) NSArray<NSHTTPCookie *> * httpCookies;
-
 @end
 
 

@@ -18,8 +18,6 @@ typedef void(^ZTWebBackCompletionHandler)(id result);
 
 @interface ZTWebVC : ZTBaseVC
 
-@property(nonatomic, strong) NSArray<NSHTTPCookie *> * httpCookies;
-
 @property(nonatomic, copy) ZTWebBackCompletionHandler  webBackCompletionHandler;
 
 @property(nonatomic, strong, readonly) ZTWebView * baseWebView;
@@ -68,6 +66,8 @@ typedef void(^ZTWebBackCompletionHandler)(id result);
  html的url地址
  */
 @property(nonatomic, copy) NSString * urlString;
+
+@property(nonatomic, strong) NSDictionary * httpCookies;
 
 /**
  导航返回
