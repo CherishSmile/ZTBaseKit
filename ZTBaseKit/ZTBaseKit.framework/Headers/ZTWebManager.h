@@ -16,6 +16,9 @@ typedef void(^ZTWebViewReceiveScriptMessageHandler)(ZTWebView * webView,NSString
 
 @property(nonatomic, strong, readonly) NSArray * jsMessages;
 
+@property(nonatomic, strong, readonly) NSURL * requestURL;
+
+
 -(instancetype)initWithWebView:(ZTWebView *)webView;
 
 /**
