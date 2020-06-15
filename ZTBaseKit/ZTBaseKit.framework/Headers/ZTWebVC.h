@@ -67,7 +67,7 @@ typedef void(^ZTWebBackCompletionHandler)(id result);
  */
 @property(nonatomic, copy) NSString * urlString;
 
-@property(nonatomic, strong) NSDictionary * httpCookies;
+@property(nonatomic, strong) NSDictionary<NSString *, NSString *> * httpCookies;
 
 /**
  导航返回
