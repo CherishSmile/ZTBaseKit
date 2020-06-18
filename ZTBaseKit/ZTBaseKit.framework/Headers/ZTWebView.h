@@ -20,6 +20,10 @@ typedef void(^ZTWebViewTitleHandler)(NSString * title);
 
 @interface ZTWebViewConfiguration : NSObject
 
+@property(nonatomic, assign) BOOL  loadSandboxFile;
+@property(nonatomic, copy) NSString * loadFilePath;
+@property(nonatomic, copy) NSString * allowingReadAccessToPath;
+
 @property(nonatomic, assign) BOOL  allowsInlineMediaPlayback;
 @property(nonatomic, assign) BOOL  mediaPlaybackRequiresUserAction;
 

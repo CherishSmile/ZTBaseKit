@@ -30,6 +30,10 @@ typedef void(^ZTWebBackCompletionHandler)(id result);
 
 @property(nonatomic, assign) BOOL  mediaPlaybackRequiresUserAction;
 
+
+@property(nonatomic, assign) BOOL  loadSandboxFile;
+@property(nonatomic, copy) NSString * loadFilePath;
+@property(nonatomic, copy) NSString * allowingReadAccessToPath;
 /**
  进度条颜色
  */

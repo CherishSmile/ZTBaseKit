@@ -34,6 +34,9 @@ typedef void(^ZTWebViewReceiveScriptMessageHandler)(ZTWebView * webView,NSString
 -(void)loadHtml:(NSString *)urlString withCookies:(NSDictionary<NSString *, NSString *> *)cookies;
 
 
+/// 加载沙盒中的html
+-(void)loadSandboxHtml;
+
 /**
  js调用OC 添加scriptMessages
 
