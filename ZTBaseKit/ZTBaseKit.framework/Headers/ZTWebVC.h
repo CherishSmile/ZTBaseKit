@@ -73,6 +73,10 @@ typedef void(^ZTWebBackCompletionHandler)(id result);
 
 @property(nonatomic, strong) NSDictionary<NSString *, NSString *> * httpCookies;
 
+
+/// 若重置urlString 或者loadSandboxFile、loadFilePath、allowingReadAccessToPath相关参数，重新调用此方法，可立即生效
+-(void)loadHtml;
+
 /**
  导航返回
  */
