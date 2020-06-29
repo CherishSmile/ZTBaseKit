@@ -39,14 +39,14 @@ typedef void(^ZTWebViewTitleHandler)(NSString * title);
 
 
 @property(nonatomic, weak) id<ZTWebViewDelegate> delegate;
-@property(nonatomic, readonly, strong) UIScrollView *scrollView;
+
+@property(nonatomic, strong, readonly) WKWebView * baseWKWeb;
+@property(nonatomic, strong, readonly) UIScrollView *scrollView;
 
 - (void)loadRequest:(NSURLRequest *)request;
 - (void)loadHTMLString:(NSString *)string baseURL:(nullable NSURL *)baseURL;
 - (void)loadData:(NSData *)data MIMEType:(NSString *)MIMEType textEncodingName:(NSString *)textEncodingName baseURL:(NSURL *)baseURL;
 - (nullable WKNavigation *)loadFileURL:(NSURL *)URL allowingReadAccessToURL:(NSURL *)readAccessURL API_AVAILABLE(macos(10.11), ios(9.0));
-
-@property(nonatomic, copy) NSString * webScheme;
 
 @property(nonatomic, strong, readonly) ZTWebViewConfiguration * configuration;
 

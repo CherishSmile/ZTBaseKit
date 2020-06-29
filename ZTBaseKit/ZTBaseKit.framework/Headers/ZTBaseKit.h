@@ -81,7 +81,6 @@ FOUNDATION_EXPORT const unsigned char ZTBaseKitVersionString[];
 #import <ZTBaseKit/NSObject+JsonExport.h>
 #import <ZTBaseKit/NSNotification+Sender.h>
 #import <ZTBaseKit/NSNotificationCenter+Sender.h>
-#import <ZTBaseKit/UINavigationController+SGProgress.h>
 #import <ZTBaseKit/UIViewController+NavBarStyle.h>
 #import <ZTBaseKit/UIAlertAction+Custom.h>
 #import <ZTBaseKit/UIAlertController+Custom.h>
