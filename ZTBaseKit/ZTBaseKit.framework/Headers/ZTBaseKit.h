@@ -74,6 +74,7 @@ FOUNDATION_EXPORT const unsigned char ZTBaseKitVersionString[];
 
 
 #pragma mark - Categories
+#import <ZTBaseKit/UIView+Banner.h>
 #import <ZTBaseKit/UIImage+Color.h>
 #import <ZTBaseKit/UIImage+Orientation.h>
 #import <ZTBaseKit/UIImageView+WebModeCache.h>
