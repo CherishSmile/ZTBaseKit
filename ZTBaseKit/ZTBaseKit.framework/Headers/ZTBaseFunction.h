@@ -753,6 +753,8 @@ CAGradientLayer * ZTCreatGradientLayerWithColor(UIColor *color1,UIColor *color2,
 
 UIImage * ZTImageWithNamed(NSString * name);
 
+CGFloat bottomOffset(void);
+
 @interface ZTBaseFunction : NSObject
 
 @end
