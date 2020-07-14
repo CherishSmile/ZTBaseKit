@@ -21,11 +21,11 @@ NS_ASSUME_NONNULL_BEGIN
 /** 全局无参Block*/
 typedef void(^ZTGlobalNOParameterBlock)(void);
 /** 全局带参Block*/
-typedef void(^ZTGlobalBlock)(id obj);
+typedef void(^ZTGlobalBlock)(_Nullable id obj);
 /** 全局带参字典Block*/
-typedef void(^ZTGlobalDictionaryBlock)(NSDictionary *callDic);
+typedef void(^ZTGlobalDictionaryBlock)(NSDictionary * _Nullable callDic);
 /** 全局带参字符串Block*/
-typedef void(^ZTGlobalStringBlock)(NSString * string);
+typedef void(^ZTGlobalStringBlock)(NSString * _Nullable  string);
 
 
 /**

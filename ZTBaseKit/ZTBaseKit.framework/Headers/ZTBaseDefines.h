@@ -106,7 +106,7 @@ _Pragma("clang diagnostic pop") \
 #define VERSION  [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"]
 #define APPNAME  [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"]
 
-#define ZTBaseBundle [NSBundle bundleWithPath:[NSBundle.mainBundle pathForResource:@"Frameworks/ZTBaseKit.framework/Resource" ofType:@"bundle"]]
+#define ZTBaseBundle [NSBundle bundleWithPath:[NSBundle.mainBundle pathForResource:@"Resource" ofType:@"bundle"]]
 
 
 #define NFCenter     NSNotificationCenter.defaultCenter
