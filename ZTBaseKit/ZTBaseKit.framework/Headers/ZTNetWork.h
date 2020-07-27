@@ -56,6 +56,9 @@ typedef NS_ENUM(NSInteger,ZTHTTPResponseCode) {
  */
 @property(nonatomic,strong)NSArray<ZTUpLoadModel*> *dataAry;
 
+
+@property(nonatomic,assign) NSTimeInterval  timeoutInterval;
+
 /**
  构造函数
 
