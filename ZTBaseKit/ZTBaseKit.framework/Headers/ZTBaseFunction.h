@@ -398,10 +398,9 @@ BOOL ZTLoctionIsValid (void);
 /**
  用户通知是否可用
  
- @return YES or NO
  */
 
-BOOL ZTUserNotificationIsValid(void);
+void ZTUserNotificationIsValid(void(^ValidBlock)(BOOL isvalid));
 
 /**
  获取时间字符串
