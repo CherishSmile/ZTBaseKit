@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <MBProgressHUD/MBProgressHUD.h>
+#import <MBProgressHUD.h>
 #import "ZTBaseConfiguration.h"
 #import "ZTBaseEnum.h"
 #import "ZTBaseDefines.h"

@@ -7,9 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AFNetworking/AFNetworking.h>
-
-
+#import <AFNetworking.h>
 
 typedef NSString * ZTContentType;
 FOUNDATION_EXTERN ZTContentType const ZTContentTypeAppXWWWFormUrlencoded;

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MJRefresh/MJRefresh.h>
+#import <MJRefresh.h>
 #import "ZTBaseEnum.h"
 
 @class ZTCollectionView;
