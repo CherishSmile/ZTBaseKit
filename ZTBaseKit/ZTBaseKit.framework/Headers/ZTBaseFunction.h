@@ -748,11 +748,38 @@ NSString * ZTUniqueString(void);
  */
 CAGradientLayer * ZTCreateGradientLayer(CGRect rect,CGFloat cornerRadius);
 
+/**
+ 创建渐变色
+ 
+ @param color1 颜色1
+ @param color2 颜色2
+ @param rect 大小
+ @param cornerRadius 圆角
+ @return layer
+ */
 CAGradientLayer * ZTCreatGradientLayerWithColor(UIColor *color1,UIColor *color2,CGRect rect,CGFloat cornerRadius);
 
+/**
+ 获取图片
+ 
+ @param name 大小
+ @return UIImage
+ */
 UIImage * ZTImageWithNamed(NSString * name);
 
-CGFloat bottomOffset(void);
+/**
+ 获取刘海屏底部高度
+ */
+CGFloat ZTBottomOffset(void);
+
+/**
+ 是否是内测版本。AppStore版本为NO。其他版本为YES。
+ 判断原则：凡是配置文件中包含key值ProvisionedDevices，则为YES。否则为NO。
+ 用途：用于判断线上版本和内测版本执行不同的代码。
+ 
+ @return YES 是内测版本  NO 不是
+ */
+BOOL  ZTAppIsBeta(void);
 
 @interface ZTBaseFunction : NSObject
 

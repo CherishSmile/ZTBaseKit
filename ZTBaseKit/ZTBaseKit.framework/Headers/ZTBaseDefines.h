@@ -21,28 +21,15 @@ _Pragma("clang diagnostic pop") \
 } while (0)
 
 /*********************************************Frame*********************************/
-#define SCREEN_HEIGHT     [UIScreen mainScreen].bounds.size.height
-#define SCREEN_WIDTH      [UIScreen mainScreen].bounds.size.width
-#define SCREEN_NAVWIDTH   ([UIScreen mainScreen].bounds.size.width*[UIScreen mainScreen].scale)
-#define SCREEN_NAVHEIGHT  ([UIScreen mainScreen].bounds.size.height*[UIScreen mainScreen].scale)
+#define SCREEN_HEIGHT     UIScreen.mainScreen.bounds.size.height
+#define SCREEN_WIDTH      UIScreen.mainScreen.bounds.size.width
+#define SCREEN_NAVWIDTH   (UIScreen.mainScreen.bounds.size.width*UIScreen.mainScreen.scale)
+#define SCREEN_NAVHEIGHT  (UIScreen.mainScreen.bounds.size.height*UIScreen.mainScreen.scale)
 
 #define SCREEN_MAX_LENGTH MAX(SCREEN_WIDTH, SCREEN_HEIGHT)
 #define SCREEN_MIN_LENGTH MIN(SCREEN_WIDTH, SCREEN_HEIGHT)
 
 #define PixelCoefficient  1/750.0  //以6s机型分辨率为例，1/750≈0.00133
-/*********************************************iPhone型号*******************************/
-#define iPhone4 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(320, 480), [[UIScreen mainScreen] currentMode].size) : NO)
-#define iPhone4S ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
-
-#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
-
-#define iPhone8 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
-#define iPhone8Plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
-
-#define iPhoneXR ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size) : NO)
-#define iPhoneXS ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
-#define iPhoneXSMax ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) : NO)
-
 
 /*********************************************颜色设置*******************************/
 #define UIColorFromRGB(rgbValue)    [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
@@ -103,8 +90,9 @@ _Pragma("clang diagnostic pop") \
 #define WeakObj(o)    autoreleasepool{} __weak typeof(o) o##Weak = o
 #define StrongObj(o)  autoreleasepool{} __strong typeof(o) o = o##Weak
 
-#define VERSION  [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"]
-#define APPNAME  [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"]
+#define VERSION        NSBundle.mainBundle.infoDictionary[@"CFBundleShortVersionString"]
+#define APPNAME        NSBundle.mainBundle.infoDictionary[@"CFBundleDisplayName"]
+#define MINOSVERSION   NSBundle.mainBundle.infoDictionary[@"MinimumOSVersion"]
 
 #define ZTBaseBundle [NSBundle bundleWithPath:[NSBundle.mainBundle pathForResource:@"Resource" ofType:@"bundle"]]
 
