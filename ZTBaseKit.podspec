@@ -16,6 +16,18 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/CherishSmile/ZTBaseKit.git', :tag => s.version.to_s }
   s.ios.deployment_target = '10.0'
   s.requires_arc = true
+  
+  s.dependency 'Masonry'
+  s.dependency 'MJRefresh'
+  s.dependency 'DZNEmptyDataSet'
+  s.dependency 'KMNavigationBarTransition'
+  s.dependency 'AFNetworking'
+  s.dependency 'SDWebImage'
+  s.dependency 'SDWebImage/GIF'
+  s.dependency 'SDWebImage/WebP'
+  s.pod_target_xcconfig = {
+    'VALID_ARCHS' => 'x86_64 armv7 arm64'
+  }
     
   s.subspec 'ZTBase' do |base|
     base.pod_target_xcconfig = {
@@ -24,7 +36,6 @@ Pod::Spec.new do |s|
     base.source_files = 'ZTBaseKit/ZTBase/ZTBase.framework/Headers/*.{h}'
     base.vendored_frameworks = 'ZTBaseKit/ZTBase/ZTBase.framework'
     base.public_header_files = 'ZTBaseKit/ZTBase/ZTBase.framework/Headers/*.{h}'
-
   end
   
   s.subspec 'ZTAlertController' do |ac|
@@ -34,12 +45,6 @@ Pod::Spec.new do |s|
     ac.source_files = 'ZTBaseKit/ZTAlertController/ZTAlertController.framework/Headers/*.{h}'
     ac.vendored_frameworks = 'ZTBaseKit/ZTAlertController/ZTAlertController.framework'
     ac.public_header_files = 'ZTBaseKit/ZTAlertController/ZTAlertController.framework/Headers/*.{h}'
-    
-    ac.dependency 'ZTBase'
-    ac.dependency 'Masonry'
-    ac.dependency 'SDWebImage'
-    ac.dependency 'SDWebImage/GIF'
-    ac.dependency 'SDWebImage/WebP'
   end
   
   s.subspec 'ZTTextView' do |tv|
@@ -67,9 +72,6 @@ Pod::Spec.new do |s|
     nw.source_files = 'ZTBaseKit/ZTRequest/ZTRequest.framework/Headers/*.{h}'
     nw.vendored_frameworks = 'ZTBaseKit/ZTRequest/ZTRequest.framework'
     nw.public_header_files = 'ZTBaseKit/ZTRequest/ZTRequest.framework/Headers/*.{h}'
-    
-    nw.dependency 'ZTBase'
-    nw.dependency 'AFNetworking'
 
   end
   
@@ -80,12 +82,6 @@ Pod::Spec.new do |s|
     bv.source_files = 'ZTBaseKit/ZTBaseView/ZTBaseView.framework/Headers/*.{h}'
     bv.vendored_frameworks = 'ZTBaseKit/ZTBaseView/ZTBaseView.framework'
     bv.public_header_files = 'ZTBaseKit/ZTBaseView/ZTBaseView.framework/Headers/*.{h}'
-
-    bv.dependency 'ZTBase'
-    bv.dependency 'DZNEmptyDataSet'
-    bv.dependency 'MJRefresh'
-    bv.dependency 'Masonry'
-    bv.dependency 'KMNavigationBarTransition'
   end
   
   s.subspec 'ZTThirdLibCategories' do |tlc|
@@ -97,10 +93,6 @@ Pod::Spec.new do |s|
     tlc.source_files = 'ZTBaseKit/ZTThirdLibCategories/ZTThirdLibCategories.framework/Headers/*.{h}'
     tlc.vendored_frameworks = 'ZTBaseKit/ZTThirdLibCategories/ZTThirdLibCategories.framework'
     tlc.public_header_files = 'ZTBaseKit/ZTThirdLibCategories/ZTThirdLibCategories.framework/Headers/*.{h}'
-    
-    tlc.dependency 'SDWebImage'
-    tlc.dependency 'SDWebImage/GIF'
-    tlc.dependency 'SDWebImage/WebP'
   end
   
   s.subspec 'ZT3DBannerView' do |dbv|
@@ -110,12 +102,7 @@ Pod::Spec.new do |s|
     dbv.source_files = 'ZTBaseKit/ZT3DBannerView/ZT3DBannerView.framework/Headers/*.{h}'
     dbv.vendored_frameworks = 'ZTBaseKit/ZT3DBannerView/ZT3DBannerView.framework'
     dbv.public_header_files = 'ZTBaseKit/ZT3DBannerView/ZT3DBannerView.framework/Headers/*.{h}'
-    
-    dbv.dependency 'ZTBase'
-    dbv.dependency 'ZTThirdLibCategories'
   end
-  
- 
   
   s.subspec 'ZTBadgeView' do |tlc|
     tlc.pod_target_xcconfig = {
