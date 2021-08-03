@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ZTBaseKit'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'ZTBaseKit is the basic framework of OC project.'
   s.homepage         = 'https://github.com/CherishSmile/ZTBaseKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
     'VALID_ARCHS' => 'x86_64 armv7 arm64'
   }
 
-  s.default_subspec = 'ZTBase'
+  s.default_subspec = ['ZTBase','ZTAttributedLabel','ZTTextView','ZTBadgeView','ZTCollectionView','ZTFileManager','ZTAlertController','ZTRequest','ZTBaseView','ZTThirdLibCategories','ZT3DBannerView']
     
   s.subspec 'ZTBase' do |base|
     base.source_files = 'ZTBaseKit/ZTBase/ZTBase.framework/Headers/*.{h}'
