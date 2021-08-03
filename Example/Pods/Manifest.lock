@@ -1,0 +1,16 @@
+PODS:
+  - ZTBaseKit (0.1.0)
+
+DEPENDENCIES:
+  - ZTBaseKit (from `../`)
+
+EXTERNAL SOURCES:
+  ZTBaseKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ZTBaseKit: f323368c5b820271e640ca47bee719dcd41a3d0b
+
+PODFILE CHECKSUM: 4ce61ff2bc86183871370c1757abee2815dd4080
+
+COCOAPODS: 1.10.2

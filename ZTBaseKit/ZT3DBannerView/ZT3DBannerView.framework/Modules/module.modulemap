@@ -1,0 +1,6 @@
+framework module ZT3DBannerView {
+  umbrella header "ZT3DBannerView.h"
+
+  export *
+  module * { export * }
+}

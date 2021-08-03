@@ -1,0 +1,6 @@
+framework module ZTBadgeView {
+  umbrella header "ZTBadgeView.h"
+
+  export *
+  module * { export * }
+}

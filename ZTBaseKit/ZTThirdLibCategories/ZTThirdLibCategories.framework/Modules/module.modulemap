@@ -1,0 +1,6 @@
+framework module ZTThirdLibCategories {
+  umbrella header "ZTThirdLibCategories.h"
+
+  export *
+  module * { export * }
+}

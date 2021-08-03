@@ -1,0 +1,6 @@
+framework module ZTAlertController {
+  umbrella header "ZTAlertController.h"
+
+  export *
+  module * { export * }
+}

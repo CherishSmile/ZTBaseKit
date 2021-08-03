@@ -1,0 +1,22 @@
+{
+  "name": "ZTBaseKit",
+  "version": "0.1.0",
+  "summary": "A short description of ZTBaseKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/1332291552@qq.com/ZTBaseKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "1332291552@qq.com": "misteralvin@yeah.net"
+  },
+  "source": {
+    "git": "https://github.com/1332291552@qq.com/ZTBaseKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "ZTBaseKit/Classes/**/*"
+}

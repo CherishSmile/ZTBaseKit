@@ -1,0 +1,6 @@
+framework module ZTBaseView {
+  umbrella header "ZTBaseView.h"
+
+  export *
+  module * { export * }
+}

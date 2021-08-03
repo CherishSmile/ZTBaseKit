@@ -1,0 +1,6 @@
+framework module Pods_ZTBaseKit_Tests {
+  umbrella header "Pods-ZTBaseKit_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

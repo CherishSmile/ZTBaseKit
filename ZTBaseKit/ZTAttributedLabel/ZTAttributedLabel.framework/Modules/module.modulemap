@@ -1,0 +1,6 @@
+framework module ZTAttributedLabel {
+  umbrella header "ZTAttributedLabel.h"
+
+  export *
+  module * { export * }
+}
