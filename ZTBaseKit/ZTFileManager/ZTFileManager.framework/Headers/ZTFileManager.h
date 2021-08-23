@@ -193,11 +193,7 @@ FOUNDATION_EXPORT const unsigned char ZTFileManagerVersionString[];
 @end
 
 /// 计算缓存文件大小
-NSString * ZTCalculateCacheSize(void){
-    return [ZTFileManager sizeFormattedOfDirectoryAtPath:[ZTFileManager cachesDir]];
-}
+NSString * ZTCalculateCacheSize(void);
 
 /// 清理缓存文件
-BOOL ZTClearCache(void){
-    return [ZTFileManager clearCachesDirectory];
-}
+BOOL ZTClearCache(void);

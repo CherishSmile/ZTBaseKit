@@ -44,6 +44,14 @@
 		<data>
 		D+cGYOaDqSusxNMiVdjeZcgo6nM=
 		</data>
+		<key>Resource.bundle/hud_success@2x.png</key>
+		<data>
+		nWok9ZRWaW7RKqp5EKTnSG+7jr0=
+		</data>
+		<key>Resource.bundle/hud_success@3x.png</key>
+		<data>
+		eQ7buBrEzOngYl/FcU1ktTBm6DM=
+		</data>
 		<key>Resource.bundle/nav_back@2x.png</key>
 		<data>
 		+tM6XlUqC54fNasOqkdLb7OPuXE=
@@ -184,6 +192,28 @@
 			<key>hash2</key>
 			<data>
 			U/9TldsrFeWGwC/GhRPIKVZP471zbY2OIF02sLpwDJI=
+			</data>
+		</dict>
+		<key>Resource.bundle/hud_success@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			nWok9ZRWaW7RKqp5EKTnSG+7jr0=
+			</data>
+			<key>hash2</key>
+			<data>
+			6XcykSLcvekNFyXF9JX2VumHCKsEctV3x3wTgIhQYI0=
+			</data>
+		</dict>
+		<key>Resource.bundle/hud_success@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			eQ7buBrEzOngYl/FcU1ktTBm6DM=
+			</data>
+			<key>hash2</key>
+			<data>
+			UX3m/pBhJhqJJaOr+CX2VeaJQ14K6HNgdUVcaEDqA4s=
 			</data>
 		</dict>
 		<key>Resource.bundle/nav_back@2x.png</key>
