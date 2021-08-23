@@ -119,7 +119,7 @@ typedef void(^ZTRequestFailedBlock)(NSInteger statusCode,NSString * failDescript
 /**
  * 请求单例
  */
-+(instancetype)manager;
++(instancetype)shareManager;
 
 /**
  * 取消所有请求
