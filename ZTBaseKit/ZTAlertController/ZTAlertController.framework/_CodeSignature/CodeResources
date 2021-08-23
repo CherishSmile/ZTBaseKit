@@ -36,27 +36,27 @@
 		<data>
 		OAkYP0Nqzi0JWSydsvrMsCuhbu0=
 		</data>
-		<key>Resource.bundle/alert_close@2x.png</key>
+		<key>ZTAlertController.bundle/alert_close@2x.png</key>
 		<data>
 		xvrX+pQK3SLXK5QskuqpQ568H7g=
 		</data>
-		<key>Resource.bundle/alert_close@3x.png</key>
+		<key>ZTAlertController.bundle/alert_close@3x.png</key>
 		<data>
 		QZQ98lPkfJVowRgkKNRsU0I8xcU=
 		</data>
-		<key>Resource.bundle/prelook@2x.png</key>
+		<key>ZTAlertController.bundle/prelook@2x.png</key>
 		<data>
 		yWQNax2PtYud8UkHYvZIKa51MtY=
 		</data>
-		<key>Resource.bundle/prelook@3x.png</key>
+		<key>ZTAlertController.bundle/prelook@3x.png</key>
 		<data>
 		7OO3rPIGoO2AZM1cxDt4Edfpm88=
 		</data>
-		<key>Resource.bundle/update_huojian@2x.png</key>
+		<key>ZTAlertController.bundle/update_huojian@2x.png</key>
 		<data>
 		EvbBQDqTRBkaFj5DEGgjghUCmh8=
 		</data>
-		<key>Resource.bundle/update_huojian@3x.png</key>
+		<key>ZTAlertController.bundle/update_huojian@3x.png</key>
 		<data>
 		HgfrA2XJvyBD0R7RREwtiHeWhYM=
 		</data>
@@ -140,7 +140,7 @@
 			6tW0Li0DeC+/yKwDjV7/1P1IhFxZ0Y4GovBcjiTgRvQ=
 			</data>
 		</dict>
-		<key>Resource.bundle/alert_close@2x.png</key>
+		<key>ZTAlertController.bundle/alert_close@2x.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -151,7 +151,7 @@
 			NIlKK9CnE1CvF/GbXVJ4CCsv4N+XkICFxXuuUPx+8DI=
 			</data>
 		</dict>
-		<key>Resource.bundle/alert_close@3x.png</key>
+		<key>ZTAlertController.bundle/alert_close@3x.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -162,7 +162,7 @@
 			jl1AcKL8Bl7K6Lj41Vs3V5h21N4nSIAnth7XZHp9cz4=
 			</data>
 		</dict>
-		<key>Resource.bundle/prelook@2x.png</key>
+		<key>ZTAlertController.bundle/prelook@2x.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -173,7 +173,7 @@
 			RzPpM6wl+d7nRFeKTEI28ttyShMdLTosH6Fgf7roLtI=
 			</data>
 		</dict>
-		<key>Resource.bundle/prelook@3x.png</key>
+		<key>ZTAlertController.bundle/prelook@3x.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -184,7 +184,7 @@
 			Fj+ARaxiQZ3/U9+qCafgxJGLrkaU9x7wVvIwKvb6Kn0=
 			</data>
 		</dict>
-		<key>Resource.bundle/update_huojian@2x.png</key>
+		<key>ZTAlertController.bundle/update_huojian@2x.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -195,7 +195,7 @@
 			RkWMrDb4AxEn7g43VwM/HqPL3eRzsIbsZpdnBig8voY=
 			</data>
 		</dict>
-		<key>Resource.bundle/update_huojian@3x.png</key>
+		<key>ZTAlertController.bundle/update_huojian@3x.png</key>
 		<dict>
 			<key>hash</key>
 			<data>

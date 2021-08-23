@@ -25,9 +25,6 @@ FOUNDATION_EXPORT const unsigned char ZTAlertControllerVersionString[];
 
 NS_ASSUME_NONNULL_BEGIN
 
-static NSString * const ZTAlertResource = @"Frameworks/ZTAlertController.framework/Resource";
-
-
 typedef NS_ENUM(NSInteger, ZTAlertActionStyle) {
     ZTAlertActionStyleDefault = 0,
     ZTAlertActionStyleCancel
@@ -163,6 +160,9 @@ ZTAlertController * ZTShowAlert(ZTAlertAttribute title,
                               ZTAlertAttribute cancleTitle,
                               ZTAlertCompleteHandler _Nullable cancleClick
                               );
+
+NSString * _Nullable ZTAlertResource(void);
+
 
 
 NS_ASSUME_NONNULL_END

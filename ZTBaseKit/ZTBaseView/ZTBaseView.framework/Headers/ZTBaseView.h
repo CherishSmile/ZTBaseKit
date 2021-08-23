@@ -15,10 +15,6 @@ FOUNDATION_EXPORT double ZTBaseViewVersionNumber;
 //! Project version string for ZTBaseView.
 FOUNDATION_EXPORT const unsigned char ZTBaseViewVersionString[];
 
-
-static NSString * const ZTBaseViewResource = @"Frameworks/ZTBaseView.framework/Resource";
-
-
 /**
  刷新类型
 

@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/ZTFileManager.h</key>
 		<data>
-		R4iYZTdBgg6ALuDQ9jGix1zZLTI=
+		SDrVzD9wIJJdvOOEhQVlNBaxDpk=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -23,11 +23,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			R4iYZTdBgg6ALuDQ9jGix1zZLTI=
+			SDrVzD9wIJJdvOOEhQVlNBaxDpk=
 			</data>
 			<key>hash2</key>
 			<data>
-			oa1IlSl/FhEvhIN4UiIiETaYwxBZOp9Rx2Ma08dVkpk=
+			mMJ10Rc+pbJEX7MyMZTgMUjZ1lli3WXqiarp6iKL/1Y=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

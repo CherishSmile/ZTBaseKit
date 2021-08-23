@@ -65,7 +65,5 @@ typedef void(^ZTPopViewControllerBlock)(void);
 
 @end
 
-
-CGFloat navHeight(UIViewController *currentVC);
-CGFloat tabBarHeight(void);
+NSString * ZTBaseViewResource(void);
 

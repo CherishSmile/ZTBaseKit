@@ -4,41 +4,116 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Headers/ZTRequest.h</key>
+		<key>Headers/ZTScanViewController.h</key>
 		<data>
-		qsbKIKa68bguaLyrFDNkOw4pgA8=
+		FqBl3W7U4WYy8fSfI9Au/82BdoY=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		BTwxhqMT3tXa1nfvMAeoCgGElzc=
+		ftAbVnKT9KehkfeNRxMqfVknBWk=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		Fvyi3yBdJ2pJea+JIMKJrJR7QZk=
+		ObyBotEfSWt9lNnbzufG10c99hc=
+		</data>
+		<key>Resource.bundle/scan_back@2x.png</key>
+		<data>
+		vLRIyD6Yb/wHSwL5FTmHxndT9lg=
+		</data>
+		<key>Resource.bundle/scan_line@2x.png</key>
+		<data>
+		hIOfFERrCtyus2oRKTWjCkXDCSQ=
+		</data>
+		<key>Resource.bundle/scan_next@2x.png</key>
+		<data>
+		aQkT0qK6DEKLocxE7vrhuXo6Gl4=
+		</data>
+		<key>Resource.bundle/scan_photo@2x.png</key>
+		<data>
+		V3NsojeAcXfuRy5PmnjqcrGNk0o=
+		</data>
+		<key>Resource.bundle/scan_shoudiantong@2x.png</key>
+		<data>
+		ggnV2La8jAp7jOS28bWy0Z4lXeA=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Headers/ZTRequest.h</key>
+		<key>Headers/ZTScanViewController.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qsbKIKa68bguaLyrFDNkOw4pgA8=
+			FqBl3W7U4WYy8fSfI9Au/82BdoY=
 			</data>
 			<key>hash2</key>
 			<data>
-			NWm8Oh4g6OqLiqSspix4MSvbOLKGmwcrRyzW5FBHnXA=
+			zcbobT4DrtcCKXdysttyzQZNPE1bmXLfWQFyfNF+Ccs=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Fvyi3yBdJ2pJea+JIMKJrJR7QZk=
+			ObyBotEfSWt9lNnbzufG10c99hc=
 			</data>
 			<key>hash2</key>
 			<data>
-			+YNZ2CfJ8x4okWiEYbQ34Nssx+BKfgQQ1h9fDs2vlM4=
+			RQd5BdndSZtKWsAA0abza/vgIn2eLyCNcIPo7Ecq+0c=
+			</data>
+		</dict>
+		<key>Resource.bundle/scan_back@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			vLRIyD6Yb/wHSwL5FTmHxndT9lg=
+			</data>
+			<key>hash2</key>
+			<data>
+			0EPg0931dFNiuX1BZhtEHyfER1Gxf0BCxz6JKAIZ4TE=
+			</data>
+		</dict>
+		<key>Resource.bundle/scan_line@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			hIOfFERrCtyus2oRKTWjCkXDCSQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			xv+GfJwdKEJJ/dJGXAU32tyd0uxNN0vMWHYFab5L2tM=
+			</data>
+		</dict>
+		<key>Resource.bundle/scan_next@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			aQkT0qK6DEKLocxE7vrhuXo6Gl4=
+			</data>
+			<key>hash2</key>
+			<data>
+			cy7ay3V9PKhwBf6wypc9WcO9qO+vJPvNdAPzzX97eK4=
+			</data>
+		</dict>
+		<key>Resource.bundle/scan_photo@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			V3NsojeAcXfuRy5PmnjqcrGNk0o=
+			</data>
+			<key>hash2</key>
+			<data>
+			CmomWp4arltuwfLzwJERWNnCgrNZMTb8P++MNCQfz5M=
+			</data>
+		</dict>
+		<key>Resource.bundle/scan_shoudiantong@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ggnV2La8jAp7jOS28bWy0Z4lXeA=
+			</data>
+			<key>hash2</key>
+			<data>
+			pXOr/PBS6SVWA/gkK0p5ndlfTqogWUgQtNEYoOh2gLc=
 			</data>
 		</dict>
 	</dict>

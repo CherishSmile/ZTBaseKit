@@ -15,6 +15,8 @@
 		A00D8DB6FFE0B515F3D40CE4E29CA71F /* ZTBaseKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B3FDAA17105AB88EB9505F672D894A /* ZTBaseKit-dummy.m */; };
 		B9759AC09FA400998832B456D6FDD55B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		D13DAC7B7482C62E4B76153EFE7F6946 /* Pods-ZTBaseKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 480C09B9BF74FE28277AC0C92093555E /* Pods-ZTBaseKit_Example-dummy.m */; };
+		E12A9A4926D3A86C00BE97AD /* ZTAlertController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E12A9A4826D3A86C00BE97AD /* ZTAlertController.bundle */; };
+		E12A9A4B26D3A88A00BE97AD /* ZTBaseView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E12A9A4A26D3A88A00BE97AD /* ZTBaseView.bundle */; };
 		E17CC47126B8D59000DC2495 /* ZT3DBannerView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17CC45C26B8D59000DC2495 /* ZT3DBannerView.framework */; };
 		E17CC47226B8D59000DC2495 /* ZTBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17CC45E26B8D59000DC2495 /* ZTBase.framework */; };
 		E17CC47326B8D59000DC2495 /* ZTThirdLibCategories.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17CC46026B8D59000DC2495 /* ZTThirdLibCategories.framework */; };
@@ -75,6 +77,8 @@
 		CCD948D843BBBEC53D86273BF378573A /* ZTBaseKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = ZTBaseKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CEBB5420F252F7AC20182A3EE9606D20 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D21DDD179F6D39B5A579F7DE0A37BB00 /* Pods_ZTBaseKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZTBaseKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E12A9A4826D3A86C00BE97AD /* ZTAlertController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZTAlertController.bundle; sourceTree = "<group>"; };
+		E12A9A4A26D3A88A00BE97AD /* ZTBaseView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZTBaseView.bundle; sourceTree = "<group>"; };
 		E17CC45C26B8D59000DC2495 /* ZT3DBannerView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZT3DBannerView.framework; sourceTree = "<group>"; };
 		E17CC45E26B8D59000DC2495 /* ZTBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZTBase.framework; sourceTree = "<group>"; };
 		E17CC46026B8D59000DC2495 /* ZTThirdLibCategories.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZTThirdLibCategories.framework; sourceTree = "<group>"; };
@@ -294,6 +298,7 @@
 		E17CC46126B8D59000DC2495 /* ZTBaseView */ = {
 			isa = PBXGroup;
 			children = (
+				E12A9A4A26D3A88A00BE97AD /* ZTBaseView.bundle */,
 				E17CC46226B8D59000DC2495 /* ZTBaseView.framework */,
 			);
 			name = ZTBaseView;
@@ -303,6 +308,7 @@
 		E17CC46326B8D59000DC2495 /* ZTAlertController */ = {
 			isa = PBXGroup;
 			children = (
+				E12A9A4826D3A86C00BE97AD /* ZTAlertController.bundle */,
 				E17CC46426B8D59000DC2495 /* ZTAlertController.framework */,
 			);
 			name = ZTAlertController;
@@ -483,6 +489,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E12A9A4926D3A86C00BE97AD /* ZTAlertController.bundle in Resources */,
+				E12A9A4B26D3A88A00BE97AD /* ZTBaseView.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

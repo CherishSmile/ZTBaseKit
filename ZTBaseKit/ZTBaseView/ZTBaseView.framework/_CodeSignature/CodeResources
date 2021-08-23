@@ -44,51 +44,51 @@
 		<data>
 		D+cGYOaDqSusxNMiVdjeZcgo6nM=
 		</data>
-		<key>Resource.bundle/hud_success@2x.png</key>
+		<key>ZTBaseView.bundle/hud_success@2x.png</key>
 		<data>
 		nWok9ZRWaW7RKqp5EKTnSG+7jr0=
 		</data>
-		<key>Resource.bundle/hud_success@3x.png</key>
+		<key>ZTBaseView.bundle/hud_success@3x.png</key>
 		<data>
 		eQ7buBrEzOngYl/FcU1ktTBm6DM=
 		</data>
-		<key>Resource.bundle/nav_back@2x.png</key>
+		<key>ZTBaseView.bundle/nav_back@2x.png</key>
 		<data>
 		+tM6XlUqC54fNasOqkdLb7OPuXE=
 		</data>
-		<key>Resource.bundle/nav_back@3x.png</key>
+		<key>ZTBaseView.bundle/nav_back@3x.png</key>
 		<data>
 		j+lq38sElsB8ULQIjiqGDMiH968=
 		</data>
-		<key>Resource.bundle/placeholder_emptydata@2x.png</key>
+		<key>ZTBaseView.bundle/placeholder_emptydata@2x.png</key>
 		<data>
 		ygytXDtvrMonJfqZFn6f0ApgRZo=
 		</data>
-		<key>Resource.bundle/placeholder_emptydata@3x.png</key>
+		<key>ZTBaseView.bundle/placeholder_emptydata@3x.png</key>
 		<data>
 		INxjlDzgPtExFrogS7jNxJPTU2s=
 		</data>
-		<key>Resource.bundle/placeholder_neterror@2x.png</key>
+		<key>ZTBaseView.bundle/placeholder_neterror@2x.png</key>
 		<data>
 		kR9m7pgfxpInAbEPQqSdJL4VXfc=
 		</data>
-		<key>Resource.bundle/placeholder_neterror@3x.png</key>
+		<key>ZTBaseView.bundle/placeholder_neterror@3x.png</key>
 		<data>
 		kltOYg0ivU7EhDqGv8pOL/aybSA=
 		</data>
-		<key>Resource.bundle/prelook@2x.png</key>
+		<key>ZTBaseView.bundle/prelook@2x.png</key>
 		<data>
 		yWQNax2PtYud8UkHYvZIKa51MtY=
 		</data>
-		<key>Resource.bundle/prelook@3x.png</key>
+		<key>ZTBaseView.bundle/prelook@3x.png</key>
 		<data>
 		7OO3rPIGoO2AZM1cxDt4Edfpm88=
 		</data>
-		<key>Resource.bundle/web_guanbi@2x.png</key>
+		<key>ZTBaseView.bundle/web_guanbi@2x.png</key>
 		<data>
 		62jVKp28EDt0RMqwnPo47H+IEnw=
 		</data>
-		<key>Resource.bundle/web_guanbi@3x.png</key>
+		<key>ZTBaseView.bundle/web_guanbi@3x.png</key>
 		<data>
 		xAiKTnlIDOIZfERzyj+GS5JMk1A=
 		</data>
@@ -194,7 +194,7 @@
 			U/9TldsrFeWGwC/GhRPIKVZP471zbY2OIF02sLpwDJI=
 			</data>
 		</dict>
-		<key>Resource.bundle/hud_success@2x.png</key>
+		<key>ZTBaseView.bundle/hud_success@2x.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -205,7 +205,7 @@
 			6XcykSLcvekNFyXF9JX2VumHCKsEctV3x3wTgIhQYI0=
 			</data>
 		</dict>
-		<key>Resource.bundle/hud_success@3x.png</key>
+		<key>ZTBaseView.bundle/hud_success@3x.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -216,7 +216,7 @@
 			UX3m/pBhJhqJJaOr+CX2VeaJQ14K6HNgdUVcaEDqA4s=
 			</data>
 		</dict>
-		<key>Resource.bundle/nav_back@2x.png</key>
+		<key>ZTBaseView.bundle/nav_back@2x.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -227,7 +227,7 @@
 			CqgduIK9dqrbv3qqe6hh0gU/I1ESDHInprQ9DZCuBSI=
 			</data>
 		</dict>
-		<key>Resource.bundle/nav_back@3x.png</key>
+		<key>ZTBaseView.bundle/nav_back@3x.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -238,7 +238,7 @@
 			iIMpg0aInl7FxewsKoWilPEs+p6I+OUtZj93DKhEiF8=
 			</data>
 		</dict>
-		<key>Resource.bundle/placeholder_emptydata@2x.png</key>
+		<key>ZTBaseView.bundle/placeholder_emptydata@2x.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -249,7 +249,7 @@
 			A3vlHXwJJ/z0nx28E1/DYZHWSfZjJwGjs7kVcAIYPKI=
 			</data>
 		</dict>
-		<key>Resource.bundle/placeholder_emptydata@3x.png</key>
+		<key>ZTBaseView.bundle/placeholder_emptydata@3x.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -260,7 +260,7 @@
 			Lc9PNuYz5vYgZdpvV52//Aw+M9YW6j3zT4uY0/m988Q=
 			</data>
 		</dict>
-		<key>Resource.bundle/placeholder_neterror@2x.png</key>
+		<key>ZTBaseView.bundle/placeholder_neterror@2x.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -271,7 +271,7 @@
 			cUfN2HclgFv7QymC9ytxsLMkmnLEAnFCEMqcoIthNjQ=
 			</data>
 		</dict>
-		<key>Resource.bundle/placeholder_neterror@3x.png</key>
+		<key>ZTBaseView.bundle/placeholder_neterror@3x.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -282,7 +282,7 @@
 			UU3nPuOJG4n/KcycBN74bYI2IANLdv5VKT20Z4KN3Fc=
 			</data>
 		</dict>
-		<key>Resource.bundle/prelook@2x.png</key>
+		<key>ZTBaseView.bundle/prelook@2x.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -293,7 +293,7 @@
 			RzPpM6wl+d7nRFeKTEI28ttyShMdLTosH6Fgf7roLtI=
 			</data>
 		</dict>
-		<key>Resource.bundle/prelook@3x.png</key>
+		<key>ZTBaseView.bundle/prelook@3x.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -304,7 +304,7 @@
 			Fj+ARaxiQZ3/U9+qCafgxJGLrkaU9x7wVvIwKvb6Kn0=
 			</data>
 		</dict>
-		<key>Resource.bundle/web_guanbi@2x.png</key>
+		<key>ZTBaseView.bundle/web_guanbi@2x.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -315,7 +315,7 @@
 			n00XjghCmvWaShLfjm5tOHT8OsB2jBnCM88bBZUW0Ks=
 			</data>
 		</dict>
-		<key>Resource.bundle/web_guanbi@3x.png</key>
+		<key>ZTBaseView.bundle/web_guanbi@3x.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
