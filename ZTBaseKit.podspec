@@ -101,13 +101,13 @@ Pod::Spec.new do |s|
   s.subspec 'ZTLogManager' do |lm|
     lm.source_files = 'ZTBaseKit/ZTLogManager/ZTLogManager.framework/Headers/*.{h}'
     lm.vendored_frameworks = 'ZTBaseKit/ZTLogManager/ZTLogManager.framework'
-    lm.resource = 'ZTLogManager/ZTLogManager.bundle'
+    lm.resource = 'ZTBaseKit/ZTLogManager/ZTLogManager.bundle'
   end
   
   s.subspec 'ZTScanViewController' do |sc|
     sc.source_files = 'ZTBaseKit/ZTScanViewController/ZTScanViewController.framework/Headers/*.{h}'
     sc.vendored_frameworks = 'ZTBaseKit/ZTScanViewController/ZTScanViewController.framework'
-    sc.resource = 'ZTScanViewController/ZTScanViewController.bundle'
+    sc.resource = 'ZTBaseKit/ZTScanViewController/ZTScanViewController.bundle'
   end
   
 end
