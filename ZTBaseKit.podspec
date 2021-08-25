@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ZTBaseKit'
-  s.version          = '1.0.15'
+  s.version          = '1.0.2'
   s.summary          = 'ZTBaseKit is the basic framework of OC project.'
   s.homepage         = 'https://github.com/CherishSmile/ZTBaseKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
     'VALID_ARCHS' => 'x86_64 armv7 arm64'
   }
 
-  s.default_subspec = ['ZTBase','ZTAttributedLabel','ZTTextView','ZTBadgeView','ZTCollectionView','ZTFileManager','ZTAlertController','ZTRequest','ZTBaseView','ZTThirdLibCategories','ZT3DBannerView']
+  s.default_subspec = ['ZTBase','ZTBaseView','ZTAttributedLabel','ZTTextView','ZTBadgeView','ZTCollectionView','ZT3DBannerView','ZTAlertController','ZTRequest','ZTThirdLibCategories','ZTFileManager']
     
   s.subspec 'ZTBase' do |base|
     base.source_files = 'ZTBaseKit/ZTBase/ZTBase.framework/Headers/*.{h}'
@@ -46,11 +46,6 @@ Pod::Spec.new do |s|
   s.subspec 'ZTCollectionView' do |cv|
     cv.source_files = 'ZTBaseKit/ZTCollectionView/ZTCollectionView.framework/Headers/*.{h}'
     cv.vendored_frameworks = 'ZTBaseKit/ZTCollectionView/ZTCollectionView.framework'
-  end
-  
-  s.subspec 'ZTFileManager' do |fm|
-    fm.source_files = 'ZTBaseKit/ZTFileManager/ZTFileManager.framework/Headers/*.{h}'
-    fm.vendored_frameworks = 'ZTBaseKit/ZTFileManager/ZTFileManager.framework'
   end
   
   s.subspec 'ZTAlertController' do |ac|
@@ -96,6 +91,23 @@ Pod::Spec.new do |s|
     dbv.vendored_frameworks = 'ZTBaseKit/ZT3DBannerView/ZT3DBannerView.framework'
     dbv.dependency 'ZTBaseKit/ZTBase'
     dbv.dependency 'ZTBaseKit/ZTThirdLibCategories'
+  end
+  
+  s.subspec 'ZTFileManager' do |fm|
+    fm.source_files = 'ZTBaseKit/ZTFileManager/ZTFileManager.framework/Headers/*.{h}'
+    fm.vendored_frameworks = 'ZTBaseKit/ZTFileManager/ZTFileManager.framework'
+  end
+  
+  s.subspec 'ZTLogManager' do |lm|
+    lm.source_files = 'ZTBaseKit/ZTLogManager/ZTLogManager.framework/Headers/*.{h}'
+    lm.vendored_frameworks = 'ZTBaseKit/ZTLogManager/ZTLogManager.framework'
+    lm.resource = 'ZTLogManager/ZTLogManager.bundle'
+  end
+  
+  s.subspec 'ZTScanViewController' do |sc|
+    sc.source_files = 'ZTBaseKit/ZTScanViewController/ZTScanViewController.framework/Headers/*.{h}'
+    sc.vendored_frameworks = 'ZTBaseKit/ZTScanViewController/ZTScanViewController.framework'
+    sc.resource = 'ZTScanViewController/ZTScanViewController.bundle'
   end
   
 end

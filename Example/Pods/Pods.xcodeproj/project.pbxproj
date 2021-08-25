@@ -17,6 +17,10 @@
 		D13DAC7B7482C62E4B76153EFE7F6946 /* Pods-ZTBaseKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 480C09B9BF74FE28277AC0C92093555E /* Pods-ZTBaseKit_Example-dummy.m */; };
 		E12A9A4926D3A86C00BE97AD /* ZTAlertController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E12A9A4826D3A86C00BE97AD /* ZTAlertController.bundle */; };
 		E12A9A4B26D3A88A00BE97AD /* ZTBaseView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E12A9A4A26D3A88A00BE97AD /* ZTBaseView.bundle */; };
+		E12A9A5B26D5E5CD00BE97AD /* ZTLogManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12A9A5926D5E5CD00BE97AD /* ZTLogManager.framework */; };
+		E12A9A5C26D5E5CD00BE97AD /* ZTLogManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E12A9A5A26D5E5CD00BE97AD /* ZTLogManager.bundle */; };
+		E12A9A6026D5E78D00BE97AD /* ZTScanViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12A9A5E26D5E78D00BE97AD /* ZTScanViewController.framework */; };
+		E12A9A6126D5E78D00BE97AD /* ZTScanViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E12A9A5F26D5E78D00BE97AD /* ZTScanViewController.bundle */; };
 		E17CC47126B8D59000DC2495 /* ZT3DBannerView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17CC45C26B8D59000DC2495 /* ZT3DBannerView.framework */; };
 		E17CC47226B8D59000DC2495 /* ZTBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17CC45E26B8D59000DC2495 /* ZTBase.framework */; };
 		E17CC47326B8D59000DC2495 /* ZTThirdLibCategories.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17CC46026B8D59000DC2495 /* ZTThirdLibCategories.framework */; };
@@ -79,6 +83,10 @@
 		D21DDD179F6D39B5A579F7DE0A37BB00 /* Pods_ZTBaseKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZTBaseKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12A9A4826D3A86C00BE97AD /* ZTAlertController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZTAlertController.bundle; sourceTree = "<group>"; };
 		E12A9A4A26D3A88A00BE97AD /* ZTBaseView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZTBaseView.bundle; sourceTree = "<group>"; };
+		E12A9A5926D5E5CD00BE97AD /* ZTLogManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZTLogManager.framework; sourceTree = "<group>"; };
+		E12A9A5A26D5E5CD00BE97AD /* ZTLogManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZTLogManager.bundle; sourceTree = "<group>"; };
+		E12A9A5E26D5E78D00BE97AD /* ZTScanViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZTScanViewController.framework; sourceTree = "<group>"; };
+		E12A9A5F26D5E78D00BE97AD /* ZTScanViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZTScanViewController.bundle; sourceTree = "<group>"; };
 		E17CC45C26B8D59000DC2495 /* ZT3DBannerView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZT3DBannerView.framework; sourceTree = "<group>"; };
 		E17CC45E26B8D59000DC2495 /* ZTBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZTBase.framework; sourceTree = "<group>"; };
 		E17CC46026B8D59000DC2495 /* ZTThirdLibCategories.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZTThirdLibCategories.framework; sourceTree = "<group>"; };
@@ -109,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E12A9A6026D5E78D00BE97AD /* ZTScanViewController.framework in Frameworks */,
 				E17CC47926B8D59000DC2495 /* ZTTextView.framework in Frameworks */,
 				E17CC47A26B8D59000DC2495 /* ZTCollectionView.framework in Frameworks */,
 				E17CC47426B8D59000DC2495 /* ZTBaseView.framework in Frameworks */,
@@ -116,6 +125,7 @@
 				E17CC47326B8D59000DC2495 /* ZTThirdLibCategories.framework in Frameworks */,
 				E17CC47126B8D59000DC2495 /* ZT3DBannerView.framework in Frameworks */,
 				E17CC47B26B8D59000DC2495 /* ZTRequest.framework in Frameworks */,
+				E12A9A5B26D5E5CD00BE97AD /* ZTLogManager.framework in Frameworks */,
 				E17CC47726B8D59000DC2495 /* ZTFileManager.framework in Frameworks */,
 				B9759AC09FA400998832B456D6FDD55B /* Foundation.framework in Frameworks */,
 				E17CC47626B8D59000DC2495 /* ZTBadgeView.framework in Frameworks */,
@@ -138,6 +148,8 @@
 		11965318AABC202344F2F405EE805B47 /* ZTBaseKit */ = {
 			isa = PBXGroup;
 			children = (
+				E12A9A5D26D5E78D00BE97AD /* ZTScanViewController */,
+				E12A9A5826D5E5CD00BE97AD /* ZTLogManager */,
 				E17CC45B26B8D59000DC2495 /* ZT3DBannerView */,
 				E17CC46326B8D59000DC2495 /* ZTAlertController */,
 				E17CC46926B8D59000DC2495 /* ZTAttributedLabel */,
@@ -266,6 +278,26 @@
 				F31E04414951DF4C42944AA325897319 /* ZTBaseKit.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E12A9A5826D5E5CD00BE97AD /* ZTLogManager */ = {
+			isa = PBXGroup;
+			children = (
+				E12A9A5926D5E5CD00BE97AD /* ZTLogManager.framework */,
+				E12A9A5A26D5E5CD00BE97AD /* ZTLogManager.bundle */,
+			);
+			name = ZTLogManager;
+			path = ZTBaseKit/ZTLogManager;
+			sourceTree = "<group>";
+		};
+		E12A9A5D26D5E78D00BE97AD /* ZTScanViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E12A9A5E26D5E78D00BE97AD /* ZTScanViewController.framework */,
+				E12A9A5F26D5E78D00BE97AD /* ZTScanViewController.bundle */,
+			);
+			name = ZTScanViewController;
+			path = ZTBaseKit/ZTScanViewController;
 			sourceTree = "<group>";
 		};
 		E17CC45B26B8D59000DC2495 /* ZT3DBannerView */ = {
@@ -490,7 +522,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E12A9A4926D3A86C00BE97AD /* ZTAlertController.bundle in Resources */,
+				E12A9A6126D5E78D00BE97AD /* ZTScanViewController.bundle in Resources */,
 				E12A9A4B26D3A88A00BE97AD /* ZTBaseView.bundle in Resources */,
+				E12A9A5C26D5E5CD00BE97AD /* ZTLogManager.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
