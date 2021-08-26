@@ -6,6 +6,13 @@
 //  Copyright © 2018 CITCC4. All rights reserved.
 //
 
+/*
+ * 请不要使用NSLog方法打印长度大于100000的字符串，容易造成app卡死。
+ * 经测试使用NSLog方法打印大于100000的字符串，会导致主线程长时间卡顿，卡顿时间与字符串长度呈一定的正比例关系。
+ * 该卡顿与本工具没有关系，与系统处理有关系。依据：长时间收不到NSFileHandleReadCompletionNotification的通知，经过等待收到通知后，会立马显示出来。
+ * 原理：通过NSPipe、NSFileHandle等方法，通过监听NSFileHandleReadCompletionNotification，来获取系统输出的日志，包括NSLog的日志。
+ */
+
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
@@ -16,7 +23,6 @@ FOUNDATION_EXPORT double ZTAlertViewControllerVersionNumber;
 FOUNDATION_EXPORT const unsigned char ZTAlertViewControllerVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <ZTLogManager/PublicHeader.h>
-
 
 #import <ZTLogManager/ZTLogController.h>
 #import <ZTLogManager/ZTLogViewController.h>
@@ -44,13 +50,14 @@ typedef NS_ENUM(NSInteger, ZTLogType) {
 
 /// 开始日志采集。如果连接Xcode，是否仍要通过App内部显示日志。摇一摇打开日志页面
 /// @param showInAppWhenConnectedXcode YES 是  NO 否。
-/// 当为YES时，Xcode里将不再显示日志信息，当为NO时，app里面仅显示通过下面print方法所打印的日志信息。
+/// 当为NO时，app里面仅显示通过下面print方法所打印的日志信息：
 /// 为了能够直接显示NSLog方法的信息，需要您用宏定义重写NSLog方法，具体如下：
 /// #ifdef DEBUG
 /// #define NSLog(FORMAT, ...) fprintf(stderr,"%s:%d\n%s\n-----------------------------------------\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);[ZTLogManager.shareManager printByNSlog:[NSString stringWithFormat:@"%@:%d\n%@\n-----------------------------------------\n",[[NSString stringWithUTF8String:__FILE__] lastPathComponent],__LINE__,[NSString stringWithFormat:FORMAT, ##__VA_ARGS__]] textColor:UIColor.whiteColor];
 /// #else
 /// #define NSLog(...)
 /// #endif
+/// 当为YES时，Xcode里将不再显示日志信息。
 -(void)start:(BOOL)showInAppWhenConnectedXcode;
 
 /// 停止日志采集

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ZTBaseKit'
-  s.version          = '1.0.21'
+  s.version          = '1.0.22'
   s.summary          = 'ZTBaseKit is the basic framework of OC project.'
   s.homepage         = 'https://github.com/CherishSmile/ZTBaseKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
