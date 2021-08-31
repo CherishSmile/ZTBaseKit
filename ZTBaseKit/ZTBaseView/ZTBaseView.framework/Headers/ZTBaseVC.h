@@ -9,39 +9,38 @@
 #import <UIKit/UIKit.h>
 #import "UIViewController+NavBarStyle.h"
 
-typedef void(^ZTViewWillAppearBlock)(void);
-typedef void(^ZTViewDidAppearBlock)(void);
-typedef void(^ZTViewWillDisappearBlock)(void);
-typedef void(^ZTViewDidDisappearBlock)(void);
-typedef void(^ZTPopViewControllerBlock)(void);
 
+typedef void(^ZTBaseViewBlock)(void);
 
 @interface ZTBaseVC : UIViewController
 
 /**
  页面将要出现
  */
-@property(nonatomic, copy) ZTViewWillAppearBlock viewWillAppear;
+@property(nonatomic, copy) ZTBaseViewBlock viewWillAppear;
 
 /**
  页面已经出现
  */
-@property(nonatomic, copy) ZTViewDidAppearBlock viewDidAppear;
+@property(nonatomic, copy) ZTBaseViewBlock viewDidAppear;
 
 /**
  页面将要消失
  */
-@property(nonatomic, copy) ZTViewWillDisappearBlock viewWillDisappear;
+@property(nonatomic, copy) ZTBaseViewBlock viewWillDisappear;
 
 /**
  页面已经消失
  */
-@property(nonatomic, copy) ZTViewDidDisappearBlock viewDidDisappear;
+@property(nonatomic, copy) ZTBaseViewBlock viewDidDisappear;
 
 /**
  页面关闭
  */
-@property(nonatomic, copy) ZTPopViewControllerBlock popViewController;
+@property(nonatomic, copy) ZTBaseViewBlock popViewController;
+
+
+@property(nonatomic, copy) ZTBaseViewBlock traitCollectionDidChange API_AVAILABLE(ios(13.0));
 
 /**
  navbar是否是半透明
