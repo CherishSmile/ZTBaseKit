@@ -17,6 +17,7 @@ FOUNDATION_EXPORT const unsigned char ZTBaseVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <ZTBase/PublicHeader.h>
 
 #import <ZTBase/ZTBaseFunc.h>
+#import <ZTBase/UIColor+Dynamic.h>
 #import <ZTBase/UIImage+Color.h>
 #import <ZTBase/ZTScriptMessageHandler.h>
 #import <ZTBase/ZTWeakObject.h>
@@ -56,26 +57,26 @@ _Pragma("clang diagnostic pop") \
 #define PixelCoefficient  1/750.0  //以6s机型分辨率为例，1/750≈0.00133
 
 /*********************************************颜色设置*******************************/
-#define UIColorFromRGB(rgbValue)    [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
-#define UIColorRGBLight(rgbValue,x) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:x]
-
-#define ZTThemeColor         UIColorFromRGB(0x00a6ff)
+#define ZTThomColor          UIColor.zt_themeColor
+#define ZTDeputyThemeColor   UIColor.zt_deputyThemeColor
 
 ///背景颜色
-#define ZTBackColor          UIColorFromRGB(0xf0f3f5)
+#define ZTBackColor          UIColor.zt_backgroudGrayColor
 
 #define ZTShadowColor        UIColorFromRGB(0x999999)
 
 #define ZTImageBackColor     UIColorFromRGB(0xe8e8e8)
 
 ///分割线颜色
-#define ZTSeparatorColor     UIColorFromRGB(0xf0f1f3)
+#define ZTSeparatorColor     UIColor.zt_separatorColor
 
 ///字体颜色
-#define ZTTextPaleGrayColor  UIColorFromRGB(0x333333)
-#define ZTTextGrayColor      UIColorFromRGB(0x666666)
-#define ZTTextLightGrayColor UIColorFromRGB(0x999999)
+#define ZTTextColor          UIColor.zt_textColor
+#define ZTTextDarkColor      UIColor.zt_textDarkColor
+#define ZTTextPaleGrayColor  UIColor.zt_textPaleGrayColor
+#define ZTTextGrayColor      UIColor.zt_textGrayColor
+#define ZTTextLightGrayColor UIColor.zt_textLightGrayColor
 
 /********************************************字体设置******************************/
 
