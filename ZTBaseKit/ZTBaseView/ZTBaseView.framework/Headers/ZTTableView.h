@@ -30,6 +30,9 @@
  */
 -(UIImage *)imageForEmptyDataSetOnTableView:(ZTTableView *)tableView;
 
+
+-(CGFloat)verticalOffsetForEmptyDataSetOnTableView:(ZTTableView *)tableView;
+
 /**
  自定义空数据标题
 

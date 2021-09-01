@@ -24,6 +24,9 @@
  */
 -(UIImage *)imageForEmptyDataSetOnCollectionView:(ZTCollectionView *)collectionView;
 
+
+-(CGFloat)verticalOffsetForEmptyDataSetOnCollectionView:(ZTCollectionView *)collectionView;
+
 /**
  自定义空数据标题
  
