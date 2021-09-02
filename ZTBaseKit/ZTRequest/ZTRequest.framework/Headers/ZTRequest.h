@@ -34,9 +34,9 @@ typedef NS_ENUM(NSInteger,ZTHTTPResponseCode) {
     ZTHTTPResponseCodeNetworkError = 0
 };
 
-@class ZTUpLoadModel;
+@class ZTRequestFileModel;
 
-@interface ZTNetModel : NSObject
+@interface ZTRequestModel : NSObject
 
 /**
  参数
@@ -61,7 +61,7 @@ typedef NS_ENUM(NSInteger,ZTHTTPResponseCode) {
 /**
  上传文件的数据组
  */
-@property(nonatomic,strong)NSArray<ZTUpLoadModel*> *dataAry;
+@property(nonatomic,strong)NSArray<ZTRequestFileModel*> *dataAry;
 
 
 @property(nonatomic,assign) NSTimeInterval  timeoutInterval;
@@ -79,7 +79,7 @@ typedef NS_ENUM(NSInteger,ZTHTTPResponseCode) {
 @end
 
 
-@interface ZTUpLoadModel : NSObject
+@interface ZTRequestFileModel : NSObject
 
 ///数据类型
 @property(nonatomic,strong)NSData * path;
@@ -133,26 +133,26 @@ typedef void(^ZTRequestFailedBlock)(NSInteger statusCode,NSString * failDescript
 /**
  * delete请求
  */
-+(NSURLSessionDataTask *)ZTDELETE:(ZTNetModel *)netModel   success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail;
++(NSURLSessionDataTask *)ZTDELETE:(ZTRequestModel *)netModel   success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail;
 
 /**
  * put请求
  */
-+(NSURLSessionDataTask *)ZTPUT:(ZTNetModel *)netModel   success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail;
++(NSURLSessionDataTask *)ZTPUT:(ZTRequestModel *)netModel   success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail;
 
 /**
  * get请求
  */
-+(NSURLSessionDataTask *)ZTGET:(ZTNetModel *)netModel   success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail;
++(NSURLSessionDataTask *)ZTGET:(ZTRequestModel *)netModel   success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail;
 
 /**
  * post请求
  */
-+(NSURLSessionDataTask *)ZTPOST:(ZTNetModel *)netModel   success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail;
++(NSURLSessionDataTask *)ZTPOST:(ZTRequestModel *)netModel   success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail;
 
 /**
  * post请求(上传文件)
  */
-+(NSURLSessionDataTask *)ZTUPFILE:(ZTNetModel *)upModel  success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail;
++(NSURLSessionDataTask *)ZTUPFILE:(ZTRequestModel *)upModel  success:(ZTRequestSuccessBlock)success fail:(ZTRequestFailedBlock)fail;
 
 @end
