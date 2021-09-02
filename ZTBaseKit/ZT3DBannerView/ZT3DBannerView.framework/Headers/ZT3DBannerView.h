@@ -57,7 +57,7 @@ FOUNDATION_EXPORT const unsigned char ZT3DBannerViewVersionString[];
 /** 图片的圆角半径 */
 @property (nonatomic, assign) CGFloat imageRadius;
 /** 数据源 */
-@property (nonatomic, strong) NSArray<NSString *> * imageData;
+@property (nonatomic, strong) NSArray * imageData;
 /** 图片高度差 默认0 */
 @property (nonatomic, assign) CGFloat imageHeightPoor;
 /** 初始alpha默认1 */
