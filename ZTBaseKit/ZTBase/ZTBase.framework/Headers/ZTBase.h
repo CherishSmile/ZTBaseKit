@@ -58,7 +58,7 @@ _Pragma("clang diagnostic pop") \
 
 /*********************************************颜色设置*******************************/
 
-#define ZTThomColor          UIColor.zt_themeColor
+#define ZTThemeColor          UIColor.zt_themeColor
 #define ZTDeputyThemeColor   UIColor.zt_deputyThemeColor
 
 ///背景颜色
