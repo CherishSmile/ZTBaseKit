@@ -40,6 +40,9 @@
 @interface ZTCollectionView : UICollectionView
 
 
+@property(nonatomic, strong) NSArray * dataArr;
+
+
 /**
  请求网络结果
  */

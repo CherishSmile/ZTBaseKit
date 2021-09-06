@@ -81,5 +81,5 @@
 @end
 
 
-UITableView * initTabView(id instanceObject,UITableViewStyle style);
+UITableView * ZTCreateTabView(id instanceObject,UITableViewStyle style);
 
