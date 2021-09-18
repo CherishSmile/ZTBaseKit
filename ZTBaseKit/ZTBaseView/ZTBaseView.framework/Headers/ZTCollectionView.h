@@ -11,7 +11,7 @@
 #import "ZTBaseView.h"
 
 @class ZTCollectionView;
-@protocol ZTCollectionViewDelegte <UICollectionViewDelegate>
+@protocol ZTCollectionViewEmptyDataDelegte <NSObject>
 @optional
 
 -(void)collectionView:(ZTCollectionView*)collectionView didTapEmptyDataView:(UIView*)view;
@@ -38,6 +38,8 @@
 @end
 
 @interface ZTCollectionView : UICollectionView
+
+@property(nonatomic, weak) id<ZTCollectionViewEmptyDataDelegte> emptyDataDelegte;
 
 
 @property(nonatomic, strong) NSArray * dataArr;
@@ -73,6 +75,15 @@
  重置tabview的contentInset（可以解决MJRefresh的顶部刷新下移的bug）
  */
 -(void)resetTabContentInset;
+
+
+-(void)tapEmptyDataView;
+
+-(UIImage *)imageForEmptyDataSet;
+
+-(CGFloat)verticalOffsetForEmptyDataSet;
+
+-(NSAttributedString *)titleForEmptyDataSet;
 
 
 @end

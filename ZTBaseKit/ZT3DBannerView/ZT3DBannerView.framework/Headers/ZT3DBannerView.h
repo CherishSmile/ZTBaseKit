@@ -18,6 +18,7 @@ FOUNDATION_EXPORT const unsigned char ZT3DBannerViewVersionString[];
 #import <ZT3DBannerView/ZTPageControl.h>
 #import <ZT3DBannerView/UIView+Banner.h>
 
+#import "ZTPageControl.h"
 
 @class ZT3DBannerView;
 @protocol ZT3DBannerViewDelegate <UIScrollViewDelegate>
@@ -63,9 +64,14 @@ FOUNDATION_EXPORT const unsigned char ZT3DBannerViewVersionString[];
 /** 初始alpha默认1 */
 @property (nonatomic, assign) CGFloat initAlpha;
 
-
 /** 是否显示分页控件 */
 @property (nonatomic, assign) BOOL showPageControl;
+/** 分页控件的位置*/
+@property (nonatomic, assign) ZTPageControlContentMode pageControlContentMode;
+/** 分页控件的样式 */
+@property (nonatomic, assign) ZTPageControlStyle pageControlStyle;
+/** 分页控件相对于左右底的边距，顶部设置无效 */
+@property (nonatomic, assign) UIEdgeInsets  pageControlInsets;
 /** 当前控制器颜色 */
 @property (nonatomic,retain)UIColor * curPageControlColor;
 /** 其余控制器颜色  */

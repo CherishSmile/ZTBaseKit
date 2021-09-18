@@ -11,7 +11,7 @@
 #import "ZTBaseView.h"
 
 @class ZTTableView;
-@protocol ZTTableViewDelegte <UITableViewDelegate>
+@protocol ZTTableViewEmptyDataDelegte<NSObject>
 @optional
 
 /**
@@ -40,10 +40,13 @@
  @return 空数据标题
  */
 -(NSAttributedString *)titleForEmptyDataSetOnTableView:(ZTTableView *)tableView;
+
 @end
 
 @interface ZTTableView : UITableView
 
+
+@property(nonatomic, weak) id<ZTTableViewEmptyDataDelegte> emptyDataDelegte;
 
 @property(nonatomic, strong) NSArray * dataArr;
 
@@ -77,6 +80,15 @@
  重置tabview的contentInset（可以解决MJRefresh的顶部刷新下移的bug）
  */
 -(void)resetTabContentInset;
+
+
+-(void)tapEmptyDataView;
+
+-(UIImage *)imageForEmptyDataSet;
+
+-(CGFloat)verticalOffsetForEmptyDataSet;
+
+-(NSAttributedString *)titleForEmptyDataSet;
 
 @end
 

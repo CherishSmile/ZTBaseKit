@@ -109,9 +109,9 @@ _Pragma("clang diagnostic pop") \
 /********************************************默认图片******************************/
 #define GetImg(imageName) [UIImage imageNamed:imageName]
 /********************************************标题*********************************/
-#define HUDTIME      2.f
-#define NETWORKERRO  @"网络异常，请检查您的网络设置"
-#define REQUESTERRO  @"请求失败，请稍后重试"
+static CGFloat    const HUDTIME     = 2.f;
+static NSString * const NETWORKERRO = @"网络异常，请检查您的网络设置";
+static NSString * const REQUESTERRO = @"请求失败，请稍后重试";
 
 /********************************************其他*********************************/
 
@@ -126,6 +126,6 @@ _Pragma("clang diagnostic pop") \
 #define NFCenter     NSNotificationCenter.defaultCenter
 #define NSUser       NSUserDefaults.standardUserDefaults
 
-#define PADDING       10.0
+static CGFloat const PADDING = 10.0;
 
 

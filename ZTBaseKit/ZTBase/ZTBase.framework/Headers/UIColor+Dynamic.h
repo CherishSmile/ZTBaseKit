@@ -11,10 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-#define UIColorFromRGB(rgbValue)    [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
-
-#define UIColorRGBLight(rgbValue,x) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:x]
-
+UIColor * UIColorRGBLight(unsigned long rgbValue, CGFloat x);
+UIColor * UIColorFromRGB(unsigned long rgbValue);
 
 @interface UIColor (Dynamic)
 
